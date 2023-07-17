@@ -1,1 +1,1 @@
-# Welcome Bruce
+# Welcome to some Haskell stuff
