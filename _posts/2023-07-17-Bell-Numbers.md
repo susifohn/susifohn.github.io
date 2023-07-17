@@ -9,6 +9,9 @@ math: true
 math: true
 ---
 
+# Fun fact
+Du kannst drei Personen auf 5 mögliche Arten gruppieren. Was denkst du, wieviele Möglichkeiten gibt es mit deiner Klasse? Es sind vermutlich mehr als du denkst. Dieses Problem ist nur rekursiv lösbar! Findest du eine explizite Formel, wirst du sehr berühmt. 
+
 # Bellsche Zahlen
 Gegeben ist eine Menge und wir wollen die Anzahl Partitionen bestimmen. Zum Beispiel für die Menge {a,b,c} sind das
 
@@ -27,7 +30,7 @@ $$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
 
 Und die Fakultät $n!$ kennst du ja bereits als Funktion `fac`.
 
-# Ha5kell implementation
+# Haskell implementation
 
 ```haskell
     fac :: Integer -> Integer
