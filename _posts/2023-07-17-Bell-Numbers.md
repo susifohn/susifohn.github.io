@@ -27,7 +27,7 @@ $$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
 
 Und die Fakultät $n!$ kennst du ja bereits als Funktion `fac`.
 
-# Hakkell implementation
+# Ha5kell implementation
 
 ```haskell
     fac :: Integer -> Integer
