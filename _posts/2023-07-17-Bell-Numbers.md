@@ -1,8 +1,8 @@
 ---
 title: Bells number
-date: 2023-07-17 23:50:23
 categories: [haskell, listcomperhension]
 tags: [function]     # TAG names should always be lowercase
+math: true
 ---
 
 ---
