@@ -5,10 +5,6 @@ tags: [function]     # TAG names should always be lowercase
 math: true
 ---
 
----
-math: true
----
-
 # Fun fact
 Du kannst drei Personen auf 5 mögliche Arten gruppieren. Was denkst du, wieviele Möglichkeiten gibt es mit deiner Klasse? Es sind vermutlich mehr als du denkst. Dieses Problem ist nur rekursiv lösbar! Findest du eine explizite Formel, wirst du sehr berühmt. 
 
@@ -31,7 +27,6 @@ $$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
 Und die Fakultät $n!$ kennst du ja bereits als Funktion `fac`.
 
 # Haskell implementation
-
 ```haskell
     fac :: Integer -> Integer
     fac 0 = 1
