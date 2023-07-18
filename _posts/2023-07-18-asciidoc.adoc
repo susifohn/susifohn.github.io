@@ -1,0 +1,8 @@
+# Asciidoc test
+
+[NOTE]
+===
+Well so is it
+
+We will see
+===
