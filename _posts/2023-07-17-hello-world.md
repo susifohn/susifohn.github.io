@@ -1,1 +1,2 @@
-# Welcome to some Haskell stuff
+# Hello World
+
