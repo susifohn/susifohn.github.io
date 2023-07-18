@@ -22,9 +22,15 @@ also fünf Partitionen. Dies ist die _Bellsche Zahl_ und kann rekursiv wie folgt
 $$B_{n+1} = \sum^{n}_{k=0} \binom{n}{k} B_k$$
 
 Dabei ist der Binomialkoeffizient $\binom{n}{k}$ wie folgt definiert:
+
 $$\binom{n}{k} = \frac{n!}{k!(n-k)!}$$
 
 Und die Fakultät $n!$ kennst du ja bereits als Funktion `fac`.
+
+$$n! = \begin{cases}
+1 & ,n = 0 \\
+n(n-1)! & \, n > 0 
+\end{cases}$$
 
 # Haskell implementation
 ```haskell
@@ -41,6 +47,8 @@ Und die Fakultät $n!$ kennst du ja bereits als Funktion `fac`.
 ```
 
 ## Test
+Mit der `map` Funktion kannst du die ersten 11 Bellschen Zahlen einfach bestimmen:
 ```bash
 Prelude> map bell [0..10]
+[1,1,2,5,15,52,203,877,4140,21147,115975]
 ```
