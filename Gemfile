@@ -26,3 +26,13 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 if RUBY_PLATFORM =~ /linux-musl/
   gem "jekyll-sass-converter", "~> 2.0"
 end
+
+# Enable asciidoc ref: https://www.altenburger.io/posts/install_jekyll/
+group :jekyll_plugins do
+gem "jekyll-asciidoc"
+gem "jekyll-paginate"
+gem "jekyll-redirect-from"
+gem "jekyll-seo-tag"
+gem "jekyll-archives"
+gem "jekyll-sitemap"
+end
