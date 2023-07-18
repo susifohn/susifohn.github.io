@@ -29,7 +29,7 @@ Und die Fakultät $n!$ kennst du ja bereits als Funktion `fac`.
 
 $$n! = \begin{cases}
 1 & ,n = 0 \\
-n(n-1)! & \, n > 0 
+n(n-1)! &  ,n > 0 
 \end{cases}$$
 
 # Haskell implementation
