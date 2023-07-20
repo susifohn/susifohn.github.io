@@ -1,1 +1,5 @@
-# Welcome to some Haskell stuff
+# Hello World
+## First steps
+## Defining functions
+
+
