@@ -1,3 +1,4 @@
+:icons:
 = First Entry
 :showtitle:
 :page-navtitle: First Entry
@@ -31,7 +32,12 @@ puts "Hello, World!"
 
 TIP: pro tip...
 
-NOTE: well this 
+[NOTE]
+====
+well this
+hmm is awson
+bla
+====
 
 CAUTION: soso
 
