@@ -1,5 +1,5 @@
-:icons:
 = First Entry
+:icons: font
 :showtitle:
 :page-navtitle: First Entry
 :page-excerpt: Excerpt goes here.
