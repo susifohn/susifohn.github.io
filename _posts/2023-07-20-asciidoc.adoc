@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: Ascii Stuff
 categories: [asciidoc]
@@ -5,6 +6,14 @@ tags: [problems, icons]     # TAG names should always be lowercase
 math: true
 ---
 = First Entry
+=======
+= First Entry
+:icons: font
+:showtitle:
+:page-navtitle: First Entry
+:page-excerpt: Excerpt goes here.
+:page-root: ../../../
+>>>>>>> 923f0dd7a503386c444e780a3896e0861f5d5a1f
 
 == Example entry
 
