@@ -18,9 +18,6 @@ Tale vide scripserit pro id. Habeo latine percipit et mea, eos at nusquam princi
 
 In quo debet iriure adolescens, nec molestie accusata ad, sea te malis atomorum petentium. Convenire corrumpit id vis, ad accumsan interesset usu. Esse dictas sea ne. Cum constituto deterruisset no, vim laudem doctus at. Nam dicat zril ea, mei omnesque explicari pertinacia ea. Nihil dicunt aliquam nam ne.
 
-
-
-
 == Sample Page
 :url-asciidoctor: http://asciidoctor.org
 
@@ -47,6 +44,3 @@ CAUTION: soso
 Falls die Datei `post.mv.db` nicht existiert, wird diese beim Starten der Backendapplikation automatisch erstellt und mit einigen Standardwerten befüllt. + 
 Es ist daher also möglich, die Datenbank (und damit die Applikation) durch Löschen der DB Datei und anschliessendem neu starten der Backendapplikation komplett zurückzusetzen.
 ====
-
-
-
