@@ -1,9 +1,10 @@
-:icons:
+---
+title: Ascii Stuff
+categories: [asciidoc]
+tags: [problems, icons]     # TAG names should always be lowercase
+math: true
+---
 = First Entry
-:showtitle:
-:page-navtitle: First Entry
-:page-excerpt: Excerpt goes here.
-:page-root: ../../../
 
 == Example entry
 
