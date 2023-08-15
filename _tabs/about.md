@@ -8,4 +8,5 @@ order: 4
 {: .prompt-tip }
 
 > This is actually a test page only. _Hello World_ for github pages using Jekyll and Chirpy. Intended to add functional programming stuff using haskell to use for education.
-Kind regards.{: .prompt-info }
+Kind regards.
+{: .prompt-info }
