@@ -34,16 +34,16 @@ n(n-1)! &  ,n > 0
 
 # Haskell implementation
 ```haskell
-    fac :: Integer -> Integer
-    fac 0 = 1
-    fac n = n*fac (n-1)
-    
-    binom :: Integer -> Integer -> Integer
-    binom n k = fac n `div` fac k `div` fac (n-k)
-    
-    bell :: Integer -> Integer
-    bell 0 = 1
-    bell n = sum [bell k * binom (n-1) k | k <- [0..n-1]]
+fac :: Integer -> Integer
+fac 0 = 1
+fac n = n*fac (n-1)
+
+binom :: Integer -> Integer -> Integer
+binom n k = fac n `div` fac k `div` fac (n-k)
+
+bell :: Integer -> Integer
+bell 0 = 1
+bell n = sum [bell k * binom (n-1) k | k <- [0..n-1]]
 ```
 
 ## Test
