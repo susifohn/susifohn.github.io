@@ -12,9 +12,9 @@ The aim is to write a function `ibanok`, which takes a string as argument, conta
 An IBAN has the following form:
 * CHxx 0900 0000 3002 3128 4
 
-The  Checksumme (xx) is calculated as follows:
+The  check sum (xx) is calculated as follows:
 * Take 0900 0000 3002 3128 4 CH00.
-Then code the CH with numbers:
+Then encode the CH with numbers:
 A=10, B=11, C=12, and so on. 
 Take the whole as number and devide modulo 97.
 The checksum is then 98 minus this number. 
