@@ -25,7 +25,7 @@ The checksum is then 98 minus this number.
 * You can assume, the given string containing the IBAN, is valid, means two letters (capital or not) followed by digits.
 * Rewrite the IBAN as 
 $$\sum^{n}_{k=0} 100^k \;a_k$$
-knowing $100 \equiv 3 (mod \:97)$, instead of just using the `mod` function on the very big IBAN. 
+knowing $100 \equiv 3 (mod \;97)$, instead of just using the `mod` function on the very big IBAN. 
 
 
 # Haskell implementation
