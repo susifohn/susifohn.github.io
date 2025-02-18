@@ -5,7 +5,7 @@ tags: [function]     # TAG names should always be lowercase
 math: true
 ---
 
-# Aim
+# Aim 
 The aim is to write a function `ibanok`, which takes a string as argument, containing an IBAN and returning whether this number is valid or not, and the expected checksum. 
 
 # How it works - an example
@@ -34,7 +34,7 @@ ibanok :: [char] -> (Bool, Int)
 ibanok = todo
 ```
 
-## Test
+## How to Test
 Test the function using some known IBANs.  
 ```bash
 Prelude> ibanok "ch93 0900 0000 3211 1234 4"
