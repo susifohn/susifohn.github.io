@@ -9,7 +9,7 @@ math: true
 Eine **Hash-Funktion** $h:\{0,1\}^* \rightarrow \{0,1\}^m$ bildet einen Bit-String von beliebiger länge auf einen Bit-String der Länge $m$ ab. 
 
 Zum Beispiel
-* "010" $\rightarrow 0010111001010011_2$
+* 010 $\rightarrow 0010111001010011_2$
 * $1044_{10} \rightarrow 20_{10}$
 * 'geheim' $\rightarrow e8636ea013e682faf61f56ce1cb1ab5c_{16}$
 
@@ -19,9 +19,9 @@ Weil die Anzahl der möglichen Inputstrings viel grösser ist als die Anzahl der
 Im Gegensatz zu einer Hash-Funkion wie sie in Hashtabellen verwendet wird, z.B. $h(x) = x \; mod\; 1024$ soll eine **kryptographische Hash-Funktion** folgende Anforderungen erfüllen:
 
 1. Einweg-Eigenschaft (preimage resistant)
-   - Für einen gegebenen Hash-Wert $h$ ist unzumutbar, einen String $M$ zu finden, welcher $h$ erzeugt.
+   - Für einen gegebenen Hashwert $h(x)$ ist es rechnerisch unzumutbar, einen String $y$ zu finden, so dass $h(x)=h(y)$ gilt.
 2. schwache Kollisionsresistenz (weak collision resistance)
-   - Für einen gegebenen String ist es rechnerisch unzumutbar einen zweiten String zu finden, mit demselben Hashwert.
+   - Für einen gegebenen String $x$ ist es rechnerisch unzumutbar einen zweiten String $y$ zu finden, so dass $h(x)=h(y)$ gilt.
 3. starke Kollisionsresistenz (strong collision resistance)
    - Es ist unzumutbar, zwei beliebige Strings zu finden, welche denselben Hashwert erzeugen.
 4. Pseudozufälligkeit
@@ -37,9 +37,12 @@ Im Gegensatz zu einer Hash-Funkion wie sie in Hashtabellen verwendet wird, z.B. 
 
 
 # Eine simple Hash-Funktion
-Die grundlegende Funktionsweise einer kryptographischen Hash-Funktion ist immer dieselbe. Der Inputstring wird in n-bit Blöcke aufgeteilt und wenn nötig aufgefüllt. Dann wird für jeden Block iterativ ein interner Hashwert berechnet, basierend auf dem Hashwert des vorangehenden Blocks. Sind alle Blöcke mit Hilfe von Permutation und Substitution verarbeitet, wird der n-bit Hashwert zurückgegeben. 
+Die grundlegende Funktionsweise einer kryptographischen Hash-Funktion ist immer dieselbe. Der Inputstring wird in n-bit Blöcke 
+aufgeteilt und wenn nötig aufgefüllt. Dann wird für jeden Block iterativ ein interner Hashwert berechnet, basierend auf dem Hashwert des 
+vorangehenden Blocks. Sind alle Blöcke mit Hilfe von Permutation und Substitution verarbeitet, wird der n-bit Hashwert zurückgegeben. 
 
-Eine sehr einfache Hash-Funktion ist die bitweise **XOR** Verknüpfung aller Blöcke. Als Resultat erhalten wir einen n-bit Block als unseren Hashwert. Wir betrachten die Funktionsweise anhand eines Beispiels mit n = 56 bit und Input 26 x 8 bit = 208 bit.
+Eine sehr einfache Hash-Funktion ist die bitweise **XOR** Verknüpfung aller Blöcke. Als Resultat erhalten wir einen n-bit Block als 
+unseren Hashwert. Wir betrachten die Funktionsweise anhand eines Beispiels mit n = 56 bit und Input 26 x 8 bit = 208 bit.
 
 ```
 Input: 'Heut ist nicht aller Tage'
@@ -56,13 +59,14 @@ Die Funktion erfüllt keine der Eigenschaften für kryptografische Hash-Funktion
 
 Auch gibt's auf den ersten Blick 
 $2^{56}$ verschiedene Hashwerte. Beachte jedoch, dass für Text das MSB meist $0$ ist. D.h es gibt eigentlich nur $2^{56-7}$
-verschiedene Werte und die Hash-Funktion nimmt somit weniger Werta an und wird so unsicherer. 
+verschiedene Werte und die Hash-Funktion nimmt somit weniger Werte an und wird so unsicherer. 
 
 
 # Brute-Force-Angriffe
-Der Aufwand für Brute-Force-Angriffe bei m-Bit-Hash-Werten:
-  - preimage resistance: $2^m$
-  - weak collision resistance: $2^m$
+Die Resistenz von Hash-Funktionen gegen Brute-Force Angriffe ist durch die Anzahl Hashberechnungen gegeben, welche nötig sind, 
+dass die Wahrscheinlichkeit eines Erfolges über 50% liegt. Für m-bit-Hash-Werte ist das wie folgt:
+  - preimage resistance: $2^{m-1}$
+  - weak collision resistance: $2^{m-1}$
   - strong collision resistance: $\sqrt{2^m}$
 
 ## Analyse preimage resistance
