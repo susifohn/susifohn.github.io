@@ -81,7 +81,7 @@ mindestens eine 5 zu sehen:
 
 $$1-(1-\frac{1}{6})^2 $$
 
-Nun können wir das Experiment verallgemeinern. Die Wahrscheinlichkeit, dass wir bei k Versuchen ein mindestens ein bestimmtes Element aus der Menge 
+Nun können wir das Experiment verallgemeinern. Die Wahrscheinlichkeit, dass wir bei k Versuchen mindestens ein bestimmtes Element aus der Menge 
 {1..N} treffen, beträgt
 
 $$\mathbf{P}=1-(1-\frac{1}{N})^k$$
