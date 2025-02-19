@@ -9,7 +9,7 @@ math: true
 Eine **Hash-Funktion** $h:\lbrace0,1\rbrace^* \rightarrow \lbrace0,1\rbrace^m$ bildet einen Bit-String von beliebiger länge auf einen Bit-String der Länge $m$ ab. 
 
 Zum Beispiel
-*  010 $\rightarrow 0010111001010011_2$
+*  $010_2 \rightarrow 0010111001010011_2$
 *  $1044_{10} \rightarrow 20_{10}$
 *  'geheim' $\rightarrow e8636ea013e682faf61f56ce1cb1ab5c_{16}$
 
@@ -78,15 +78,24 @@ Wir starten mit einem einfachen Würfelexperiment. Mit zweimal Würfeln soll ein
 Die Wahrscheinlichkeit dass wir eine 5 sehen ist $\frac{1}{6}$. Somit ist die Wahrscheinlichkeit, dass wir keine 5 sehen $1-\frac{1}{6}$. 
 Die Wahrscheinlichkeit, dass wir bei zweimal Würfeln keine 5 sehen ist somit $(\frac{5}{6})^2$. Somit beträgt die Wahrscheinlichkeit in zweimal Würfeln 
 mindestens eine 5 zu sehen:
+
 $$1-(1-\frac{1}{6})^2 $$
+
 Nun können wir das Experiment verallgemeinern. Die Wahrscheinlichkeit, dass wir bei k Versuchen ein mindestens ein bestimmtes Element aus der Menge 
 {1..N} treffen, beträgt
+
 $$\mathbf{P}=1-(1-\frac{1}{N})^k$$
+
 Für grosse $N$ gilt die Abschätzung $(1-\frac{1}{N})^k \simeq 1-\frac{k}{N}$ und somit
+
 $$\mathbf{P} \simeq \frac{k}{N}$$
+
 Die Wahrscheinlichkeit soll grösser $\frac{1}{2}$ sein, also
+
 $$\frac{k}{N} \gt \frac{1}{2} \implies k \gt \frac{N}{2}$$
+
 und daraus für $N=2^m$
+
 $$k\gt 2^{m-1}$$
 
 
