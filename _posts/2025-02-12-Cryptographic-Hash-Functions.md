@@ -6,12 +6,12 @@ math: true
 ---
 
 # Hash-Funktion
-Eine **Hash-Funktion** $h:\{0,1\}^* \rightarrow \{0,1\}^m$ bildet einen Bit-String von beliebiger länge auf einen Bit-String der Länge $m$ ab. 
+Eine **Hash-Funktion** $h:\lbrace0,1\rbrace^* \rightarrow \lbrace0,1\rbrace^m$ bildet einen Bit-String von beliebiger länge auf einen Bit-String der Länge $m$ ab. 
 
 Zum Beispiel
-* 010 $\rightarrow 0010111001010011_2$
-* $1044_{10} \rightarrow 20_{10}$
-* 'geheim' $\rightarrow e8636ea013e682faf61f56ce1cb1ab5c_{16}$
+*  010 $\rightarrow 0010111001010011_2$
+*  $1044_{10} \rightarrow 20_{10}$
+*  'geheim' $\rightarrow e8636ea013e682faf61f56ce1cb1ab5c_{16}$
 
 Weil die Anzahl der möglichen Inputstrings viel grösser ist als die Anzahl der möglichen Hashwerte, muss es **Kollisionen** geben, also zwei verschiedene Inputstrings, welche denselben Hashwert erzeugen.   
 
