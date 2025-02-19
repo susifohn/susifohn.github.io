@@ -69,8 +69,25 @@ dass die Wahrscheinlichkeit eines Erfolges über 50% liegt. Für m-bit-Hash-Wert
   - weak collision resistance: $2^{m-1}$
   - strong collision resistance: $\sqrt{2^m}$
 
-## Analyse preimage resistance
+**Beispiel** Für ein zufälliges Passwort sei mit MD5 dessen 56-bit Hashwert erzeugt worden. Ein Angreifer muss somit für $2^{55}$ zufällig
+gewählte Inputwerte den Hashwert berechnen, um das Passwort zu finden. Angenommen der Angreifer kann in jeder Sekunde $10^{12}$ Hashwerte
+berechnen, dann dauert die Attacke im Schnitt rund 10 Stunden.
 
+## Analyse preimage resistance
+Wir starten mit einem einfachen Würfelexperiment. Mit zweimal Würfeln soll eine 5 gewürfelt werden. Wie gross ist die Wahrscheinlichkeit dafür?
+Die Wahrscheinlichkeit dass wir eine 5 sehen ist $\frac{1}{6}$. Somit ist die Wahrscheinlichkeit, dass wir keine 5 sehen $1-\frac{1}{6}$. 
+Die Wahrscheinlichkeit, dass wir bei zweimal Würfeln keine 5 sehen ist somit $(\frac{5}{6})^2$. Somit beträgt die Wahrscheinlichkeit in zweimal Würfeln 
+mindestens eine 5 zu sehen:
+$$1-(1-\frac{1}{6})^2 $$
+Nun können wir das Experiment verallgemeinern. Die Wahrscheinlichkeit, dass wir bei k Versuchen ein mindestens ein bestimmtes Element aus der Menge 
+{1..N} treffen, beträgt
+$$\mathbf{P}=1-(1-\frac{1}{N})^k$$
+Für grosse $N$ gilt die Abschätzung $(1-\frac{1}{N})^k \simeq 1-\frac{k}{N}$ und somit
+$$\mathbf{P} \simeq \frac{k}{N}$$
+Die Wahrscheinlichkeit soll grösser $\frac{1}{2}$ sein, also
+$$\frac{k}{N} \gt \frac{1}{2} \implies k \gt \frac{N}{2}$$
+und daraus für $N=2^m$
+$$k\gt 2^{m-1}$$
 
 
 ## Geburtstagsparadox
