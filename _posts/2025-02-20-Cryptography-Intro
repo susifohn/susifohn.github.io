@@ -1,0 +1,13 @@
+---
+title: Intro 
+categories: [cryptography, one-time-pad]
+tags: [unibe]     # TAG names should always be lowercase
+math: true
+---
+
+# Classig goals and technique
+* **C** onfidentiality --> Encryption
+* **I** ntegrity --> Signatures, authentication (MAC), hash
+* **A** vailability --> (replication) but not part in this lecture
+
+
