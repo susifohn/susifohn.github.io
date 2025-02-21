@@ -5,7 +5,7 @@ tags: [unibe, cachin]     # TAG names should always be lowercase
 math: true
 ---
 
-# Classic goals and technique
+# Classic goals and techniques
 * **C** onfidentiality --> Encryption
 * **I** ntegrity --> Signatures, authentication (MAC), hash
 * **A** vailability --> (replication) but not part in this lecture
@@ -13,10 +13,10 @@ math: true
 # Modern goals
 * zero-knowledge
 * anonymity
-* compute with encryoted data
-distributed turust (store a key partially at different places)
+* compute with encrypted data
+* distributed trust (store a key partially at different places)
 
-Note: exist quantum computer? If yes this could break the things we learn here in this 
+**Note**  Do quantum computers exist? If yes, this could break the things we learn here in this 
 lecture. Can we not just increase the key length? (PQC=post quantum cryptology)
 
 # Encryption
@@ -53,7 +53,8 @@ Keyspace is huge, but leaks the structure of the plaintext and is therefore inse
 
 # Terminology
 Cryptology = cryptography + cryptoanalysis
-Probability with events $A$ , $B$, $\mathbf\lbrace P \rbrace [A]$
+
+Probability with events $A$ , $B$, $\mathbf{P}[A]$
 
 Probability distribution 
 $$ \mathbf{P} : \omega \rightarrwo [0,1]$$
