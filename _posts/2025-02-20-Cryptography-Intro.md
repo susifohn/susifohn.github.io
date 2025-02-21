@@ -56,9 +56,9 @@ Probability distribution
 $$ \mathbf{P}: \Omega \rightarrow [0,1]$$
 $$ P[A] + P[B] = P[A \cup B], \forall A,B \; s.t. \; A \cap B = \emptyset$$
 
-Random variables. $x \in \Chi$. Probability distribution on $\Chi$ 
+Random variables. $x \in X$. Probability distribution on $\Chi$ 
 
-$$ P_{\Chi}(x) = P[\Chi = x] \; for \; x \in \Chi$$
+$$ P_{X}(x) = P[X = x] \; for \; x \in X $$
 
 Unoform randon variable, takes all values of its space with the same probability.
 
@@ -69,10 +69,10 @@ Finite set $\mathcal{S}$ , $s \leftarrow \mathcal{S}$ means $x$ is randomly choo
 
 $$\forall x \in \mathcal{S} : \mathbf{P}[s \leftarrow \mathcal{S}:s=x] = \frac{1}{ | \mathcal{S} | }$$ 
 
-$s \leftarrow \mathcal{S}$ means an Algorithm chooses random $s$ from \mathcal{S}, and then in this case the Probability that $x=s$.
+$s \leftarrow \mathcal{S}$ means an Algorithm chooses random $s$ from $\mathcal{S}$, and then in this case the Probability that $x=s$.
 This notation is somehow the other way arround as in math for conditioned probability, where the form $\mathcal{P}[Event | condition]$ is used. 
 
-Randomized algorithm $x \leftarrow \mathcal{R}(y)$ denotes the experiment of running \mathcal{R} on input $y$ and assign its output to $x$. Here \mathcal{R} is the algorithm  with its code.
+Randomized algorithm $x \leftarrow \mathcal{R}(y)$ denotes the experiment of running $\mathcal{R}$ on input $y$ and assign its output to $x$. Here $\mathcal{R}$ is the algorithm  with its code.
 
 And for comparison we write $=^?$
 
