@@ -8,7 +8,7 @@ math: true
 # Classic goals and techniques
 * **C** onfidentiality --> Encryption
 * **I** ntegrity --> Signatures, authentication (MAC), hash
-* **A** vailability --> (replication) but not part in this lecture
+* **A** vailability --> replication etc. but not part of this lecture
 
 # Modern goals
 * zero-knowledge
@@ -30,70 +30,67 @@ Alice -- m -> Enc ----- c ------> Dec--- ^m -->Bob
                         |            
                       Eve  
 ```
-1. key gen is a randomized algorithm, provicing a random key
+1. key gen is a randomized algorithm, providing a random key
 2. key is distributed over secure channel to Alice and Bob
-3. Alice encrypts using k to generate cipher c
-4. Bob decrypts with the decr-algorithm c using k and optains^m
+3. Alice encrypts m using k to generate cipher c
+4. Bob decrypts m with the decr-algorithm c using k and optains m^
 
 ## Requirements for the encryption algorithm
 * correctness, m=^m
-* security, Eve should not learn m, i.e. eve must not learn any usefull information about $m$.
+* security, Eve should not learn m, i.e. Eve must not learn any usefull information about $m$.
 
 **Question**  how do we make this formal? And how to implement? 
 ## Historic cryptograpy
 Refer Book _the code Book from  simon singh_
 * Scytale, tool from ancient Greece. Key is the diameter of the stick.
 * Caesaer cipher. Key is the shift.
-* Monoalphabetic substitution cipher. A permutation, invertible. Key ($26! \simeq 2^{88}$ is the permutation, means a table in the form
- - a->f
- - b->m
- - ...
- - z->o
-Keyspace is huge, but leaks the structure of the plaintext and is therefore insecure.
+* Monoalphabetic substitution cipher. A permutation of the plain text, invertible of course for decryption. Key length is $26! \simeq 2^{88}$, the number of possible permutations. Thus the key is some sort of table, mapping each letter to a letter from the same alphabet. Despite the key space is huge, the structure of the plain text is not hidden and the cipher is insecure.
 
 # Terminology
 Cryptology = cryptography + cryptoanalysis
 
 Probability with events $A$ , $B$, $\mathbf{P}[A]$
 
-Probability distribution 
-$$ \mathbf{P} : \omega \rightarrwo [0,1]$$
-$$ P[A] + P[B] = P[A \union B] for all A,B \; s.t. \; A \cut B = {}$$
+Probability distribution
 
-Random variables. $x \in \chi$. Probability dist on $\chi$ 
-$$ P_{\chi}(x) = P[\chi =x] \; for \; x \in \chi$$
+$$ \mathbf{P}: \Omega \rightarrow [0,1]$$
+$$ P[A] + P[B] = P[A \cup B], \forall A,B \; s.t. \; A \cap B = \emptyset$$
+
+Random variables. $x \in \Chi$. Probability distribution on $\Chi$ 
+
+$$ P_{\Chi}(x) = P[\Chi = x] \; for \; x \in \Chi$$
 
 Unoform randon variable, takes all values of its space with the same probability.
 
-**Important** arbitrary vs random! It is not the same. Adversary does arbitrary things, but we do controlled random things.
-
+**Important** Arbitrary vs random! It is not the same. Adversary does arbitrary things, but we do controlled random things.
 Random does not necessarily mean uniform random.
 
-Finit set S, (x <- S) means x is randomly choosen from set S with uniform probability.
+Finite set $\mathcal{S}$ , $s \leftarrow \mathcal{S}$ means $x$ is randomly choosen from set $\mathcal{S}$ with uniform probability.
 
 $$\forall x \in \mathcal{S} : \mathbf{P}[s \leftarrow \mathcal{S}:s=x] = \frac{1}{ | \mathcal{S} | }$$ 
 
-$s \leftarrow \mathcal{S}$ means an Algorithm chooses randomy s from S, and then in this case the Probability that x=s.
-What is the other way arround in math for conditioned probability in the form P[ that event given condition]. 
+$s \leftarrow \mathcal{S}$ means an Algorithm chooses random $s$ from \mathcal{S}, and then in this case the Probability that $x=s$.
+This notation is somehow the other way arround as in math for conditioned probability, where the form $\mathcal{P}[Event | condition]$ is used. 
 
-Randomized algorithm $x \leftarrow \mathcal{R}(y)$ denotes the experiment of running R on input y and assign its output to x. Here R is the algorithm  with its code.
+Randomized algorithm $x \leftarrow \mathcal{R}(y)$ denotes the experiment of running \mathcal{R} on input $y$ and assign its output to $x$. Here \mathcal{R} is the algorithm  with its code.
 
-For comparison we write $=^?$
+And for comparison we write $=^?$
 
 # One-time pad
-An important Vernam cipher. Firs security proof by Shannon 1949.
+An important *Vernam* cipher. First security proof by Shannon 1949.
 ## Syntax
 Keys, messages and cipher text are all $\lambda$-bit strings.
 
 E.g. 
-$$m \in {0,1}^{\lambda}$$
+$$m \in \lbrace 0,1 \rbrace^{\lambda}$$
 
-$$ k \leftarrow {0,1}^{\lambda}$$
+$$ k \leftarrow \lbrace 0,1 \rbrace^{\lambda}$$
 
-Using the abbreviation $\sum := {0,1}$
+Using the abbreviation $\Sigma := \lbrace 0,1 \rbrace$
 
 
-# our first crypto system 
+# our first crypto system
+Consisting of three functions.
 ## keyGen()
 
 $$ k \leftarrow \Sigma ^{\lambda}$$
@@ -137,7 +134,7 @@ $$ \mathbf{P}[k = m \oplus c] = 2^{-\lambda} $$
 
 because k is uniformly random. 
 
-**Remember** that the key k has the same length as the message m. This is an unusual property. 
+**Remember** that the key $k$ has the same length as the message $m$. This is an unusual property. 
 
 # Todo 
 read chapters in referred book.
