@@ -56,7 +56,7 @@ Probability distribution
 $$ \mathbf{P}: \Omega \rightarrow [0,1]$$
 $$ P[A] + P[B] = P[A \cup B], \forall A,B \; s.t. \; A \cap B = \emptyset$$
 
-Random variables. $x \in X$. Probability distribution on $\Chi$ 
+Random variables. $x \in X$. Probability distribution on $X$ 
 
 $$ P_{X}(x) = P[X = x] \; for \; x \in X $$
 
