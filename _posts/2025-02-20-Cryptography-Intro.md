@@ -20,6 +20,9 @@ math: true
 lecture. Can we not just increase the key length? (PQC=post quantum cryptology)
 
 # Encryption
+You can't learn about cryptography without meeting Alice, Bob and Eve. 
+
+*Eve the eavesdropper refers to someone who hung from the eaves (Dachvorsprung) of a building to hear converstaions happening inside. [R21]*
 ## A model for encryption
 Shannon works with symmetric encryption (1949, classified stuff in WW2)
 
@@ -30,10 +33,21 @@ Alice -- m -> Enc ----- c ------> Dec--- ^m -->Bob
                         |            
                       Eve  
 ```
+
 1. key gen is a randomized algorithm, providing a random key
 2. key is distributed over secure channel to Alice and Bob
 3. Alice encrypts m using k to generate cipher c
 4. Bob decrypts m with the decr-algorithm c using k and optains m^
+
+The secrecy of the model shall only depend of the key. You might suggest to make the details of `Enc` and `Dec` algorithmus secret. Not a good approach as _Kerckhoff_ stated in 1883 as:
+
+>**Kerckhoffs' Principle**
+> *The method must not be required to be secret, and it must be able to fall into the eneny's hands without give the enemy any insight into the message.*
+
+E.g. base64 encoding \
+_joy of cryptography --> b25seSBuZXJkcyB3aWxsIHJlYWQgdGhpcw==_ \
+involves
+no secret information, it adds nothing in terms of security.
 
 ## Requirements for the encryption algorithm
 * correctness, m=^m
@@ -60,7 +74,7 @@ Random variables. $x \in X$. Probability distribution on $X$
 
 $$ P_{X}(x) = P[X = x] \; for \; x \in X $$
 
-Unoform randon variable, takes all values of its space with the same probability.
+Uniform randon variable, takes all values of its space with the same probability.
 
 **Important** Arbitrary vs random! It is not the same. Adversary does arbitrary things, but we do controlled random things.
 Random does not necessarily mean uniform random.
@@ -69,32 +83,23 @@ Finite set $\mathcal{S}$ , $s \leftarrow \mathcal{S}$ means $x$ is randomly choo
 
 $$\forall x \in \mathcal{S} : \mathbf{P}[s \leftarrow \mathcal{S}:s=x] = \frac{1}{ | \mathcal{S} | }$$ 
 
-$s \leftarrow \mathcal{S}$ means an Algorithm chooses random $s$ from $\mathcal{S}$, and then in this case the Probability that $x=s$.
+$s \leftarrow \mathcal{S}$ means an Algorithm chooses random $s$ from $\mathcal{S}$, and then in this case the Probability that $x=s$ is equal to $\frac{1}{ | \mathcal{S} | }$.
 This notation is somehow the other way arround as in math for conditioned probability, where the form $\mathcal{P}[Event | condition]$ is used. 
 
 Randomized algorithm $x \leftarrow \mathcal{R}(y)$ denotes the experiment of running $\mathcal{R}$ on input $y$ and assign its output to $x$. Here $\mathcal{R}$ is the algorithm  with its code.
 
 And for comparison we write $=^?$
 
-# One-time pad
-An important *Vernam* cipher. First security proof by Shannon 1949.
-## Syntax
-Keys, messages and cipher text are all $\lambda$-bit strings.
+# One-time pad (OTP)
+An important cipher, patented 1919 by the telegraph engineer Gilbert Vernam, first discovered 1882 by Frank Miller. First security proof by Shannon 1949.
 
-E.g. 
-$$m \in \lbrace 0,1 \rbrace^{\lambda}$$
+Keys, messages and cipher text are all $\lambda$-bit strings. Thus $m,c \in \lbrace 0,1 \rbrace^{\lambda}$ and $ k \leftarrow \lbrace 0,1 \rbrace^{\lambda}$  which means to sample $k$ uniformly from the set of $\lambda$-bit strings.
 
-$$ k \leftarrow \lbrace 0,1 \rbrace^{\lambda}$$
-
-Using the abbreviation $\Sigma := \lbrace 0,1 \rbrace$
+Using the abbreviation $\Sigma := \lbrace 0,1 \rbrace$, the specific algorithms are given as follows
 
 
-# our first crypto system
-Consisting of three functions.
 ## keyGen()
-
-$$ k \leftarrow \Sigma ^{\lambda}$$
-
+$ k \leftarrow \Sigma ^{\lambda}$\
 return k
 
 ## Enc(k,m)
@@ -105,26 +110,33 @@ return $k \oplus m$
 return $k \oplus c$
 
 ## Correctness (Completeness)
-
+Bob does indeed recover the intended plaintext from Alice and it holds
+```
 Dec(k, Enc(k,m)) = m
+```
 
-Proof: $k \oplus k \oplus m = 0 + \oplus m =m$
+Proof: $k \oplus k \oplus m = 0 + \oplus m = m$
 
-# Security
-Eve optains c, the ciphertext. 
+## Security
+From Eve's pespective, seeing c corresponds to the following algorithm 
 
-Consider an Algorithm **Eavesdrop(m)**
+**Eavesdrop(m)**
 
 $k \leftarrow \Sigma^{\lambda}$
 
 $c \leftarrow k \oplus m$
 
-return c   (Eve "sees" c)
+return $c$
 
-## Thm:
-For all m, the output of the Alg. Eavesdrop is the unoform distribution over $\lambda$ -bit stirngs.
+>**Note** The **Eavesdrop** algorithm is <ins>not</ins> what the attacker does, but what the attacker sees.  
 
-**Proof** Take any m, take any c. then
+## Thm
+For all m, the output of the algortithm Eavesdrop is the uniform distribution over $\lambda$ -bit stirngs.
+
+Proof: For arbitrarily fixed $m,c \in \lbrace 0,1 \rbrace^{\lambda}$ we will calculate the probability that Eavesdrop(m) produces $c$, using the fact 
+
+$$k \oplus m = c \iff k= m \oplus c$$
+The probability is 
 
 $$ \mathbf{P}[Eavesdrop(m) = c] =$$
 
@@ -136,8 +148,19 @@ because k is uniformly random.
 
 **Remember** that the key $k$ has the same length as the message $m$. This is an unusual property. 
 
+**Consider** that any goal of an attacker is to detect that $c$ does not follow an uniform distribution. In OTP the attacker can't. But maybe in other systems, an attacker could check whether the cipher follows properties of a true random generator and if not, use this for cryptoanalysis.  
+
 # Todo 
 read chapters in referred book.
+
+# References
+## [R21] 
+Mike Rosulek, *The Joy of Cryptography*, 2021. 
+Available online: [here](https://joyofcryptography.com)
+
+## [KL21]
+Jonathan Katz, Yehuda Lindell 
+*Introduction to Modern Cryptography*, Third Edition.
 
 
 
