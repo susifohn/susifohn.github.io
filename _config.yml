@@ -20,7 +20,7 @@ timezone: Europe/Zurich
 
 title: Haskell for starters. # the main title
 
-tagline: Easy to understand haskell stuff. # it will display as the sub-title
+tagline: Easy to understand haskell stuff and whatever else. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.
@@ -32,7 +32,7 @@ github:
   username: susifohn # change to your github username
 
 twitter:
-  username: twitter_username # change to your twitter username
+  username: susi fohn # change to your twitter username
 
 social:
   # Change to your full name.
