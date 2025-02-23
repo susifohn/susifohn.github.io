@@ -1,7 +1,7 @@
 ---
 title: Intro 
 categories: [cryptography, one-time-pad]
-tags: [unibe, cachin]     # TAG names should always be lowercase
+tags: [unibe]     # TAG names should always be lowercase
 math: true
 ---
 
@@ -150,8 +150,6 @@ because k is uniformly random.
 
 **Consider** that any goal of an attacker is to detect that $c$ does not follow an uniform distribution. In OTP the attacker can't. But maybe in other systems, an attacker could check whether the cipher follows properties of a true random generator and if not, use this for cryptoanalysis.  
 
-# Todo 
-read chapters in referred book.
 
 # References
 ## [R21] 
