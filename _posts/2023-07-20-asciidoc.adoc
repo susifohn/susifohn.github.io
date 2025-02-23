@@ -4,9 +4,10 @@ categories: [asciidoc]
 tags: [problems, icons]     # TAG names should always be lowercase
 math: true
 ---
-= First Heading asciidoc
 
-== Example entry
+== First Heading asciidoc
+
+=== Example entry
 
 Lorem ipsum dolor sit amet, et elitr docendi officiis vix. An has impedit concludaturque, an vim dicam feugiat nominavi. Veniam oblique menandri sea ea, agam novum appareat in his. Constituto posidonium te his. Pri quot iudico ex, noster apeirian concludaturque mel cu.
 
@@ -18,7 +19,7 @@ Tale vide scripserit pro id. Habeo latine percipit et mea, eos at nusquam princi
 
 In quo debet iriure adolescens, nec molestie accusata ad, sea te malis atomorum petentium. Convenire corrumpit id vis, ad accumsan interesset usu. Esse dictas sea ne. Cum constituto deterruisset no, vim laudem doctus at. Nam dicat zril ea, mei omnesque explicari pertinacia ea. Nihil dicunt aliquam nam ne.
 
-== Sample Page
+=== Sample Page
 :url-asciidoctor: http://asciidoctor.org
 
 This is a sample page composed in AsciiDoc.
