@@ -154,7 +154,7 @@ because k is uniformly random.
 # References
 ## [R21] 
 Mike Rosulek, *The Joy of Cryptography*, 2021. 
-Available online: [here](https://joyofcryptography.com)
+Available online [here](https://joyofcryptography.com)
 
 ## [KL21]
 Jonathan Katz, Yehuda Lindell 
