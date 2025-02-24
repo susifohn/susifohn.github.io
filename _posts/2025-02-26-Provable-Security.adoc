@@ -6,13 +6,15 @@ math: true
 ---
 
 == The basics of provable security
+tbd
 
 
 === Security definition
+coming soon
 
 
 === Formalisms
-
+well, well, we will see.
 
 
 
