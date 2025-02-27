@@ -8,17 +8,20 @@ math: true
 
 
 == The Adapter Pattern
-Given some client class, designed to work with a worker class over a specific interface. The _Adapter Pattern_ helps, to use a worker class with a different interface, without changing the client class at all.    
+Given some client class, designed to work with a worker class over a specific interface. The _Adapter Pattern_ helps, to use a worker class with a different interface, without changing the client class at all.
 
 .Exhibitionists today, my Majesty.
 
 image::../assets/images/EureHoheit_s.png[Ref,400]
 === How it works
+The given client class `Guillotine` works with the `Bad Guy`. The `ExhibitionistAdapter` allows to add an `Exhibitionist` to the `Guillotine` without changing the `Guillotine` at all. 
+
 .UML diagram for the above situation.
 image::../assets/images/diagram.png[diagram,400]
 
 
-The implementation using java is as follows
+
+The implementation using java is as follows.
 
 ==== Guillotine.java
 [source,java]
@@ -162,4 +165,8 @@ Has Larry Zipfel? false
 
 Process finished with exit code 0
 ----
+
+=== Discussion
+* Often the client class (Guillotine) works with an interface not a class (BadGuy). In this case, the ExhibitionistAdapter _implements_ BadGuy, not _extends_ it.
+* In the real world, the adapter is installed on the Guillotine, in the software domain, the adapter is added to each Exhibitionist. 
 
