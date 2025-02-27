@@ -8,7 +8,7 @@ math: true
 
 
 == The Adapter Pattern
-Given some client class, designed to work with a worker class over a specific interface (Schnittstelle :-)). The _Adapter Pattern_ helps, to use a worker class with a different interface, without changing the client class at all.    
+Given some client class, designed to work with a worker class over a specific interface. The _Adapter Pattern_ helps, to use a worker class with a different interface, without changing the client class at all.    
 
 .Exhibitionists today, my Majesty.
 
