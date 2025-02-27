@@ -9,10 +9,10 @@ math: true
 Given some client class, designed to work with a worker class over a specific interface (Schnittstelle :-)). The _Adapter Pattern_ helps, to use a worker class with a different interface, without changing the client class at all.    
 
 .Exhibitionists today, my Majesty.
-image::/_posts/EureHoheit.png[Ref,400]
+image::/assets/images/EureHoheit_s.png[Ref,400]
 === How it works
 .UML diagram for the above situation.
-image::diagram.png[diagram,400]
+image::/assets/images/diagram.png[diagram,400]
 
 
 === Sample java code 
