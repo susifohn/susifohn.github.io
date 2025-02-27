@@ -6,15 +6,42 @@ math: true
 ---
 
 == The basics of provable security
-tbd
 
+=== Kerkhoff's principle
+[Note]
+----
+No security by obscurity.
+----
+Security shall depend on the key only, we have many of them, but if the algorithm is secret and an attacker finds it, we have to develop a new algorithm. 
 
-=== Security definition
-coming soon
+=== Provable security
+Remember the one-time pad. It's provably securein a probabilistic model. Can we have the same security but with shorter key than the message? Remember Entropy and so on. Thus the key needs the same length as the message or the same entropy.
 
+==== Information-theoretic security
+We permit that an adversary performs arbitrary computations, infinitely fast. 
 
-=== Formalisms
-well, well, we will see.
+This model is to strong.
+
+==== Computational security
+Computation cannot be infinitely fast. 
+
+==== Formalizing symmetric-key encryption
+We have the following syntax:
+
+*Def* A symmetric symm-key encr schene $\Sigma$ has 3 algorithms.
+
+1. KeyGen() -> key, randomized algorithm
+2. Enc(k,m) -> c, randomized
+3. Dec(k,c) -> m, deterministic
+
+*Notation* $\Sigma = (\Sigma .KeyGen, \Sigma .Enc, \Sigma .Dec)$
+
+* key space $\Kappa$
+* message space $\mathbf{M}$
+* cipher space C
+
+==== Correctness
+*Def* An encryption scheme $\Sigma$ is correct 
 
 
 
