@@ -10,15 +10,14 @@ math: true
 == The Adapter Pattern
 Given some client class, designed to work with a worker class over a specific interface. The _Adapter Pattern_ helps, to use a worker class with a different interface, without changing the client class at all.
 
-.Exhibitionists today, my Majesty.
+."Exhibitionists today, my Majesty."
 
 image::../assets/images/EureHoheit_s.png[Ref,400]
 === How it works
-The given client class `Guillotine` works with the `Bad Guy`. The `ExhibitionistAdapter` allows to add an `Exhibitionist` to the `Guillotine` without changing the `Guillotine` at all. 
+The given client class `Guillotine` works with the `BadGuy`. The `ExhibitionistAdapter` allows to add an `Exhibitionist` to the `Guillotine` without changing the `Guillotine` at all. 
 
 .UML diagram for the above situation.
 image::../assets/images/diagram.png[diagram,400]
-
 
 
 The implementation using java is as follows.
