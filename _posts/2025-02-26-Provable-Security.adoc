@@ -1,31 +1,31 @@
 ---
-title: Intro 
+title: The basics of provable security 
 categories: [cryptography, provable security, asiidoc]
 tags: [unibe]     # TAG names should always be lowercase
 math: true
 ---
 
-== The basics of provable security
 
-=== Kerkhoff's principle
+
+== Kerkhoff's principle
 [Note]
 ----
 No security by obscurity.
 ----
 Security shall depend on the key only, we have many of them, but if the algorithm is secret and an attacker finds it, we have to develop a new algorithm. 
 
-=== Provable security
+== Provable security
 Remember the one-time pad. It's provably securein a probabilistic model. Can we have the same security but with shorter key than the message? Remember Entropy and so on. Thus the key needs the same length as the message or the same entropy.
 
-==== Information-theoretic security
+=== Information-theoretic security
 We permit that an adversary performs arbitrary computations, infinitely fast. 
 
 This model is to strong.
 
-==== Computational security
+=== Computational security
 Computation cannot be infinitely fast. 
 
-==== Formalizing symmetric-key encryption
+=== Formalizing symmetric-key encryption
 We have the following syntax:
 
 *Def* A symmetric symm-key encr schene $\Sigma$ has 3 algorithms.
@@ -40,7 +40,7 @@ We have the following syntax:
 * Message space $M$
 * Cipher space $C$
 
-==== Correctness
+=== Correctness
 *Def* An encryption scheme $\Sigma$ is correct if
 
 $\forall k \in K, \forall m \in M$ it holds
@@ -52,7 +52,7 @@ $\Sigma.Dec(k,Enc(k,m))=m$
 We want the scheme to be correct for all messages. For the one-time pad, we showed this. Correctnes is also given for the identity function.
 ----
 
-==== Security
+=== Security
 Much more difficult than correctnes. We can send just a random string, this is then not correct. 
 
 *Security against an adversary A*
@@ -64,7 +64,7 @@ Much more difficult than correctnes. We can send just a random string, this is t
 
 Want to generalize this syntay, such for signatures, pseudorandom functions)
 
-=== Assumptions
+== Assumptions
 * A performs probabilistic computations $\iff$
 * A is a randomized algorithm $\iff$
 * A implemented by Turing Machine. (_Turning Machine to randomize modeled as a second input stream which is random_)
@@ -76,13 +76,13 @@ The formalization goes as follows:
 ----
 The Adversory lifes in two worlds, on seeing the cipher text c and in the other seeing only a random bit string. Then if we can show, that the Adversory cannot tell in which world he lifes, we are secure. 
 ----
-==== Real world
+=== Real world
 A optains c produced by the encryption scheme $\Sigma$ from some Message m.
 
-==== Ideal (fake) world
+=== Ideal (fake) world
 A optains a random element of the cipher space, produced without m.
 
-==== Formalizing , the definition
+=== Formalizing , the definition
 Call a scheme secure, when for any adversary $A$ can say
 
 $\mathcal{P}[\text{A is in real world} \rightarrow 1] = \mathcal{P}[\mbox{A is in ideal world} \rightarrow 1]$
