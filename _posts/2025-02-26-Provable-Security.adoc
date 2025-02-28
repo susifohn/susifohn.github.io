@@ -58,7 +58,38 @@ Much more difficult than correctnes. We can send just a random string, this is t
 *Security against an adversary A*
 
 * What does A learn? -> c
-* in OTP how we proved thos. See before. 
+* in OTP how is c produced? 
+  - $k \leftarrow \lbrace 0,1 \rbrace ^{\lambda}$
+  - $c \leftarrow m \oplus k$
+
+Want to generalize this syntay, such for signatures, pseudorandom functions)
+
+=== Assumptions
+* A performs probabilistic computations $\iff$
+* A is a randomized algorithm $\iff$
+* A implemented by Turing Machine. (_Turning Machine to randomize modeled as a second input stream which is random_)
+
+and A outputs a Bit $b \in \lbrace 0,1 \rbrace$
+
+The formalization goes as follows: 
+[Note]
+----
+The Adversory lifes in two worlds, on seeing the cipher text c and in the other seeing only a random bit string. Then if we can show, that the Adversory cannot tell in which world he lifes, we are secure. 
+----
+==== Real world
+A optains c produced by the encryption scheme $\Sigma$ from some Message m.
+
+==== Ideal (fake) world
+A optains a random element of the cipher space, produced without m.
+
+==== Formalizing , the definition
+Call a scheme secure, when for any adversary $A$ can say
+
+$\mathcal{P}[\text{A is in real world} \rightarrow 1] = \mathcal{P}[\mbox{A is in ideal world} \rightarrow 1]$
+
+* ... no Adversary can distinguish.
+* ... A has no information about plain text.
+
 
 
 
