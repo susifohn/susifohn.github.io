@@ -30,18 +30,35 @@ We have the following syntax:
 
 *Def* A symmetric symm-key encr schene $\Sigma$ has 3 algorithms.
 
-1. KeyGen() -> key, randomized algorithm
-2. Enc(k,m) -> c, randomized
-3. Dec(k,c) -> m, deterministic
+1. $KeyGen() \rightarrow k$ , randomized algorithm
+2. $Enc(k,m) \rightarrow c$, randomized
+3. $Dec(k,c) \rightarrow m$, deterministic
 
 *Notation* $\Sigma = (\Sigma .KeyGen, \Sigma .Enc, \Sigma .Dec)$
 
-* key space $\Kappa$
-* message space $\mathbf{M}$
-* cipher space C
+* Ky space $K$
+* Message space $M$
+* Cipher space $C$
 
 ==== Correctness
-*Def* An encryption scheme $\Sigma$ is correct 
+*Def* An encryption scheme $\Sigma$ is correct if
+
+$\forall k \in K, \forall m \in M$ it holds
+
+$\Sigma.Dec(k,Enc(k,m))=m$
+
+[Note] 
+----
+We want the scheme to be correct for all messages. For the one-time pad, we showed this. Correctnes is also given for the identity function.
+----
+
+==== Security
+Much more difficult than correctnes. We can send just a random string, this is then not correct. 
+
+*Security against an adversary A*
+
+* What does A learn? -> c
+* in OTP how we proved thos. See before. 
 
 
 
