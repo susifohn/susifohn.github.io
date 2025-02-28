@@ -1,5 +1,5 @@
 ---
-title: Intro 
+title: Cryptography Intro 
 categories: [cryptography, one-time-pad]
 tags: [unibe]     # TAG names should always be lowercase
 math: true
