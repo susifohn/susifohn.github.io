@@ -5,7 +5,11 @@ tags: [patterns, fun]     # TAG names should always be lowercase
 math: true
 ---
 
-
+*Disclaimer*
+----
+This explanation contains some dark humor, inspired by comic artist Uli Steiner. 
+There is no intention to offend or harm. If you can't tolerate this type, don't read any further.
+----
 
 == The Adapter Pattern
 Given some client class, designed to work with a worker class over a specific interface. The _Adapter Pattern_ helps, to use a worker class with a different interface, without changing the client class at all.
