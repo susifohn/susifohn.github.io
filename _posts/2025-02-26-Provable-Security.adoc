@@ -133,7 +133,7 @@ Now lets write a Program A
 
 Then 
 
-$\P[A \diamond L \rightarrow TRUE] = 2^{- \lambda}\$
+$P[A \diamond L \rightarrow TRUE] = 2^{- \lambda}$
 
 Let's consider a second program B
 
@@ -142,7 +142,7 @@ Let's consider a second program B
 
 Then again
 
-$\P[B \diamond L \rightarrow TRUE] = 2^{- \lambda}\$
+$P[B \diamond L \rightarrow TRUE] = 2^{- \lambda}$
 
 What's the running time? Constant, only one function call. 
 
@@ -155,7 +155,7 @@ Program C, to find s from the library
 
 Then 
 
-$\P[C \diamond L \rightarrow s ] = 1\$
+$P[C \diamond L \rightarrow s ] = 1$
 
 the expected running time here is $\mathcal{O}(2^{\lambda})$
 
@@ -165,7 +165,7 @@ Note that program C is a Las Vegas algorithm, maybe not terminating at all.
 
 *Def* Two libraries $L_1$ and $L_2$ are called interchangable or exchangable written $\L_1 \equiv \L_2$  if they have the same interface and if for all programs A
 
-$\P[A \diamond L_1 \rightarrow 1] = $\P[A \diamond L_2 \rightarrow 1]$
+$P[A \diamond L_1 \rightarrow 1] = $\P[A \diamond L_2 \rightarrow 1]$
 
 
 
