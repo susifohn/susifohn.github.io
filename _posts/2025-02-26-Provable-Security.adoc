@@ -8,10 +8,11 @@ math: true
 
 
 == Kerkhoff's principle
-[Note]
-----
+
+====
 No security by obscurity.
-----
+====
+
 Security shall depend on the key only, we have many of them, but if the algorithm is secret and an attacker finds it, we have to develop a new algorithm. 
 
 == Provable security
@@ -36,7 +37,7 @@ We have the following syntax:
 
 *Notation* $\Sigma = (\Sigma .KeyGen, \Sigma .Enc, \Sigma .Dec)$
 
-* Ky space $K$
+* Key space $K$
 * Message space $M$
 * Cipher space $C$
 
@@ -83,12 +84,96 @@ A optains c produced by the encryption scheme $\Sigma$ from some Message m.
 A optains a random element of the cipher space, produced without m.
 
 === Formalizing , the definition
-Call a scheme secure, when for any adversary $A$ can say
+Call a scheme secure, when for any adversary $A$ :
 
 $\mathcal{P}[\text{A is in real world} \rightarrow 1] = \mathcal{P}[\mbox{A is in ideal world} \rightarrow 1]$
 
+Means the probability that $A$ outputs 1 in the ideal world is equal that $A$ outputs 1 in the ideal world, same as:
+
 * ... no Adversary can distinguish.
 * ... A has no information about plain text.
+
+[NOTE]
+====
+We have here three sources of randomness: the key we choose is random, the Adversary choose random bits and maybe the algorithm chooses random bits.
+====
+
+==== Defining seturity notions using libraries
+Notion form [R21], in other books this libraries are called experiments. This is just a tool to define security. The analogy to static and dynamic linking of a program helps.
+
+*Def* a library $L$ is a collection of functions or subrutines and private or static data. The interface of $L$ consists only of its functions with their arguments and types.
+
+*Def* Running a programm $P$ with librarary $L$ is written as $P \diamond L$ , meaning $P$ linked to $L$.
+
+To say that the program $P$ linked to $L$ outputs $x$ we write:
+
+$P \diamond L \rightarrow x$
+
+===== Example
+Given a Library 
+
+'''
+$L$
+
+'''
+$s \leftarrow \lbrace 0,1 \rbrace ^{\lambda}$ +
+`Reset()` +
+$s \leftarrow \lbrace 0,1 \rbrace ^{\lambda}$ +
+`Guess(x)` +
+return $x =^? s$ 
+
+'''
+* as with classes, the calling program cannot access $s$
+* the calling programm has no further information on s, except what is returned by `Guess(x)`
+
+Now lets write a Program A
+
+* $c \leftarrow \lbrace 0,1 \rbrace ^{\lambda}$
+* return Guess(x)
+
+Then 
+
+$\P[A \diamond L \rightarrow TRUE] = 2^{- \lambda}\$
+
+Let's consider a second program B
+
+* $c \leftarrow 1 ^{\lambda}$
+* return Guess(x)
+
+Then again
+
+$\P[B \diamond L \rightarrow TRUE] = 2^{- \lambda}\$
+
+What's the running time? Constant, only one function call. 
+
+Program C, to find s from the library
+
+* repeat
+* $x \leftarrow \lbrace 0,1 \rbrace ^{\lambda}$
+* until Guess(x) (=True)
+* return x
+
+Then 
+
+$\P[C \diamond L \rightarrow s ] = 1\$
+
+the expected running time here is $\mathcal{O}(2^{\lambda})$
+
+Note that program C is a Las Vegas algorithm, maybe not terminating at all. 
+
+===== Tow libraries with equal input-output behaviour
+
+*Def* Two libraries $L_1$ and $L_2$ are called interchangable or exchangable written $\L_1 \equiv \L_2$  if they have the same interface and if for all programs A
+
+$\P[A \diamond L_1 \rightarrow 1] = $\P[A \diamond L_2 \rightarrow 1]$
+
+
+
+
+
+
+
+
 
 
 
