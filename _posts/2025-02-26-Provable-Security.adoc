@@ -163,11 +163,20 @@ Note that program C is a Las Vegas algorithm, maybe not terminating at all.
 
 ===== Tow libraries with equal input-output behaviour
 
-*Def* Two libraries $L_1$ and $L_2$ are called interchangable or exchangable written $\L_1 \equiv \L_2$  if they have the same interface and if for all programs A
+*Def* Two libraries $L_1$ and $L_2$ are called interchangable (or exchangable) written $L_1 \equiv L_2$  if they have the same interface and if for all programs A
 
-$P[A \diamond L_1 \rightarrow 1] = $\P[A \diamond L_2 \rightarrow 1]$
+$P[A \diamond L_1 \rightarrow 1] = P[A \diamond L_2 \rightarrow 1]$
 
+From observing, we can not figure out, which Library is in use. Processing time here not considered. 
 
+====== Example for interchanchable
+* Unreachable code
+* different implementation of the same algorithme 
+* diferred choices
+
+Eager vs lazy sampling
+
+TODO see my slides
 
 
 
