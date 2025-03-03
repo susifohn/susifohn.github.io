@@ -206,7 +206,7 @@ image::../assets/images/realVsRand.png[]
 $Enc(k,m) \rightarrow (m \oplus k) || 0101$
 
 This scheme hat ots but not uniform distribution. Here 
-$L^{\Sigma}_{ots$-real} \notequiv L^{\Sigma}_{ots$-real}$
+$L^{\Sigma}_{ots$-real} \not\equiv L^{\Sigma}_{ots$-real}$
 
 This notion is good, but too strong! We need an update.
 
