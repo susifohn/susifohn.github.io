@@ -169,29 +169,44 @@ $P[A \diamond L_1 \rightarrow 1] = P[A \diamond L_2 \rightarrow 1]$
 
 From observing, we can not figure out, which Library is in use. Processing time here not considered. 
 
-====== Example for interchanchable
+===== Example for interchanchable
 * Unreachable code
 * different implementation of the same algorithme 
 * diferred choices
 
 Eager vs lazy sampling
 
-image::../assets/images/CryptoChapter2.pdf[]
+image::../assets/images/eagerVsLazy.png[]
 
+$\implies L_{eager} \equiv L_{lazy}$
 
+The different time behaviour is irrelevant here.
 
+The Adversary $A$ is often called a _distinguisher_.
 
+==== Defining encryption security with libraries
 
+Interchangable libraries $\iff$ arbitrary powerfull Adversary $A$
 
+[NOTE]
+====
+The OTP is indistinguishable from a random generator, thus two equal libraries.
+====
 
+*Def* An encryption scheme $\Sigma$ has uniform cipher text if 
 
+$L_{ots$-real} \equiv L_{ots$-random}$
 
+_Here $ comes from flipping a coin, and ots=one time security._
 
+image::../assets/images/realVsRand.png[]
 
+===== Example
 
+$Enc(k,m) \rightarrow (m \oplus k) || 0101$
 
+This scheme hat ots but not uniform distribution. Here 
+$L^{\Sigma}_{ots$-real} \notequiv L^{\Sigma}_{ots$-real}$
 
-
-
-
+This notion is good, but too strong! We need an update.
 
