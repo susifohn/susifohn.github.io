@@ -212,7 +212,7 @@ This notion is good, but too strong! We need an update.
 
 *Def* An encryption scheme $\Sigma$ has one-time security if 
 
-$L_{ots$-left} \equiv L_{ots$-right}$
+$L_{ots\$-left} \equiv L_{ots\$right}$
 
 image::../assets/images/leftRight.png[] 
 
@@ -220,7 +220,7 @@ This represents best case for $A$ $\iff$ This is worst case for $\Sigma = (keyGe
 
 [cols="1"]
 |===
-|$L_{ots$-left} 
+|$L_{ots$left} 
 
 |$Eavesdropper(m_L, m_R)$ { +
  $k \leftarrow \lbrace 0,1 \rbrace ^{\lambda}$ +
