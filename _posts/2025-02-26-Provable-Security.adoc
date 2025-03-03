@@ -176,7 +176,7 @@ From observing, we can not figure out, which Library is in use. Processing time 
 
 Eager vs lazy sampling
 
-TODO see my slides
+image::../assets/images/CryptoChapter2.pdf[]
 
 
 
