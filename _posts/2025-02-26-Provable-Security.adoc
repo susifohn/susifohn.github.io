@@ -210,3 +210,10 @@ $L^{\Sigma}_{ots$-real} \not\equiv L^{\Sigma}_{ots$-real}$
 
 This notion is good, but too strong! We need an update.
 
+*Def* An encryption scheme $\Sigma$ has one-time security if 
+
+$L_{ots$-left} \equiv L_{ots$-right}$
+
+image::../assets/images/leftRight.png[] 
+
+This represents best case for $A$ $\iff$ This is worst case for $\Sigma = (keyGen, Enc, Dec)$
