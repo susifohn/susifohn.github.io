@@ -218,14 +218,13 @@ image::../assets/images/leftRight.png[]
 
 This represents best case for $A$ $\iff$ This is worst case for $\Sigma = (keyGen, Enc, Dec)$
 
-[cols="1,1"]
+[cols="1"]
 |===
-|Cell in column 1, row 1
-|Cell in column 2, row 1
+|$L_{ots$-left} 
 
-|Cell in column 1, row 2
-|Cell in column 2, row 2
-
-| $\Sigma = (keyGen, Enc, Dec)$
-|Cell in column 2, row 3
+|$Eavesdropper(m_L, m_R)$ { +
+ $k \leftarrow \lbrace 0,1 \rbrace ^{\lambda}$ +
+ $c \leftarrow Enc(k, m_L)$ +
+ return c
+}
 |===
