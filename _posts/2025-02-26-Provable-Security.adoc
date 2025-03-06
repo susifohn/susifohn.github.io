@@ -1,5 +1,5 @@
 ---
-title: The basics of provable security 
+title: 2 The basics of provable security 
 categories: [cryptography, provable security, asiidoc]
 tags: [unibe]     # TAG names should always be lowercase
 math: true
