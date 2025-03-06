@@ -48,6 +48,16 @@ $\square$
 # Prove a relation among security notions
 Using `ots` and `ots$` 
 
+**Thm** if an encr scheme $\Sigma$ has one-time cipher text ots$ (also named uniform cipher text) then it also has one-time secrecy ots. More formaly this means:
+
+$$L_{ots\$-real}^{\Sigma} \equiv L_{ots\$-rand}^{\Sigma} \implies L_{ots-L}^{\Sigma} \equiv L_{ots-R}^{\Sigma}$$
+
+*Proof* (hybrid proof) Transform one library into an other in steps. This intermediate libraries are called *hybrids".
+
+
+
+
+
 
 
 
