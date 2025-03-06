@@ -54,11 +54,16 @@ $$L_{ots\$-real}^{\Sigma} \equiv L_{ots\$-rand}^{\Sigma} \implies L_{ots-L}^{\Si
 
 *Proof* (hybrid proof) Transform one library into an other in steps. This intermediate libraries are called *hybrids".
 
+TODO
 
+# Chapter 4: Computational security
+$\rightarrow$ Security from interactable computation.
 
+* perfect security so far $\iff$ unconditioned security.
+* perfect security we have seen, is to strong and not relevant in practice.
+* We want distribute the key once and then use the key many times to encrypt and decrypt.
+* perfect security $\implies$ keys can be used only once and key as long as the message.
+* Computational security exploits that keys can be reused and the key space is to large for brute force (try every key)
 
-
-
-
-
+  $\implies$ we can use the key many times and the key can be shorter than the message.
 
