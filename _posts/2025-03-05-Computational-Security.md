@@ -27,5 +27,28 @@ $$L^* \diamond L_{left} \equiv  L^* \diamond L_{right}$$
 
 Here the Symbol $\diamond$ is extended to libraries. 
 
+*Proof* $A$ is an arbitrary programm. Then from the assumption follows $P[A \diamond L_L \implies 1] = P[A \diamond L_R \implies 1]$
+
+
+Now as with currying in Haskell functions, we cann add $L^\*$ to $A$ and treat this as our program with $L^\*$ linked in. Thus
+
+
+$$P[A \diamond (L^* \diamond L_L) \rightarrow 1]$$
+
+$$=P[(A \diamond L^*) \diamond L_L \rightarrow 1]$$
+
+and by assumption that $L_L \equiv L_R$ we get
+
+$$=P[(A \diamond L^*) \diamond L_R \rightarrow 1]$$
+
+$$=P[A \diamond (L^* \diamond L_R) \rightarrow 1] $$
+
+$\square$
+
+# Prove a relation among security notions
+Using `ots` and `ots$` 
+
+
+
 
 
