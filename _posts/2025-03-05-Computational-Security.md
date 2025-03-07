@@ -91,4 +91,15 @@ Unit: 1 crypto operation
 * efficient means polynomial time computable
 * Parametrized by $\lambda$
 
-**Def** An algorithm $A$ runs in (probablistic) polynomoial time (ppt) in the length of the input, in our case this is $\lambda$, if exists some $c>0$ constant such that for all inputs x of size $\lambda$ $A(x) halts after at most $\O(\lambda^c$ steps.
+**Def** An algorithm $A$ runs in (probablistic) polynomoial time (ppt) in the length of the input, in our case this is $\lambda$, if exists some $c>0$ constant such that for all inputs x of size $\lambda$ $A(x)$ halts after at most $\mathcal{O}(\lambda^c$) steps.
+
+Think: can we enumerate $2^{\lambda}$ keys in ppt?
+
+**Def** An algorithm is efficient if it is `ppt`.
+
+### Example
+An alg. takes a number of the following steps
+* $\lambda^3 \rightarrow$ is efficient
+* $\lambda^{1000} \rightarrow$ is efficient
+*  $e^{\lambda} \rightarrow$ is **not** efficient
+*  $\lambda^{log log \lambda} \rightarrow$ is not efficient 
