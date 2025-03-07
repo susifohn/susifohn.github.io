@@ -87,4 +87,8 @@ Unit: 1 crypto operation
 - See video [3Blue1Brown](https://www.youtube.com/watch?v=S9JGmA5_unY)
 
   
+## Formalize efficient computation
+* efficient means polynomial time computable
+* Parametrized by $\lambda$
 
+**Def** An algorithm $A$ runs in (probablistic) polynomoial time (ppt) in the length of the input, in our case this is $\lambda$, if exists some $c>0$ constant such that for all inputs x of size $\lambda$ $A(x) halts after at most $\O(\lambda^c$ steps.
