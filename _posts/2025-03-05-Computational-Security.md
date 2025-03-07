@@ -54,7 +54,7 @@ $$L_{ots\$-real}^{\Sigma} \equiv L_{ots\$-rand}^{\Sigma} \implies L_{ots-L}^{\Si
 
 *Proof* (hybrid proof) Transform one library into an other in steps. This intermediate libraries are called *hybrids".
 
-TODO
+TODO (sollte man auswendig können :-)
 
 # Chapter 4: Computational security
 $\rightarrow$ Security from interactable computation.
@@ -63,7 +63,28 @@ $\rightarrow$ Security from interactable computation.
 * perfect security we have seen, is to strong and not relevant in practice.
 * We want distribute the key once and then use the key many times to encrypt and decrypt.
 * perfect security $\implies$ keys can be used only once and key as long as the message.
-* Computational security exploits that keys can be reused and the key space is to large for brute force (try every key)
+* Computational security exploits that keys can be reused and the key space is to large for brute force (try every key by an adversary)
 
-  $\implies$ we can use the key many times and the key can be shorter than the message.
+$\implies$ we can use the key many times and the key can be shorter than the message.
+
+We introduce a security parameter $\lambda$ to quantify the security level. Here for computational security, not one-time security.
+* ideally the adversary needs $2^{\lambda} steps or memory
+* ideally the work for honest users is proportional to $\lambda^c$ for $c$ small.
+
+*Example* AES-128 has 128-bit keys. In principle takes $2^{128}$ steps to break it. 
+
+## Illustration of practical cryptographical difficulty
+Unit: 1 crypto operation
+| Scheme    | Difficulty | Time $10^9 op \cdot s^{-1}$
+| -------- | ------- | ------- |
+| 40-bit key (export-permitted by US until 1999   | $2^{40}$    | 18 Min |
+| DES 1977  | $2^{56}$     | 2.3 years |
+| SHA-1 1995    | $2^{80}$    | 584 years |
+| AES-128 (2001) and SHA-256| $2^{128}$| $10.8 \cdot 10^{21}$ years (longer than universe)|
+| AES-256, SHA-512 | $2^{512}$ | $3.7 \cdot 10^{60}$ years |
+
+- Refer to [keylength.com](keylength.com) 
+- See video [3Blue1Brown](https://www.youtube.com/watch?v=S9JGmA5_unY)
+
+  
 
