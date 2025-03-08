@@ -127,4 +127,6 @@ then $f$ is negligible.
 * $2^{-\lambda}$ is negligible
 * $\lambda ^{-100}$ is not negligible
 
+*Missing lats few minutes in the podcast, no sound*
+
 
