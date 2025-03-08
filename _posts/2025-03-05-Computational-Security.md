@@ -98,8 +98,33 @@ Think: can we enumerate $2^{\lambda}$ keys in ppt?
 **Def** An algorithm is efficient if it is `ppt`.
 
 ### Example
+Asymptotic consideration only.
 An alg. takes a number of the following steps
 * $\lambda^3 \rightarrow$ is efficient
 * $\lambda^{1000} \rightarrow$ is efficient
 *  $e^{\lambda} \rightarrow$ is **not** efficient
-*  $\lambda^{log log \lambda} \rightarrow$ is not efficient 
+*  $\lambda^{log log \lambda} \rightarrow$ is not efficient
+  
+## Negligible Probabilities
+- Traidoff between computation time and success probability in cryptography. Adding on Bit to the key doubles the adversaries time.
+- Guessing the key is always possible, but the probability is $2^{-\lambda}$
+
+We need a negligible function. 
+
+**Def** A function $f:\mathbf{R} \rightarrow \mathbf{R}_{\geq 0}$ is negligible iff for all polynomials $p$ it holds 
+
+$$\lim_{\lambda\to\infty} p(\lambda) \cdot f(\lambda) = 0$$
+
+Repeating some attack that has negligible successprobability $c$ polynomila number of times still results in a negligible success.
+
+**Lemma** If $\forall c > 0$ , it holds
+
+$$\lim_{\lambda\to\infty} \lambda ^c \cdot f(\lambda) = 0$$
+
+then $f$ is negligible.
+
+### Examples
+* $2^{-\lambda}$ is negligible
+* $\lambda ^{-100}$ is not negligible
+
+
