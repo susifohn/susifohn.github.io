@@ -6,11 +6,10 @@ math: true
 ---
 
 # Todays topics
-* Lecture from 5.Mar 2025
 * Security proofs, hybrid proofs
-* Ref [R21] 2.4, 2.5
+  - Ref [R21] 2.4, 2.5
 * Computational security, negiligible probability, indistinguishability
-* Ref [R21] 4.1, 4.2, 4.3
+  - Ref [R21] 4.1, 4.2, 4.3
   
 # Recap
 
@@ -27,12 +26,15 @@ But not the other way arround. E.g. a random number $r$ concatenated $r \Vert r$
 This notions are very strong, because the key is used only once for each encryption. 
 
 # Composing Libraries
+Consider a compound programm $A \diamond L_1 \diamond L_2$. As per our convention, function calls only happen from left to right across $\diamond$. Then we have associativity as:
+* $(A \diamond L_1) \diamond L_2$ a compound calling Programm $A$ linked to $L_2$ and $A \diamond L_1$ is a programm calling functions in $L_2$.
+* $A \diamond (L_1 \diamond L_2)$ means $A$ is linked to the compound library $L_1 \diamond L_2$ and $A$ is a programm calling functions in $L_1 \diamond L_2$
+
+The placement of the parantheses makes no difference in the functionality. In our security proofs we will have intermediate steps using _compound libararies_ and the following Lemma will be very helpful: 
 
 **Lemma** If $L_{left} \equiv L_{right}$ then for any $L^*$ it holds 
 
 $$L^* \diamond L_{left} \equiv  L^* \diamond L_{right}$$
-
-Here the Symbol $\diamond$ is extended to libraries. 
 
 *Proof* $A$ is an arbitrary programm. Then from the assumption follows $P[A \diamond L_L \implies 1] = P[A \diamond L_R \implies 1]$
 
@@ -59,7 +61,7 @@ Using `ots` and `ots$`
 
 $$L_{ots\$-real}^{\Sigma} \equiv L_{ots\$-rand}^{\Sigma} \implies L_{ots-L}^{\Sigma} \equiv L_{ots-R}^{\Sigma}$$
 
-*Proof* (hybrid proof) Transform one library into an other in steps. This intermediate libraries are called *hybrids".
+*Proof* (hybrid proof) Transform one library into an other in steps. This intermediate libraries are called _hybrids_.
 
 TODO (sollte man auswendig können :-)
 
