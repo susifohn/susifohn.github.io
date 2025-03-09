@@ -78,7 +78,7 @@ TODO (sollte man auswendig können :-)
 $\implies$ we can use the key many times and the key can be shorter than the message.
 
 We introduce a security parameter $\lambda$ to quantify the security level. Here for computational security, not one-time security.
-* ideally the adversary needs $2^{\lambda} steps or memory
+* ideally the adversary needs $2^{\lambda}$ steps or memory
 * ideally the work for honest users is proportional to $\lambda^c$ for $c$ small.
 
 *Example* AES-128 has 128-bit keys. In principle takes $2^{128}$ steps to break it. 
@@ -106,6 +106,8 @@ Unit: 1 crypto operation. You could also estimate the costs using Amazon EC2, $2
 
 Think: can we enumerate $2^{\lambda}$ keys in ppt?
 
+> Our goal will be to ensure that no ppt attack can successfully break security. We will not worry about brute-force attacks that require exponential time. 
+
 **Def** An algorithm is efficient if it is `ppt`.
 
 ### Example
@@ -115,6 +117,8 @@ An alg. takes a number of the following steps
 * $\lambda^{1000} \rightarrow$ is efficient
 *  $e^{\lambda} \rightarrow$ is **not** efficient
 *  $\lambda^{log log \lambda} \rightarrow$ is not efficient
+
+Note that repeating a polynomial time process a polynomial number of times results in a polynomial-time process. Due to the _closure property_ $p,q \in \mathcal{P} \implies p \cdot q \in \mathcal{P}$
   
 ## Negligible Probabilities
 - Traidoff between computation time and success probability in cryptography. Adding on Bit to the key doubles the adversaries time.
