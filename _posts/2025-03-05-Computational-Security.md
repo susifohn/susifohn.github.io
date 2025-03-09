@@ -1,10 +1,17 @@
 ---
 title: 3 Proofs and Computational Security
 categories: [cryptography]
-tags: [unibe]     # TAG names should always be lowercase
+tags: [unibe, security proof]     # TAG names should always be lowercase
 math: true
 ---
 
+# Todays topics
+* Lecture from 5.Mar 2025
+* Security proofs, hybrid proofs
+* Ref [R21] 2.4, 2.5
+* Computational security, negiligible probability, indistinguishability
+* Ref [R21] 4.1, 4.2, 4.3
+  
 # Recap
 
 Last time have seen 2 notions for crypto systems, so called _one-time notions_: (know this for oral exam)
