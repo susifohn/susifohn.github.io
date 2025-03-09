@@ -69,9 +69,11 @@ dass die Wahrscheinlichkeit eines Erfolges über 50% liegt. Für m-bit-Hash-Wert
   - weak collision resistance: $2^{m-1}$
   - strong collision resistance: $\sqrt{2^m}$
 
-**Beispiel** Für ein zufälliges Passwort sei mit MD5 dessen 56-bit Hashwert erzeugt worden. Ein Angreifer muss somit für $2^{55}$ zufällig
+**Beispiel** Für ein zufälliges Passwort sei ein 56-bit Hashwert erzeugt worden. Ein Angreifer muss somit für $2^{55}$ zufällig
 gewählte Inputwerte den Hashwert berechnen, um das Passwort zu finden. Angenommen der Angreifer kann in jeder Sekunde $10^{12}$ Hashwerte
 berechnen, dann dauert die Attacke im Schnitt rund 10 Stunden.
+
+> Im 2017 wurde die erste SHA-1 Kollision gefunden. Die Attacke beinhaltete $2^{63}$ SHA-1 Berechnungen auf einem CPU Cluster. Die Kosten dafür auf Amazons Web Cloud belaufen sich als Vergleich auf $560'000. Quelle [The Joy of Cryptography, 4.1](https://joyofcryptography.com/).
 
 ## Analyse preimage resistance
 Wir starten mit einem einfachen Würfelexperiment. Mit zweimal Würfeln soll eine 5 gewürfelt werden. Wie gross ist die Wahrscheinlichkeit dafür?
