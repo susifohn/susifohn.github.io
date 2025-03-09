@@ -64,9 +64,10 @@ $$L_{ots\$-real}^{\Sigma} \equiv L_{ots\$-rand}^{\Sigma} \implies L_{ots-L}^{\Si
 *Proof* (hybrid proof) Transform one library into an other in steps. This intermediate libraries are called _hybrids_.
 
 TODO (sollte man auswendig können :-)
-
+# Chapter 3: (Secret Sharing) omitted
 # Chapter 4: Computational security
-$\rightarrow$ Security from interactable computation.
+
+> John Nassh wrote 1955 to NSA some letter, telling that it doesn't really matter whether attacks are impossible, only whether attacks are _computationally infeasible_. This letter was classified until 2012, probaly preventing modern cryptography to be developping faster. [Original letter](https://www.nsa.gov/portals/75/documents/news-features/declassified-documents/nash-letters/nash_letters1.pdf)
 
 * perfect security so far $\iff$ unconditioned security.
 * perfect security we have seen, is to strong and not relevant in practice.
@@ -83,7 +84,7 @@ We introduce a security parameter $\lambda$ to quantify the security level. Here
 *Example* AES-128 has 128-bit keys. In principle takes $2^{128}$ steps to break it. 
 
 ## Illustration of practical cryptographical difficulty
-Unit: 1 crypto operation
+Unit: 1 crypto operation. You could also estimate the costs using Amazon EC2, $2^{50}$ clock cycles cost CHF 3.50, a cup of coffee, ref [21R] 4.1)
 
 | Scheme    | Difficulty | Time $10^9 op \cdot s^{-1}$
 | -------- | ------- | ------- |
