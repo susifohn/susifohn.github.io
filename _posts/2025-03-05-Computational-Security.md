@@ -75,6 +75,7 @@ We introduce a security parameter $\lambda$ to quantify the security level. Here
 
 ## Illustration of practical cryptographical difficulty
 Unit: 1 crypto operation
+
 | Scheme    | Difficulty | Time $10^9 op \cdot s^{-1}$
 | -------- | ------- | ------- |
 | 40-bit key (export-permitted by US until 1999   | $2^{40}$    | 18 Min |
