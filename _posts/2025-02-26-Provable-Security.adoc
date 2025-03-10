@@ -112,17 +112,18 @@ $P \diamond L \rightarrow x$
 ===== Example
 Given a Library 
 
-'''
-$L$
+[cols="1"]
+|===
+|$L$ 
 
-'''
-$s \leftarrow \lbrace 0,1 \rbrace ^{\lambda}$ +
-`Reset()` +
-$s \leftarrow \lbrace 0,1 \rbrace ^{\lambda}$ +
-`Guess(x)` +
-return $x =^? s$ 
+|$s \leftarrow \lbrace 0,1 \rbrace ^{\lambda}$ +
+`Reset()` { +
+$s \leftarrow \lbrace 0,1 \rbrace ^{\lambda}$ } +
+`Guess(x)` { +
+return $x =^? s$ }
+|===
 
-'''
+
 * as with classes, the calling program cannot access $s$
 * the calling programm has no further information on s, except what is returned by `Guess(x)`
 
@@ -195,9 +196,9 @@ The OTP is indistinguishable from a random generator, thus two equal libraries.
 
 *Def* An encryption scheme $\Sigma$ has uniform cipher text if 
 
-$L_{ots$-real} \equiv L_{ots$-random}$
+$L_{ots\$-real} \equiv L_{ots\$-random}$
 
-_Here $ comes from flipping a coin, and ots=one time security._
+_Here $ comes from flipping a coin, and ots=one time secrecy._
 
 image::../assets/images/realVsRand.png[]
 
@@ -206,25 +207,14 @@ image::../assets/images/realVsRand.png[]
 $Enc(k,m) \rightarrow (m \oplus k) || 0101$
 
 This scheme hat ots but not uniform distribution. Here 
-$L^{\Sigma}_{ots$-real} \not\equiv L^{\Sigma}_{ots$-real}$
+$L^{\Sigma}_{ots\$-real} \not\equiv L^{\Sigma}_{ots\$-rand}$
 
 This notion is good, but too strong! We need an update.
 
-*Def* An encryption scheme $\Sigma$ has one-time security if 
+*Def* An encryption scheme $\Sigma$ has one-time secrecy if: 
 
-$L_{ots\$-left} \equiv L_{ots\$right}$
+$L_{ots-left}^{\Sigma} \equiv L_{ots-right}^{\Sigma}$
 
 image::../assets/images/leftRight.png[] 
 
 This represents best case for $A$ $\iff$ This is worst case for $\Sigma = (keyGen, Enc, Dec)$
-
-[cols="1"]
-|===
-|$L_{ots$left} 
-
-|$Eavesdropper(m_L, m_R)$ { +
- $k \leftarrow \lbrace 0,1 \rbrace ^{\lambda}$ +
- $c \leftarrow Enc(k, m_L)$ +
- return c
-}
-|===
