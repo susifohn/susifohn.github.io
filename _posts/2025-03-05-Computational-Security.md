@@ -141,7 +141,17 @@ then $f$ is negligible.
 ### Examples
 * $2^{-\lambda}$ is negligible
 * $\lambda ^{-100}$ is not negligible
+---
+**Def**
+> For two functions $p$, $q$ write $p \approx q$  iff $| p(x) -q(x)|$  is negligible.
+>
+> Extend notion $\approx$ to probabilities as follows:
+> For event $\Sigma$:
+> * $P[\Sigma] \approx 0$ means the event $\Sigma$ occurs almost never.
+> * $P[\Sigma] \approx 1$ means the event $\Sigma$ occurs almost surely.
+>   
+> For events $\mathcal{A}$ and $\mathcal{B}$:
+> * $P[\mathcal{A}] \approx P[\mathcal{B}]$: means both events have essentially the same probability.
 
-*Missing lats few minutes in the podcast, no sound*
 
 
