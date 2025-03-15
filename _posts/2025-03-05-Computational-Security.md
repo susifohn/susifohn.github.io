@@ -143,7 +143,7 @@ then $f$ is negligible.
 * $\lambda ^{-100}$ is not negligible
 ---
 **Def**
-> For two functions $p$, $q$ write $p \approx q$  iff $| p(x) -q(x)|$  is negligible.
+> For two functions $f,g:\mathcal{N} \rightarrow \mathcal{R}$ write $f \approx g$  iff $| f(\lambda) -g(\lambda)|$  is a negligible function.
 >
 > Extend notion $\approx$ to probabilities as follows:
 > For event $\Sigma$:
