@@ -25,3 +25,14 @@ Our previous security definition for *interchangeability* requires the two libra
 
 ### Example
 Take the two libraries
+
+![](../assets/images/example4_5.png.jpg)
+
+One strategy of an $A_q$ could be to try $q$ times. Rather than calculating the exavt probabilita, we use union bound to give an upper bound:
+
+$$P[A_q \diamond L_l \implies 1] \le P[1^{st} \ \text{returns true}] + P[2^{nd} \ \text{returns true}] + \ldots = q\cdot 2^{-\lambda}$$
+
+Thus $A_q$ has negligible probability to distinguish the two libreries. But we have to show this for all ppt $A$. this leads us to the following 
+## Bad-Event Lemma
+
+
