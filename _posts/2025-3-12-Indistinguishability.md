@@ -1,7 +1,7 @@
 ---
 title: 3 Second part 
 categories: [cryptography]
-tags: [unibe, indistinguishability, birthday probabilities, bad event lemma]     # TAG names should always be lowercase
+tags: [unibe, indistinguishability, birthday probabilities, birthday paradox, bad event lemma]     # TAG names should always be lowercase
 math: true
 ---
 
@@ -34,5 +34,42 @@ $$P[A_q \diamond L_l \implies 1] \le P[1^{st} \ \text{returns true}] + P[2^{nd} 
 
 Thus $A_q$ has negligible probability to distinguish the two libreries. But we have to show this for all ppt $A$. this leads us to the following 
 ## Bad-Event Lemma
+A rare event, helping the adversary to distinguish the libraries, can be seen as a bad event. E.g. the adversary guesses our key. In that case, we can bound an Attackers advantage by the probability of the bad event. Formally
+> **Lemma**
+> Let $L_{left}$ and $L_{right}$ be libraries, that define a variable `bad` initialized to 0 (False). If both libraries have identical code, except for code blocks reachable only `if bad = 1` statement, then
+>
+> $$ \left| Pr[A \diamond L_{left} \implies 1] - Pr[A \diamond L_{right} \implies 1] \right| \le Pr[A \diamond L_{left} \ \text{sets bad} =1]$$
 
+**Remark** We can also use $L_{right}$ instead, because the code is the same, except behind the `if bad`.
+
+*Proof* Let $A$ be any calling program fix. Define two events
+* $B_l$ the event that $A \diamond L_l$ sets `bad` =1 at some point
+* $B_r$ same but for $L_r$
+
+Let's write $\bar{B}$ for the complement event i.e. `bad`= 0. \
+Observe $Pr[B_l] = Pr[B_r]$ because the code executed to affect `bad` is in both libraries the same. And remember *Gesetz der totalen Wahrscheinlichkeit*: $P(A) = P(A|B) \cdot P(B) + P(A|\bar{B}) \cdot P(\bar{B})$. Write 
+
+* $Pr[A \diamond L_{left} \implies 1] = \ldots$
+* $Pr[A \diamond L_{right} \implies 1] = \ldots$
+* put in $advantage_A= \left| Pr[A \diamond L_{left} \implies 1] - Pr[A \diamond L_{right} \implies 1] \right|$
+
+Which simplifies finally to 
+
+$$advantage_A \le p^* = Pr[B_l] = Pr[A \diamond L_l \ \text{sets bad}=1]$$
+
+$\square$ *(for all details refer to [R21 p74ff)*
+
+### Example
+Do the example above with the simple predict() as exercise. See solution in [R21 page 75f].
+
+# Birthday Probabilities
+* Sampling with replacement
+* Collision Probabilities in gerneral
+
+  Take $q$ samples {1,...,N}. What is the probability of having at least two equal?
+
+  
+
+
+ 
 
