@@ -1,7 +1,7 @@
 ---
 title: 3 Second part 
 categories: [cryptography]
-tags: [unibe, indistinguishability, birthday probabilities, birthday paradox, bad event lemma]     # TAG names should always be lowercase
+tags: [unibe, indistinguishability, birthday probabilities, birthday paradox, bad event lemma, collisions]     # TAG names should always be lowercase
 math: true
 ---
 
@@ -62,11 +62,17 @@ $\square$ *(for all details refer to [R21 p74ff)*
 ### Example
 Do the example above with the simple predict() as exercise. See solution in [R21 page 75f].
 
-# Birthday Probabilities
-* Sampling with replacement
+# Collision Probabilities
+### Video of the week
+Hashing Algorithms and Security
+
+!(Computerphile[https://www.youtube.com/watch?v=b4b8ktEV4Bg]
+
+## Intro - Birthday paradox (23!)
+* Sampling with replacement. Take a glass full of different balls. What is the probability, drawing the same ball twice.
 * Collision Probabilities in gerneral
 
-  Take $q$ samples {1,...,N}. What is the probability of having at least two equal?
+Take $q$ samples {1,...,N}. What is the probability of having at least two equal?
 
   
 
