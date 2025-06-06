@@ -26,7 +26,7 @@ Our previous security definition for *interchangeability* requires the two libra
 ### Example
 Take the two libraries
 
-![](../assets/images/example4_5.png)
+image::../assets/images/example4_5.png[]
 
 One strategy of an $A_q$ could be to try $q$ times. Rather than calculating the exavt probabilita, we use union bound to give an upper bound:
 
