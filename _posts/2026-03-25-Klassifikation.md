@@ -6,11 +6,11 @@ math: true
 ---
 
 # Klassifikation
-*Ref: Neuronale Netze, Tariq R. O'REILLY*
+Eine kleine Zusammenfassung aus dem Buch *Neuronale Netze, Tariq R. O'REILLY*.
 
 ## Mit Trennlinie
 
-Hier haben wir zwei Klassen, nämlich {Rupen, Käfer} und die Features {Länge, Breite}.
+Hier haben wir zwei Klassen, nämlich {Raupen, Käfer} und die Features {Länge, Breite}.
 Die Lineare Regression ist hier nicht nützlich. 
 
 ![Klassification](../assets/images/Insect_classes1.png)
@@ -21,45 +21,19 @@ Vielmehr suchen wir eine Trennlinie, welche es uns erlaubt, ein unbakanntes Inse
 
 
 > #### Frage
-> Warum kann eine optimale Trennlinie im allgemeinen nicht als $f(x)=ax+b$ definiert werden?
+> Warum kann eine optimale Trennlinie im allgemeinen nicht als $f(x)=ax+b$ modelliert werden?
 
 >#### Übung
-
->Benutze *python* und *matplotlib* um die zwei Datenpunkte in einem Diagramm zu visualisieren. 
-
+>
+>Benutze *python* und  *matplotlib* um die zwei folgenden Datenpunkte in einem Diagramm zu visualisieren. 
+>
 >| Trainingsdaten | B(Breite) | L (Länge) | BxL | Punktfarbe
 >|---|---:|---:|---|---|
 >| Marienkäfer | 3.0 | 1.0 | 3.0 × 1.0 |grün|
 >| Raupe | 1.0 | 3.0 | 1.0 × 3.0 |rot|
-
+>
 >Zeichne eine beliebige Gerade ein, in blau, welche die beiden Punkte separiert. 
 >Beschrifte die Achsen und füge eine Legende sowie einen Titel hinzu.
-
-Lösung zur Übung
-```python
-import matplotlib.pyplot as plt
-
-# Data points
-x = [1, 3]
-y = [3, 1]
-
-# Plot each point separately so they can appear in the legend
-plt.scatter(1, 3, color="red", label="Raupe")
-plt.scatter(3, 1, color="green", label="Marienkäfer")
-
-# Labels and title
-plt.xlabel("X")
-plt.ylabel("Y")
-plt.title("Scatter Plot of Two Points")
-
-# Add legend
-plt.legend()
-
-# Show plot
-plt.show()
-```
-Antwort zur Frage: Eine Trennlinie kann auch senkrecht sein, das wäre aber eine lineare Funktion mit Steigung $\infty$. 
-
 
 ## Mit Aktivierungsfunkion
 
@@ -131,6 +105,30 @@ plt.legend()
 
 # Show plot
 plt.show()
+``` 
+
+## Lösungen
+Lösung zur Übung
+```python
+import matplotlib.pyplot as plt
+
+# Data points
+x = [1, 3]
+y = [3, 1]
+
+# Plot each point separately so they can appear in the legend
+plt.scatter(1, 3, color="red", label="Raupe")
+plt.scatter(3, 1, color="green", label="Marienkäfer")
+
+# Labels and title
+plt.xlabel("X")
+plt.ylabel("Y")
+plt.title("Scatter Plot of Two Points")
+
+# Add legend
+plt.legend()
+
+# Show plot
+plt.show()
 ```
-
-
+Antwort zur Frage: Eine Trennlinie kann auch senkrecht sein, das wäre aber eine lineare Funktion mit Steigung $\infty$. 
