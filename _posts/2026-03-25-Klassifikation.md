@@ -6,7 +6,7 @@ math: true
 ---
 
 # Klassifikation
-Eine kleine Zusammenfassung aus dem Buch *Neuronale Netze, Tariq R. O'REILLY*.
+Eine kleine Zusammenstellung von Inhalten aus dem Buch *Neuronale Netze, Tariq R. O'REILLY*. 
 
 ## Mit Trennlinie
 
@@ -132,3 +132,6 @@ plt.legend()
 plt.show()
 ```
 Antwort zur Frage: Eine Trennlinie kann auch senkrecht sein, das wäre aber eine lineare Funktion mit Steigung $\infty$. 
+
+# Das Gradientenverfahren
+coming..
