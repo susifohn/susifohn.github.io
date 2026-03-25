@@ -133,5 +133,4 @@ plt.legend()
 plt.show()
 ```
 
-Du kannst drei Personen auf 5 mögliche Arten gruppieren. Was denkst du, wieviele Möglichkeiten gibt es mit deiner Klasse? Es sind vermutlich mehr als du denkst. Dieses Problem ist nur rekursiv lösbar! Findest du eine explizite Formel, wirst du sehr berühmt. 
 
