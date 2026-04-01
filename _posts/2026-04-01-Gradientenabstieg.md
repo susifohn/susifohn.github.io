@@ -1,7 +1,7 @@
 ---
 title: Gradient Descent
 categories: [Machine Learning ]
-tags: [gibb, tsb]     # TAG names should always be lowercase
+tags: [gibb, tsb, Lernrate]     # TAG names should always be lowercase
 math: true
 ---
 
@@ -47,9 +47,11 @@ Mit dem Gradientenverfahren wollen wir anhand von vielen Trainingsdaten den Fehl
 # Von der Intuition zur mathematischen Beschreibung
 Die Idee des Gradientenverfahrens lässt sich mathematisch mit dem Begriff der Ableitung beschreiben. Die Ableitung gibt an, wie stark sich der Fehler verändert, wenn wir einen Modellparameter ein kleines Stück verändern. Sie enthält also genau die Information, die wir für den „Abstieg ins Tal“ benötigen: in welche Richtung wir gehen müssen und wie gross der nächste Schritt sein sollte. Bei nur einem Parameter entspricht dies der Steigung der Kurve an der aktuellen Stelle. Bei mehreren Parametern spricht man vom Gradienten. Dieser fasst die partiellen Ableitungen nach allen Parametern zusammen und zeigt damit die Richtung des stärksten Anstiegs der Fehlerfunktion an. Um den Fehler zu verkleinern, bewegen wir uns deshalb jeweils entgegen der Gradientenrichtung.
 
-Bei der linearen Regression suchen wir die Gewichte $m$ und $b$ der Geraden $y=mx+b$.
+Bei der linearen Regression suchen wir die Gewichte $m$ und $b$ der Geraden 
 
-so, dass sie die Trainingsdaten möglichst gut beschreibt. Für jeden Eingabewert $x_i$ berechnet das Modell einen Vorhersagewert
+$$y=mx+b$$
+
+so, dass sie die Trainingsdaten möglichst gut beschreibt. Für jeden Eingabewert $x_i \in \mathbb{R}$ berechnet das Modell einen Vorhersagewert
 
 $\hat{y}=m x_i +b$
 
@@ -61,6 +63,39 @@ $$L(m,b) = \frac{1}{n}\sum^{n}_{i=1} (y_i - (mx_i+b))^2$$
 
 welche es zu minimieren gilt.
 
+Das **Gradientenverfahren** geschieht nun iterativ. Für zufällige Startwerte für $m,b$ bestimmen wir nun die Änderung von $L$ wenn $m$ geändert wir und $b$ fix bleibt und dasselbe bei einer Änderung von $b$ und bestimmen so die neuen Werte wie folgt:
+
+$$m_{neu} = m_{vorher} - \alpha \frac{\Delta L}{\Delta m}$$
+$$b_{neu} = b_{vorher} - \alpha \frac{\Delta L}{\Delta b}$$
+
+Dabei ist $\alpha$ die **Lernrate**. Sie bestimmt die Schrittgrösse. Befinden wir und beim Minimum, ist $\Delta L \approx 0$ und die Gewichte ändern sich praktisch nicht mehr. 
+
+Die Wahl von $\alpha$ ist wichtig. Ist die Schrittlänge zu gross, pendeln wir um des Minimum herum. Ist $\alpha$ zu klein, brauchen wir zuviele Schritte und das Verfahren dauert zu lange. 
+
+> #### Hinweis zur Differentialrechnung
+> Der Ausdruck $\frac{\Delta L}{\Delta m}$ heisst mathematisch die **partielle Ableitung** von $L$ nach $m$ und wird als 
+>
+> $$ \frac{\partial L}{\partial m}$$
+> geschrieben.
+> Bei einer Funktion $f(x)$ mit nur einem Argument ist das sie **Ableitung** von $f$ nach $x$ und wird geschrieben als 
+> $$\frac{df}{dx}$$
+>
+> Der **Gradient** wird auch mit dem Nabla Symbol $\nabla$ geschrieben und ist ein Vektor mit allen partiellen Ableitungen 
+> $$
+\nabla L(\mathbf{w}) =
+\begin{pmatrix}
+\frac{\partial L}{\partial m} \\[6pt]
+\frac{\partial L}{\partial b}
+\end{pmatrix}
+> $$
+> $$
+\mathbf{w} =
+\begin{pmatrix}
+m \\
+b
+\end{pmatrix}
+> $$
+> Die Ableitungen können mit Hilfe der Differentialrechnung bestimmt werden, worauf wir hier nicht weiter eingehen. 
 
 
 ## Lösungen
