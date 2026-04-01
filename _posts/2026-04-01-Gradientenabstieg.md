@@ -68,7 +68,7 @@ Das **Gradientenverfahren** geschieht nun iterativ. Für zufällige Startwerte f
 $$m_{neu} = m_{vorher} - \alpha \frac{\Delta L}{\Delta m}$$
 $$b_{neu} = b_{vorher} - \alpha \frac{\Delta L}{\Delta b}$$
 
-Dabei ist $\alpha$ die **Lernrate**. Sie bestimmt die Schrittgrösse. Befinden wir und beim Minimum, ist $\Delta L \approx 0$ und die Gewichte ändern sich praktisch nicht mehr. 
+Dabei ist $\alpha$ die **Lernrate**. Sie bestimmt die Schrittgrösse. Befinden wir uns beim Minimum, ist $\Delta L \approx 0$ und die Gewichte ändern sich praktisch nicht mehr. 
 
 Die Wahl von $\alpha$ ist wichtig. Ist die Schrittlänge zu gross, pendeln wir um des Minimum herum. Ist $\alpha$ zu klein, brauchen wir zuviele Schritte und das Verfahren dauert zu lange. 
 
