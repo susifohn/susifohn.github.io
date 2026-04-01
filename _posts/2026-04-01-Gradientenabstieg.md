@@ -104,5 +104,5 @@ ax.legend()
 
 plt.show()
 ```
-Antwort zur Frage: Eine Trennlinie kann auch senkrecht sein, das wäre aber eine lineare Funktion mit Steigung $\infty$. 
+
 
