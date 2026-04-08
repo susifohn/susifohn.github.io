@@ -70,7 +70,7 @@ $$b_{neu} = b_{vorher} - \alpha \frac{\Delta L}{\Delta b}$$
 
 Dabei ist $\alpha$ die **Lernrate**. Sie bestimmt die Schrittgrösse. Befinden wir uns beim Minimum, ist $\Delta L \approx 0$ und die Gewichte ändern sich praktisch nicht mehr. 
 
-Die Wahl von $\alpha$ ist wichtig. Ist die Schrittlänge zu gross, pendeln wir um des Minimum herum. Ist $\alpha$ zu klein, brauchen wir zuviele Schritte und das Verfahren dauert zu lange. 
+Die Wahl von $\alpha$ ist wichtig. Ist die Schrittlänge zu gross, pendeln wir um das Minimum herum. Ist $\alpha$ zu klein, brauchen wir zuviele Schritte und das Verfahren dauert zu lange. 
 
 > #### Hinweis zur Differentialrechnung
 > Der Ausdruck $\frac{\Delta L}{\Delta m}$ heisst mathematisch die **partielle Ableitung** von $L$ nach $m$ und wird als 
@@ -84,7 +84,7 @@ Die Wahl von $\alpha$ ist wichtig. Ist die Schrittlänge zu gross, pendeln wir u
 > $$
 \nabla L(\mathbf{w}) =
 \begin{pmatrix}
-\frac{\partial L}{\partial m} \\[6pt]
+\frac{\partial L}{\partial m} \\[4pt]
 \frac{\partial L}{\partial b}
 \end{pmatrix}
 > $$
