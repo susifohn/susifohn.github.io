@@ -78,10 +78,92 @@ durch Gleichsetzen von $\mathbb{P}(A \cap B) = \mathbb{P}(B \cap A)$ erhalten wi
 
 $$\mathbb{P}(A | B) = \frac{\mathbb{P}(B|A) \; \mathbb{P}(A)}{\mathbb{P}(B)}$$
 
+## Totale Wahrscheinlichkeit und das Theorem von Bayes
+Todo mit Summe...
+
+## Unabhängigkeit
+Wir brauchen noch folgende Eigenschaft. Sind die Ereignisse $A$, $B$ unabhängig, gilt
+$$\mathbb{P}(A,B|D) = \mathbb{P}(A|D)\mathbb{P}(B|D)$$
+
 # Naive Bayes Classifier
-Todo
+## Recap
 
+- **P(A|B):**(Posterior) Das ist die Wahrscheinlichkeit, dass Ereignis **A** eintritt, **gegeben dass B eingetreten ist**.  
+Wenn wir wissen, dass **B** bereits passiert ist (z. B. die E-Mail enthält das Wort „buy“), möchten wir bestimmen, wie wahrscheinlich es ist, dass **A** wahr ist (also dass die E-Mail Spam ist).
 
+- **P(B|A):**(Likelihood) Das ist die Wahrscheinlichkeit, dass **B** eintritt, **wenn A bereits eingetreten ist**.  
+  Wenn wir also wissen, dass die E-Mail Spam ist (**A**), dann sagt uns diese Wahrscheinlichkeit, wie wahrscheinlich es ist, dass sie das Wort „buy“ (**B**) enthält.
+
+- **P(A):**(Prior) Das ist die **a-priori-Wahrscheinlichkeit** von **A**.  
+  Sie beschreibt, wie wahrscheinlich es ist, dass eine E-Mail Spam ist, **bevor** wir bestimmte Merkmale wie **B** betrachten.
+
+- **P(B):** (Prior/Evidence)Das ist die **a-priori-Wahrscheinlichkeit** von **B**.  
+  Sie beschreibt, wie wahrscheinlich es ist, das Merkmal **B** allgemein zu beobachten (also z. B. das Wort „offer“), **unabhängig davon**, ob **A** eintritt oder nicht.
+
+## Preprocessing the Emails
+Es gibt diverse Fragestellungen bei der Verarbeitung von Text. Z.B. Ungang mit Rechtschreibung, Slang etc. Ein Email soll eine Liste aus Wörtern sein, mit folgendem Ansatz:
+
+- Wortwiederholungen ignorieren
+- Alle Grossbuchstaben umwandeln in Kleinbuchstaben
+- Alle nicht-Buchstaben ignorieren. D.h. keine Satzzeichen und Zahlen.
+
+Zum Beispiel wird das Email ```"You buy 99 Viagra!!!"``` zu ```['you', 'buy', 'viagra']``` 
+
+## Bayes Theorem naiv anwenden
+Wir wollen folgende Klassifikation beantworten: Ist das Email "You buy 99 Viagra!!!" spam=1 oder no-spam=0. 
+
+Dazu betrachten wir die Wahrscheinlichkeit 
+$$\mathbb{P}(\text{spam}| \{you,buy ,viagra\})$$
+und
+$$\mathbb{P}(\text{no-spam}| \{you, buy, viagra\})$$
+
+Die höhere Wahrscheinlichkeit gibt uns die Klasse an. Anwenden von Bayes gibt
+
+$$\mathbb{P}(\text{spam}| \{you, buy, viagra\})= \frac{\mathbb{P}(\{you, buy, viagra\})|spam)\mathbb{P}(spam)}{\mathbb{P}(\{you, buy, viagra\})|spam)\mathbb{P}(spam)+\mathbb{P}(\{you, buy, viagra\})|no-spam)\mathbb{P}(no-spam)}\\$$
+
+Unsere naive Annahme ist, dass die Wörter unabhängig sind, wenn die Klasse vorgegeben ist. Offensichtlich ist das nicht ganz korrekt, denn die Sprache hat eine Struktur. Der naive Ansatz liefert jedoch in vielen Anwendungen sehr gute Resultate. Sind also die Ereignisse $A$, $B$ , $C$ unabhängig, gilt
+$$\mathbb{P}(A,B,C|S) = \mathbb{P}(A|S)\mathbb{P}(B|S)\mathbb{P}(C|S)$$
+
+Damit die Formel übersichtlicher wird, schreiben wir nur den Anfangsbuchstaben der Wörter und erhalten folgende gesuchte Wahrscheinlichkeit:
+
+$$P(s|y,b,v) = \frac{P(y|s)P(b|s)P(v|s)P(s)}{P(y|s)P(b|s)P(v|s)P(s)+P(y|\bar s)P(b|\bar s)P(v|\bar s)P(\bar s)}$$
+
+## Von bekannten Daten lernen
+Um die diversen Wahrscheinlichkeite im Ausdruck oben zu bestimmen, schauen wir unsere Trainingsdaten an.
+
+|preprocessed Email|Label|
+|:---|---|
+|buy help| spam|
+|you good|no-spam|
+|viagra help you|spam|
+|good viagra help|spam|
+|need to buy viagra for health|no-spam|
+|you buy viagra|?|
+
+Die Wahrscheinlichkeit ein Spam-Mail zu erhalten ist 
+$$P(s) = \frac{3}{5}$$
+und für ein no-spam
+$$P(\bar s) = \frac{2}{5}$$
+
+Um $P(word|spam)$ zu bestimmen betrachten wir alle Spam-Emails welche das Wort beinhalten und teilen durch die Anzahl Spam-Emails. Und tun dasselbe für Wörter in den No-Spam-Emails. So erhalten wir alle gesuchten Wahrscheinlichkeiten wie folgt:
+- $P(y|s)=\frac{1}{3}$
+- $P(b|s)=\frac{1}{3}$
+- $P(v|s)=\frac{2}{3}$
+- $P(y|\bar s)=\frac{1}{2}$
+- $P(b|\bar s)=\frac{1}{2}$
+- $P(v|\bar s)=\frac{1}{2}$
+
+und können diese in die Formel oben einsetzen
+
+$$P(s|y,b,v) = \frac{\frac{1}{3}\frac{1}{3}\frac{2}{3}\frac{3}{5}}{\frac{1}{3}\frac{1}{3}\frac{2}{3}\frac{3}{5}+\frac{1}{2}\frac{1}{2}\frac{1}{2}\frac{2}{5}} \approx 0.470588$$
+
+und 
+$$P(\bar s|y,b,v) = 1-P(s|y,b,v) \approx 0.529412$$
+
+Somit klassifizieren wir das Email "You buy Viagra!!!" als No-Spam. 
+
+### Hinweis
+Die Trainingsdaten im Beispiel sind absichtlich so gewählt, dass keine Wahrscheinlichkeit 0 oder 1 ist. Das kann z.B. passieren, wenn "buy" nicht vorkommt in allen No-Spam-Emails, dass ist $P(b|\bar s)=\frac{0}{2}$, was den Klassifizierer instabil macht. Das Problem wird mit **Laplace Smoothing** behoben. Der _sklearn.naive_bayes.BernoulliNB_ Klassifizierer verwendet Standardmässig Laplace Smoothing.
 
 
 
