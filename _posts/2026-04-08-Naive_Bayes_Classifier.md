@@ -78,11 +78,21 @@ durch Gleichsetzen von $\mathbb{P}(A \cap B) = \mathbb{P}(B \cap A)$ erhalten wi
 
 $$\mathbb{P}(A | B) = \frac{\mathbb{P}(B|A) \; \mathbb{P}(A)}{\mathbb{P}(B)}$$
 
-## Totale Wahrscheinlichkeit und das Theorem von Bayes
-Todo mit Summe...
+## Totale Wahrscheinlichkeit
+Der Satz der totalen Wahrscheinlichkeit ermöglicht es, die Einzelwahrscheinlichkeiten aus den bedingten Wahrscheinlichkeiten zu berechnen. 
+
+Mit einer Partition von $\Omega = B \cup \bar B$ gilt
+
+$$P(A) = P(A|B) \cdot P(B) + P(A| \bar B)\cdot P(\bar B) $$
+
+Das gilt analog für eine beliebige Anzahl Partitionen, hier nur zwei mit $B$ und dem Komplement $\bar B = \Omega \setminus B$. 
 
 ## Unabhängigkeit
-Wir brauchen noch folgende Eigenschaft. Sind die Ereignisse $A$, $B$ unabhängig, gilt
+Die Ereignisse $A$ und $B$ sind voneinander unabhängig wenn gilt
+$$P(A) \cdot P(B) = P(A\cap B)$$
+
+Daraus folgt, weil $P(A \cap B) = P(A,B)$ = Wahrscheinlichkeit, dass $A$ **und** $B$ eintreten
+
 $$\mathbb{P}(A,B|D) = \mathbb{P}(A|D)\mathbb{P}(B|D)$$
 
 # Naive Bayes Classifier
@@ -163,7 +173,7 @@ $$P(\bar s|y,b,v) = 1-P(s|y,b,v) \approx 0.529412$$
 Somit klassifizieren wir das Email "You buy Viagra!!!" als No-Spam. 
 
 ### Hinweis
-Die Trainingsdaten im Beispiel sind absichtlich so gewählt, dass keine bedingte Wahrscheinlichkeit 0 oder 1 ist. Das kann z.B. passieren, wenn "buy" nicht vorkommt in allen No-Spam-Emails, dann ist $P(b|\bar s)=\frac{0}{2}$, was den Klassifizierer instabil macht. Das Problem wird mit **Laplace Smoothing** behoben. Der [sklearn.naive_bayes.BernoulliNB](sklearn.naive_bayes.BernoulliNB) Klassifizierer verwendet Standardmässig Laplace Smoothing.
+Die Trainingsdaten im Beispiel sind absichtlich so gewählt, dass keine bedingte Wahrscheinlichkeit 0 oder 1 ist. Das kann z.B. passieren, wenn "buy" nicht vorkommt in allen No-Spam-Emails, dann ist $P(b|\bar s)=\frac{0}{2}$, was den Klassifizierer instabil macht. Das Problem wird mit **Laplace Smoothing** behoben. Der [sklearn.naive_bayes.BernoulliNB](sklearn.naive_bayes.BernoulliNB) Klassifizierer verwendet Standardmässig Laplace Smoothing, mit $\alpha =1$ und $n=2$ weil jedes Feature (=Wörter) binär ist, als present 1 oder nicht-present 0. Z.B. $P(buy|spam) = \frac{1+\alpha}{3+n\alpha}=\frac{1+1}{3+2}$. Mit dem [sklearn.naive_bayes.MultinomialNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html#sklearn.naive_bayes.MultinomialNB) Klassifier ist $n=$ # Wörter. 
 
 Hier haben wir diskrete Features betrachtet. Der Naive Bayes Klassifzierer kann auch für reelle Features eingesetzt werden, siehe [sklearn.naive_bayes.GaussianNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB). Das wäre z.B. der Fall bei Features {Breite, Länge} beim Bestimmen von Insekten als Raupe oder Käfer.
 
