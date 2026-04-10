@@ -163,7 +163,9 @@ $$P(\bar s|y,b,v) = 1-P(s|y,b,v) \approx 0.529412$$
 Somit klassifizieren wir das Email "You buy Viagra!!!" als No-Spam. 
 
 ### Hinweis
-Die Trainingsdaten im Beispiel sind absichtlich so gewählt, dass keine Wahrscheinlichkeit 0 oder 1 ist. Das kann z.B. passieren, wenn "buy" nicht vorkommt in allen No-Spam-Emails, dass ist $P(b|\bar s)=\frac{0}{2}$, was den Klassifizierer instabil macht. Das Problem wird mit **Laplace Smoothing** behoben. Der _sklearn.naive_bayes.BernoulliNB_ Klassifizierer verwendet Standardmässig Laplace Smoothing.
+Die Trainingsdaten im Beispiel sind absichtlich so gewählt, dass keine bedingte Wahrscheinlichkeit 0 oder 1 ist. Das kann z.B. passieren, wenn "buy" nicht vorkommt in allen No-Spam-Emails, dann ist $P(b|\bar s)=\frac{0}{2}$, was den Klassifizierer instabil macht. Das Problem wird mit **Laplace Smoothing** behoben. Der [sklearn.naive_bayes.BernoulliNB](sklearn.naive_bayes.BernoulliNB) Klassifizierer verwendet Standardmässig Laplace Smoothing.
+
+Hier haben wir diskrete Features betrachtet. Der Naive Bayes Klassifzierer kann auch für reelle Features eingesetzt werden, siehe [sklearn.naive_bayes.GaussianNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB). Das wäre z.B. der Fall bei Features {Breite, Länge} beim Bestimmen von Insekten als Raupe oder Käfer.
 
 
 
