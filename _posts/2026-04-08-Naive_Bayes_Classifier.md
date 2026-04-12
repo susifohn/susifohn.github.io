@@ -21,11 +21,11 @@ Um den sogenannten *Naive Bayes Classifier* zu verstehen und auf eigene Problems
 # Grundbegriffe der Wahrscheinlichkeitsrechnung
 
 #### Definitionen
-Ein *Zufallsexperiment* ist ein Vorgang, dessen Ergebnis nicht mit Sicherheit vorhergesagt werden kann, dessen mögliche Ergebnisse jedoch bekannt sind.
+Ein *Zufallsexperiment* ist ein Vorgang, dessen Ergebnis nicht vorhergesagt werden kann, dessen mögliche Ergebnisse jedoch bekannt sind.
 
-Die Menge aller möglichen Ergebnisse eines Zufallsexperiments heißt *Ergebnisraum* (*sample space*) und wird üblicherweise mit $\Omega$. 
+Die Menge aller möglichen Ergebnisse eines Zufallsexperiments heißt *Ergebnisraum* (*sample space*) und bezeichnen wir mit $\Omega$. 
 
-Ein *Ereignis* (*event*) ist eine Teilmenge des Ergebnisraums. Ein einzelnes mögliches Ergebnis eines Zufallsexperiments nennt man *Elementarereignis*.
+Ein *Ereignis* (*event*) ist eine Teilmenge des Ergebnisraums. Ein Ereignis mit genau einem Ergebnis, wird  *Elementarereignis* genannt. 
 
 *Laplace-Experimente* sind Zufallsexperimente bei denen jedes Elementarereignis die gleiche Wahrscheinlichkeit besitzt. 
 
@@ -38,39 +38,41 @@ $$ \Omega = \{\text{diabetisch}, \text{nicht-diabetisch}\}$$
 Dies ist kein Laplace-Experiment, da die beiden Ergebnisse nicht gleich wahrscheinlich sind. 
 
 **Beispiel 2:**
-Wir werfen einen fairen Würfel. Der Ausgang des Würfelexperiments ist zufällig. Da alle sechs Augenzahlen gleich wahrscheinlich sind, handelt es sich um ein Laplace-Experiment.
+Wir werfen einen fairen Würfel. Das Ergebnis des Würfelexperiments ist zufällig. Die Augenzahlen auf den sechs Seiten sind die Elementarereignisse und alle gleich wahrscheinlich. Somit handelt es sich um ein Laplace-Experiment.
 $$\Omega = \{1,2,3,4,5,6\}$$
 
-Die Wahrscheinlichkeit für das Ereignis $W$ *die gewürfelte Zahl ist gerade* berechnet sich wie folgt:
-$$\mathbb{P}(W) = \frac{|\{2,4,6\}|}{|\{1,2,3,4,5,6\}|} = \frac{3}{6}$$
+Die Wahrscheinlichkeit für das Ereignis $E$ dass die gewürfelte Zahl gerade ist $\{2,4,6\} \subseteq \{1,2,3,4,5,6\}$ berechnet sich wie folgt:
+$$\mathbb{P}(E) = \frac{|\{2,4,6\}|}{|\{1,2,3,4,5,6\}|} = \frac{1}{2}$$
+
+- Zufallsexperiment: Ein Würfelwurf
+- Ergebnisraum: $\Omega=\{1,2,3,4,5,6\}$
+- Elementarereignis: die Mengen $\{1\}...\{6\}$
+- Ereignis: $\{2,4,6\}$ "gerade Zahl"
  
 **Beispiel 3:**
 Wir werfen zwei faire Würfel. Ein Ergebnis ist nun ein Zahlenpaar. Der Ergebnisraum besteht aus 36 gleich wahrscheinlichen Elementarereignissen.
 $$\Omega = \{(1,1), (1,2), \ldots, (6,5), (6,6)\}$$
 
-Die Wahrscheinlichkeit für das Ereignis $E$ *gewürfelte Summe > 7* lässt sich berechnen, indem alle günstigen Kombinationen gezählt werden.
+Die Wahrscheinlichkeit für das Ereignis $E=\{\text{gewürfelte Summe > 7\}}$ lässt sich berechnen, indem alle günstigen Kombinationen gezählt werden.
 $$E = \{(2,6) (6,2) (3,5) (5,3) (3,6) (6,3) (4,4) (4,5) (5,4) (4,6) (6,4) (5,5) (5,6) (6,5) (6,6)\}$$
-$$\mathbb{P}(Summe \gt 7) = \frac{|E|}{|\Omega|} = \frac{15}{36}$$
+$$\mathbb{P}(Summe \gt 7) = \frac{|E|}{|\Omega|} = \frac{15}{36} \approx 0.4167$$
 
 # Bedingte Wahrscheinlichkeit und das Theorem von Bayes
+
 Wir betrachten einen Ergebnisraum $\Omega$ sowie zwei Ereignisse $A$ und $B$. 
 
 ![Ergebnisraum](../assets/images/bayes_mengenab.png)
 
 Dann gilt 
 
-$$\mathbb{P}(A) = \frac{|A|}{|\Omega|} \text{,\;\;\;} \mathbb{P}(B) = \frac{|B|}{|\Omega|}$$
+$$\mathbb{P}(A) = \frac{|A|}{|\Omega|} ,\;\;\; \mathbb{P}(B) = \frac{|B|}{|\Omega|}$$
 
 > #### Definition
-> Die bedingte Wahrscheinlichkeit beschreibt die Wahrscheinlichkeit eines Ereignisses $A$, **gegeben dass** ein anderes Ereignis $B$ bereits eingetreten. Sie ist definiert als
+> Die bedingte Wahrscheinlichkeit beschreibt die Wahrscheinlichkeit eines Ereignisses $A$, **gegeben dass** ein anderes Ereignis $B$ bereits eingetreten. Sie ist für $B \ne \emptyset$ definiert als
 >
-> $$\mathbb{P}(A | B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} = \frac{\frac{A \cap B}{|\Omega|}}{\frac{|B|}{|\Omega|}} = \frac{|A \cap B|}{|B|}, \;\; B \ne \emptyset$$
+> $$\mathbb{P}(A | B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)} = \frac{\frac{A \cap B}{|\Omega|}}{\frac{|B|}{|\Omega|}} = \frac{|A \cap B|}{|B|}$$
 
-Es gilt ausserdem
-
-$$\mathbb{P}(A | B) = \frac{\mathbb{P}(A \cap B)}{\mathbb{P}(B)}$$
-
-und aufgrund der Symmetrie
+Es gilt ausserdem aufgrund der Symmetrie
 
 $$\mathbb{P}(B | A) = \frac{\mathbb{P}(B \cap A)}{\mathbb{P}(A)}$$
 
@@ -87,7 +89,11 @@ $$P(A) = P(A|B) \cdot P(B) + P(A| \bar B)\cdot P(\bar B) $$
 
 Das gilt analog für eine beliebige Anzahl Partitionen, hier nur zwei mit $B$ und dem Komplement $\bar B = \Omega \setminus B$. 
 
+Die Herleitung ist mit der Definition der bedingten Wahrscheinlichkeit und der Einsicht, dass $A = (A \cap B) \cup (A \cap \bar B)$ einfach. 
+
 ## Unabhängigkeit
+Der Naive Bayes Classifier basiert auf der Annahme der Unabhängigkeit, wie wir gleich sehen werden und welche wir noch definieren müssen.
+
 Die Ereignisse $A$ und $B$ sind voneinander unabhängig wenn gilt
 $$P(A) \cdot P(B) = P(A\cap B)$$
 
@@ -97,6 +103,7 @@ $$\mathbb{P}(A,B|D) = \mathbb{P}(A|D)\mathbb{P}(B|D)$$
 
 # Naive Bayes Classifier
 ## Recap
+Einige Begriffe, welche im Zusammenhang des maschinellen Lernens oft anzutreffen sind, werden nachfolgend erklärt.
 
 - **P(A|B):**(Posterior) Das ist die Wahrscheinlichkeit, dass Ereignis **A** eintritt, **gegeben dass B eingetreten ist**.  
 Wenn wir wissen, dass **B** bereits passiert ist (z. B. die E-Mail enthält das Wort „buy“), möchten wir bestimmen, wie wahrscheinlich es ist, dass **A** wahr ist (also dass die E-Mail Spam ist).
@@ -111,7 +118,7 @@ Wenn wir wissen, dass **B** bereits passiert ist (z. B. die E-Mail enthält das 
   Sie beschreibt, wie wahrscheinlich es ist, das Merkmal **B** allgemein zu beobachten (also z. B. das Wort „offer“), **unabhängig davon**, ob **A** eintritt oder nicht.
 
 ## Preprocessing the Emails
-Es gibt diverse Fragestellungen bei der Verarbeitung von Text. Z.B. Ungang mit Rechtschreibung, Slang etc. Ein Email soll eine Liste aus Wörtern sein, mit folgendem Ansatz:
+Es gibt diverse Fragestellungen bei der Verarbeitung von Text. Z.B. Umgang mit Rechtschreibung, Slang etc. Ein Email soll eine Liste aus Wörtern sein, mit folgendem Ansatz:
 
 - Wortwiederholungen ignorieren
 - Alle Grossbuchstaben umwandeln in Kleinbuchstaben
@@ -126,6 +133,8 @@ Dazu betrachten wir die Wahrscheinlichkeit
 $$\mathbb{P}(\text{spam}| \{you,buy ,viagra\})$$
 und
 $$\mathbb{P}(\text{no-spam}| \{you, buy, viagra\})$$
+
+Was für ersteres soviel heisst wie, gegeben das preprozessierte E-Mail {you, buy, viagra} ist eingetroffen, was ist die Wahrschienlichkeit dass es spam ist.  
 
 Die höhere Wahrscheinlichkeit gibt uns die Klasse an. Anwenden von Bayes gibt
 
