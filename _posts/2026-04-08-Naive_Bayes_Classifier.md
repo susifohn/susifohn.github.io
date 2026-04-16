@@ -10,7 +10,7 @@ math: true
 - [https://web.stanford.edu/class/archive/cs/cs109/cs109.1218/files/student_drive/9.3.pdf](https://web.stanford.edu/class/archive/cs/cs109/cs109.1218/files/student_drive/9.3.pdf)
 
 # Motivation
-Hast du dich schon mal gewundert, wie eine E-Mail als Spam markiert wird? Einer der klassischen Ansätze in den frühen Spamfiltern bestand darin, mit Wahrscheinlichkeiten zu arbeiten - insbesondere mit dem dem *Bayes' Theorem*. 
+Hast du dich schon mal gewundert, wie eine E-Mail als Spam markiert wird? Einer der klassischen Ansätze in den frühen Spamfiltern bestand darin, mit Wahrscheinlichkeiten zu arbeiten - insbesondere mit dem *Bayes' Theorem*. 
 
 Dieser sehr naive Ansatz, wie wir noch sehen werden, funktioniert für viele Klassifizierungsprobleme überraschend gut, so auch zum Klassifizieren von E-Mails. 
 
@@ -27,7 +27,7 @@ Die Menge aller möglichen Ergebnisse eines Zufallsexperiments heißt *Ergebnisr
 
 Ein *Ereignis* (*event*) ist eine Teilmenge des Ergebnisraums. Ein Ereignis mit genau einem Ergebnis, wird  *Elementarereignis* genannt. 
 
-*Laplace-Experimente* sind Zufallsexperimente bei denen jedes Elementarereignis die gleiche Wahrscheinlichkeit besitzt. 
+*Laplace-Experimente* sind Zufallsexperimente, bei denen jedes Elementarereignis die gleiche Wahrscheinlichkeit besitzt. 
 
 Die *Wahrscheinlichkeit* eines Ereignisses $A \subseteq \Omega$ ist eine Zahl zwischen $0$ und $1$ und berechnet sich bei Laplace-Experimenten als
 $$\mathbb{P}(A) = \frac{\text{Anzahl der günstigen Ergebnisse}}{\text{Anzahl der möglichen Ergebnisse}} = \frac{|A|}{|\Omega|}$$
@@ -92,9 +92,9 @@ Das gilt analog für eine beliebige Anzahl Partitionen, hier nur zwei mit $B$ un
 Die Herleitung ist mit der Definition der bedingten Wahrscheinlichkeit und der Einsicht, dass $A = (A \cap B) \cup (A \cap \bar B)$ einfach. 
 
 ## Unabhängigkeit
-Der Naive Bayes Classifier basiert auf der Annahme der Unabhängigkeit, wie wir gleich sehen werden und welche wir noch definieren müssen.
+Der Naive Bayes Classifier basiert auf der Annahme der Unabhängigkeit.
 
-Die Ereignisse $A$ und $B$ sind voneinander unabhängig wenn gilt
+Die Ereignisse $A$ und $B$ sind voneinander unabhängig, wenn gilt
 $$P(A) \cdot P(B) = P(A\cap B)$$
 
 Daraus folgt, weil $P(A \cap B) = P(A,B)$ = Wahrscheinlichkeit, dass $A$ **und** $B$ eintreten
@@ -106,7 +106,7 @@ $$\mathbb{P}(A,B|D) = \mathbb{P}(A|D)\mathbb{P}(B|D)$$
 Einige Begriffe, welche im Zusammenhang des maschinellen Lernens oft anzutreffen sind, werden nachfolgend erklärt.
 
 - **P(A|B):**(Posterior) Das ist die Wahrscheinlichkeit, dass Ereignis **A** eintritt, **gegeben dass B eingetreten ist**.  
-Wenn wir wissen, dass **B** bereits passiert ist (z. B. die E-Mail enthält das Wort „buy“), möchten wir bestimmen, wie wahrscheinlich es ist, dass **A** wahr ist (also dass die E-Mail Spam ist).
+Wenn wir wissen, dass **B** bereits passiert ist (z. B. die E-Mail enthält das Wort „buy“), möchten wir bestimmen, wie wahrscheinlich es ist, dass **A** wahr ist also, dass die E-Mail Spam ist.
 
 - **P(B|A):**(Likelihood) Das ist die Wahrscheinlichkeit, dass **B** eintritt, **wenn A bereits eingetreten ist**.  
   Wenn wir also wissen, dass die E-Mail Spam ist (**A**), dann sagt uns diese Wahrscheinlichkeit, wie wahrscheinlich es ist, dass sie das Wort „buy“ (**B**) enthält.
@@ -115,7 +115,7 @@ Wenn wir wissen, dass **B** bereits passiert ist (z. B. die E-Mail enthält das 
   Sie beschreibt, wie wahrscheinlich es ist, dass eine E-Mail Spam ist, **bevor** wir bestimmte Merkmale wie **B** betrachten.
 
 - **P(B):** (Prior/Evidence)Das ist die **a-priori-Wahrscheinlichkeit** von **B**.  
-  Sie beschreibt, wie wahrscheinlich es ist, das Merkmal **B** allgemein zu beobachten (also z. B. das Wort „offer“), **unabhängig davon**, ob **A** eintritt oder nicht.
+  Sie beschreibt, wie wahrscheinlich es ist, das Merkmal **B** allgemein zu beobachten also, z. B. das Wort „offer“), **unabhängig davon**, ob **A** eintritt oder nicht.
 
 ## Preprocessing the Emails
 Es gibt diverse Fragestellungen bei der Verarbeitung von Text. Z.B. Umgang mit Rechtschreibung, Slang etc. Ein Email soll eine Liste aus Wörtern sein, mit folgendem Ansatz:
@@ -134,13 +134,13 @@ $$\mathbb{P}(\text{spam}| \{you,buy ,viagra\})$$
 und
 $$\mathbb{P}(\text{no-spam}| \{you, buy, viagra\})$$
 
-Was für ersteres soviel heisst wie, gegeben das preprozessierte E-Mail {you, buy, viagra} ist eingetroffen, was ist die Wahrschienlichkeit dass es spam ist.  
+Was für Ersteres soviel heisst wie, gegeben das Email {you, buy, viagra} ist eingetroffen, was ist die Wahrscheinlichkeit, dass es Spam ist.  
 
 Die höhere Wahrscheinlichkeit gibt uns die Klasse an. Anwenden von Bayes gibt
 
 $$\mathbb{P}(\text{spam}| \{you, buy, viagra\})= \frac{\mathbb{P}(\{you, buy, viagra\})|spam)\mathbb{P}(spam)}{\mathbb{P}(\{you, buy, viagra\})|spam)\mathbb{P}(spam)+\mathbb{P}(\{you, buy, viagra\})|no-spam)\mathbb{P}(no-spam)}\\$$
 
-Unsere naive Annahme ist, dass die Wörter unabhängig sind, wenn die Klasse vorgegeben ist. Offensichtlich ist das nicht ganz korrekt, denn die Sprache hat eine Struktur. Der naive Ansatz liefert jedoch in vielen Anwendungen sehr gute Resultate. Sind also die Ereignisse $A$, $B$ , $C$ unabhängig, gilt
+Unsere naive Annahme ist, dass die Wörter unabhängig sind, wenn die Klasse vorgegeben ist. Offensichtlich ist das nicht korrekt, denn die Sprache hat eine Struktur. Der naive Ansatz liefert jedoch in vielen Anwendungen sehr gute Resultate. Sind also die Ereignisse $A$, $B$ , $C$ unabhängig, gilt
 $$\mathbb{P}(A,B,C|S) = \mathbb{P}(A|S)\mathbb{P}(B|S)\mathbb{P}(C|S)$$
 
 Damit die Formel übersichtlicher wird, schreiben wir nur den Anfangsbuchstaben der Wörter und erhalten folgende gesuchte Wahrscheinlichkeit:
@@ -148,7 +148,7 @@ Damit die Formel übersichtlicher wird, schreiben wir nur den Anfangsbuchstaben 
 $$P(s|y,b,v) = \frac{P(y|s)P(b|s)P(v|s)P(s)}{P(y|s)P(b|s)P(v|s)P(s)+P(y|\bar s)P(b|\bar s)P(v|\bar s)P(\bar s)}$$
 
 ## Von bekannten Daten lernen
-Um die diversen Wahrscheinlichkeite im Ausdruck oben zu bestimmen, schauen wir unsere Trainingsdaten an.
+Um die diversen Wahrscheinlichkeiten im Ausdruck oben zu bestimmen, schauen wir unsere Trainingsdaten an.
 
 |preprocessed Email|Label|
 |:---|---|
@@ -164,7 +164,7 @@ $$P(s) = \frac{3}{5}$$
 und für ein no-spam
 $$P(\bar s) = \frac{2}{5}$$
 
-Um $P(word|spam)$ zu bestimmen betrachten wir alle Spam-Emails welche das Wort beinhalten und teilen durch die Anzahl Spam-Emails. Und tun dasselbe für Wörter in den No-Spam-Emails. So erhalten wir alle gesuchten Wahrscheinlichkeiten wie folgt:
+Um $P(word|spam)$ zu bestimmen betrachten wir alle Spam-Emails, welche das Wort beinhalten und teilen durch die Anzahl Spam-Emails. Und tun dasselbe für Wörter in den No-Spam-Emails. So erhalten wir alle gesuchten Wahrscheinlichkeiten wie folgt:
 - $P(y|s)=\frac{1}{3}$
 - $P(b|s)=\frac{1}{3}$
 - $P(v|s)=\frac{2}{3}$
@@ -182,11 +182,11 @@ $$P(\bar s|y,b,v) = 1-P(s|y,b,v) \approx 0.529412$$
 Somit klassifizieren wir das Email "You buy Viagra!!!" als No-Spam. 
 
 ### Hinweise
-Die Trainingsdaten im Beispiel sind absichtlich so gewählt, dass keine bedingte Wahrscheinlichkeit 0 oder 1 ist. Das kann z.B. passieren, wenn "buy" nicht vorkommt in allen No-Spam-Emails, dann ist $P(b|\bar s)=\frac{0}{2}$, was den Klassifizierer instabil macht. Das Problem wird mit **Laplace Smoothing** behoben. Der [sklearn.naive_bayes.BernoulliNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html#sklearn.naive_bayes.BernoulliNB) Klassifizierer verwendet Standardmässig Laplace Smoothing, mit $\alpha =1$ und $n=2$ weil jedes Feature (=Wörter) binär ist, als present 1 oder nicht-present 0. Z.B. $P(buy|spam) = \frac{1+\alpha}{3+n\alpha}=\frac{1+1}{3+2}$. Mit dem [sklearn.naive_bayes.MultinomialNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html#sklearn.naive_bayes.MultinomialNB) Klassifier ist $n=$ # Wörter. 
+Die Trainingsdaten im Beispiel sind absichtlich so gewählt, dass keine bedingte Wahrscheinlichkeit 0 oder 1 ist. Das kann z.B. passieren, wenn "buy" nicht vorkommt in allen No-Spam-Emails, dann ist $P(b|\bar s)=\frac{0}{2}$, was den Klassifizierer instabil macht. Das Problem wird mit **Laplace Smoothing** behoben. Der [sklearn.naive_bayes.BernoulliNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html#sklearn.naive_bayes.BernoulliNB) Klassifizierer verwendet Standardmässig Laplace Smoothing, mit $\alpha =1$ und $n=2$ weil jedes Feature (=Wörter) binär ist, als present 1 oder nicht-present 0. Z.B. $P(buy|spam) = \frac{1+\alpha}{3+n\alpha}=\frac{1+1}{3+2}$. Mit dem [sklearn.naive_bayes.MultinomialNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.MultinomialNB.html#sklearn.naive_bayes.MultinomialNB) Klassifizierer ist $n=$ # Wörter. 
 
 Hier haben wir diskrete Features betrachtet. Der Naive Bayes Klassifzierer kann auch für reelle Features eingesetzt werden, siehe [sklearn.naive_bayes.GaussianNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB). Das wäre z.B. der Fall bei Features {Breite, Länge} beim Bestimmen von Insekten als Raupe oder Käfer.
 
-Ein Spam-Mail, welches als Traningsdatum verwendet wird, muss nicht zwingend selber als Spam klassifiziert werden.
+Ein Spam-Mail, welches als in den Trainingsdaten verwendet wird, muss nicht zwingend selbst als Spam klassifiziert werden.
 
 
 

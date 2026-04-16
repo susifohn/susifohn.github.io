@@ -8,13 +8,13 @@ math: true
 # Wie werden die Gewichte aktualisiert
 Eine Zusammenfassung aus dem Buch *Neuronale Netze, Tariq R. O'REILLY*. 
 
-Ein Modell trainieren heisst, die unkekanten Parameter, welche auch Gewichte genannt werden, zu bestimmen. Bei der linearen Regression mit dem LMS-Algorithmus (Least Mean Squares) in 2D sind die Gewichte oder Modellparameter die Steigung $m$ und der y-Achsenabschnitt $b$ der Geraden $f(x)= mx + b$ , welche wir suchen. 
+Ein Modell trainieren heisst, die unbekannten Parameter, welche auch Gewichte genannt werden, zu bestimmen. Bei der linearen Regression mit dem LMS-Algorithmus (Least Mean Squares) in 2D sind die Gewichte oder Modellparameter die Steigung $m$ und der y-Achsenabschnitt $b$ der Geraden $f(x)= mx + b$ , welche wir suchen. 
 
-Wir könnten alle Gewichte ausprobieren, bis wir eine gute Kombination gefunden haben. Diese Idee kann sogar nützlich sein, bei schwierigen Problemem, indem wir zufällig Kombinationen austesten. Dieses Vorgehen heisst *Brute Force Methode* und ist in der Praxis nicht anwendbar, weil zuviele Kombinationen existieren. Das Problen wurde erst in den 60/70'er Jahren gelösst und hat dann zu einen Boom von Methoden geführt, mit welchen eindrucksvolle Aufgaben gelösst werden konnten. 
+Wir könnten alle Gewichte ausprobieren, bis wir eine gute Kombination gefunden haben. Diese Idee kann sogar nützlich sein, bei schwierigen Problemen, indem wir zufällig Kombinationen austesten. Dieses Vorgehen heisst *Brute Force Methode* und ist in der Praxis nicht anwendbar, weil zuviele Kombinationen existieren. Das Problem wurde erst in den 60/70'er Jahren gelöst und führte zu einem Boom von Methoden, mit welchen eindrucksvolle Aufgaben gelöst werden konnten. 
 
-Das Vorgehen entspricht dem Abstieg ins Tal in einer bergigen Landschaft, welche wir nicht kennen und nur in unserer unmittelbaren Nähe erkunden können. Wir suchen die Richtung des grössten Abstiegs, gehen eine kurze Strecke in diese Richtung und beginnen erneut. Dies wiederholen wir sooft, bis wir den tiefsten Punkt gefunden haben. 
+Das Vorgehen entspricht dem Abstieg ins Tal in einer bergigen Landschaft, welche wir nicht kennen und nur in unserer unmittelbaren Nähe erkunden können. Wir suchen die Richtung des grössten Abstiegs, gehen eine kurze Strecke in diese Richtung und beginnen erneut. Dies wiederholen wir so oft, bis wir den tiefsten Punkt gefunden haben. 
 
-Betrachten wir ein einfaches Beispiel anhand der Funktion $y=(x-1)^2+1$. Den Fehler $y$ wollen wir minimieren und wir suchen das $x$ dazu. Der Ausgangspunkt ist zufällig und wir schauen, in welche Richtung $y$ kleiner wird und gehen ein kleines Stück in diese Richtung. 
+Betrachten wir ein einfaches Beispiel anhand der Funktion $y=(x-1)^2+1$. Den Fehler $y$ wollen wir minimieren und wir suchen das $x$ dazu. Der Ausgangspunkt ist zufällig und wir schauen, in welche Richtung $y$ kleiner wird, und gehen ein kleines Stück in diese Richtung. 
 
 ![Gradientdescent](../assets/images/gradientdesc1.png)
 
@@ -41,7 +41,7 @@ Mit dem Gradientenverfahren wollen wir anhand von vielen Trainingsdaten den Fehl
 | Summe |  | 0.0 | 0.2 |0.04|
 
 > #### Übung
-> Zeichne die Betagsfunktion $|x-2|$ auf Papier. 
+> Zeichne die Betragsfunktion $|x-2|$ auf Papier. 
 > Benutze dann  *python* und  *matplotlib* um die drei Funktionen $x-2$, $|x-2|$ und $(x-2)^2$ in einem Diagramm zu visualisieren. 
 
 # Von der Intuition zur mathematischen Beschreibung
@@ -70,7 +70,7 @@ $$b_{neu} = b_{vorher} - \alpha \frac{\Delta L}{\Delta b}$$
 
 Dabei ist $\alpha$ die **Lernrate**. Sie bestimmt die Schrittgrösse. Befinden wir uns beim Minimum, ist $\Delta L \approx 0$ und die Gewichte ändern sich praktisch nicht mehr. 
 
-Die Wahl von $\alpha$ ist wichtig. Ist die Schrittlänge zu gross, pendeln wir um das Minimum herum. Ist $\alpha$ zu klein, brauchen wir zuviele Schritte und das Verfahren dauert zu lange. 
+Die Wahl von $\alpha$ ist wichtig. Ist die Schrittlänge zu gross, pendeln wir um das Minimum herum. Ist $\alpha$ zu klein, brauchen wir zu viele Schritte und das Verfahren dauert zu lange. 
 
 > #### Hinweis zur Differentialrechnung
 > Der Ausdruck $\frac{\Delta L}{\Delta m}$ heisst mathematisch die **partielle Ableitung** von $L$ nach $m$ und wird als 
