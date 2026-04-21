@@ -53,7 +53,18 @@ $$y(x) = \frac{1}{1+e^{-x}}$$
 
 ![Klassification](../assets/images/Insect_classes4.png)
 
+Haben wir mehrere Features $x_i$ bestimmen wir $x$ in der Sigmodfunkton mit den Gewichten $\theta_{i}$ wie folgt:
 
+$$h(x) = x_0 + \theta_1 x_1 + \ldots \theta_k x_k  $$
+In Vektorschreibweise und mit $x_0=1$ ist das dasselbe wie
+$$h(x) = \theta^T x  \; \; \; \text{mit}\: x,\theta \in \mathbb{R}^k $$
+
+Die Gewichte $\theta$ sind die unbekannten Parameter unseres Modells, welches angibt, mit welcher Wahrscheinlichkeit ein Datansatz $x$ zu der Klasse $0$ oder $1$ gehört. 
+
+Die Gewichte werdem mit Gradient Descent bestimmt. Siehe Thema **Logistische Regerssion**.
+ 
+
+### Python Code für Sigmoidfunktion
 ```python
 import numpy as np
 import matplotlib.pyplot as plt
