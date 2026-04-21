@@ -13,7 +13,6 @@ math: true
 - [Polynomapproximation, Regression und Overfitting](#polynomapproximation-regression-und-overfitting)
 - [Zusammenfassung](#zusammenfassung)
 
----
 
 ### Definition (Lineares Gleichungssystem)
 
@@ -25,7 +24,7 @@ $$
 \quad \text{für } i = 1,\dots,m,
 $$
 
-wobei $a_{ij}, b_i \in \mathbb{R}$ gegebene Zahlen sind und $x_1,\dots,x_n$ die Unbekannten bezeichnen.
+wobei $a_{ij}, b_i \in \mathbb{R}$ gegebene Zahlen sind und $x_1,\dots,x_n$ die Unbekannten bezeichnen. 
 
 In Matrixschreibweise schreibt man das System kompakt als
 
@@ -35,11 +34,12 @@ $$
 
 wobei $A \in \mathbb{R}^{m \times n}$ die Koeffizientenmatrix,  
 $x \in \mathbb{R}^n$ der Vektor der Unbekannten und  
-$b \in \mathbb{R}^m$ der rechte Seitenvektor ist.
+$b \in \mathbb{R}^m$ der bekannte Vektor auf der rechten Seite bezeichnen.
+
+$a_{i,j}$ bezeichnet das Matrixelement in der $i$'ten Zeile und $j$'ten Spalte. Wobei $i,j \ge 1$. 
 
 Eine *Lösung* ist ein Vektor $x \in \mathbb{R}^n$, der die Gleichung $Ax = b$ erfüllt.
 
----
 
 ## Beispiel: Polynom durch Datenpunkte
 
@@ -51,8 +51,8 @@ $$
 p(x) = ax^3 + bx^2 + cx + d,
 $$
 
-das durch vier Punkte  
-$(x_1, y_1), (x_2, y_2), (x_3, y_3), (x_4, y_4)$ geht.
+das durch vier gegebene Punkte  
+$(x_1, y_1), (x_2, y_2), (x_3, y_3), (x_4, y_4)$ verläuft.
 
 Durch Einsetzen der $x_i$ entstehen vier Gleichungen für die unbekannten Koeffizienten $a, b, c, d$:
 
@@ -84,9 +84,8 @@ y_1 \\ y_2 \\ y_3 \\ y_4
 $$
 
 Das Lösen solcher Systeme ist eine zentrale Aufgabe der linearen Algebra.  
-Typische Verfahren sind das Gauß-Verfahren oder numerische Methoden. Im Folgenden betrachten wir einen besonders eleganten Zugang: die inverse Matrix.
+Typische Verfahren sind das Gauß-Verfahren oder numerische Methoden. Im Folgenden betrachten wir die Lösung mit der Idee der inversen Matrix.
 
----
 
 ## Die Idee der inversen Matrix
 
@@ -119,7 +118,12 @@ $$
 Das bedeutet: Ist $A^{-1}$ bekannt, kann die Lösung unmittelbar berechnet werden.
 
 **Wichtiger Hinweis:**  
-Nicht jede Matrix ist invertierbar. Falls die Zeilen oder Spalten von $A$ linear abhängig sind, existiert keine Inverse. In diesem Fall hat das Gleichungssystem entweder keine Lösung oder unendlich viele Lösungen.
+Nicht jede quadratische Matrix ist invertierbar. Falls die Zeilen oder Spalten von $A$ linear abhängig sind, existiert keine Inverse. In diesem Fall hat das Gleichungssystem entweder keine Lösung oder unendlich viele Lösungen. Vektoren sind linear abhängig, falls ein Vektor durch eine Linearkombination der anderen dargestellt werden kann.
+
+### Die Berechnung der inversen Matrix
+nimmt uns die Funktion ```numpy.linalg.inv``` ab.
+
+Um direkt das Gleichungssystem $Ax=b$ zu lösen, ist die Funktion ```numpy.linalg.solve``` effizienter. 
 
 ---
 
@@ -154,3 +158,7 @@ Das Modell passt perfekt zu den Trainingsdaten, liefert aber schlechte Vorhersag
 - Lineare Gleichungssysteme ermöglichen die Bestimmung von Modellparametern.  
 - Regression bedeutet, solche Parameter aus Daten zu bestimmen.  
 - Overfitting entsteht, wenn ein Modell zu komplex im Verhältnis zur Datenmenge ist.
+
+Im nächsten Abschnitt über **Least-Squares-Regression und die Normalengleichungen** betrachten wir Anwendungen der linearen Algebra für maschinelles Lernen. 
+
+$$\text Viel \: Spass!$$
