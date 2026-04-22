@@ -1,5 +1,5 @@
 ---
-title: LMS und die Normalengleichungen
+title: LMS und die Normalengleichung
 categories: [Machine Learning ]
 tags: [gibb, tsb]     # TAG names should always be lowercase
 math: true
@@ -7,13 +7,13 @@ math: true
 
 ## Inhaltsverzeichnis
 
-- [Least-Squares-Regression und die Normalengleichungen](#least-squares-regression-und-die-normalengleichungen)
+- [Least-Squares-Regression und die Normalengleichung](#least-squares-regression-und-die-normalengleichung)
 - [Überbestimmte Systeme](#überbestimmte-systeme)
 - [Idee der kleinsten Quadrate](#idee-der-kleinsten-quadrate)
 - [Die Normalengleichung](#die-normalengleichung)
 
 
-## Least-Squares-Regression und die Normalengleichungen
+## Least-Squares-Regression und die Normalengleichung
 
 Im vorherigen Abschnitt haben wir gesehen, dass ein Polynom dritten Grades durch vier Datenpunkte exakt bestimmt werden kann.  
 
@@ -34,7 +34,7 @@ $$
 h_\theta(x) = \theta_1 x + \theta_0
 $$ 
 
-das eine Menge von Punkten $(x_i, y_i)$ möglichst gut approximieren soll. Zum Beispiel um Hauspreise zu bestimmen.
+die eine Menge von Punkten $(x_i, y_i)$ möglichst gut approximieren soll. Zum Beispiel um Hauspreise zu bestimmen.
 
 ![Houseprices](../assets/images/houseprices_2.png)
 
@@ -78,10 +78,10 @@ Im Allgemeinen existiert keine exakte Lösung.
 
 Da keine exakte Lösung existiert, suchen wir stattdessen eine *beste Näherung*.
 
-Die Idee (1801 von Carl Friedrich Gauss entwickelt, um den verlorenen Zwergplaneten [Ceres](https://de.wikipedia.org/wiki/(1)_Ceres) wiederzufinden) besteht darin, den Fehler zwischen Hypothese und Daten zu minimieren. Dieser Fehler wird durch die Summe der quadratischen Abweichung aller Punkte gemessen:
+Die Idee (1801 von Carl Friedrich Gauss entwickelt, um den verlorenen Zwergplaneten [Ceres](https://de.wikipedia.org/wiki/(1)_Ceres) wiederzufinden) besteht darin, den Fehler zwischen Hypothese und Daten zu minimieren. Dieser Fehler wird durch die Summe der quadratischen Abweichung aller Punkte gemessen und als *cost function*
 
 $$
-\sum_{i=1}^n (h_\theta(x_i) - y_i)^2
+J(\theta) = \sum_{i=1}^n (h_\theta(x_i) - y_i)^2
 $$
 
 Gesucht ist also der Parametervektor $x$, der diesen Fehler minimiert.
@@ -111,6 +111,18 @@ $$
 - Statt die Daten exakt zu treffen, wird der **Gesamtfehler minimiert**.  
 - Die Methode ist robust gegenüber Rauschen in den Daten.  
 - Im Gegensatz zur exakten Interpolation entsteht **kein Overfitting**, solange das Modell nicht zu komplex gewählt wird.
+
+### Die Berechnung mit Python
+Um die Parameter $\theta_0$ und $\theta_1$ mit der Normalengleichung zu berechnen, können folgende Methoden aus [Numpy linear algebra](https://numpy.org/doc/stable/reference/routines.linalg.html) verwendet werden.
+
+$A^\top$ mit ```numpy.transpose```.
+
+Matrixmultiplikation mit ```numpy.matmul``` oder dem ```@ Operator```. Das gilt auch für die Multiplikation einer Matrix mit einem Vektor. 
+
+Berechnen der Inversen mit ```numpy.linalg.inv```.
+
+Die Funktion ```numpy.linalg.lstsq``` berechnet die LMS Lösung zu einem linearen Gleichungsystem 
+
 
 
 
