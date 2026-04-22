@@ -1,7 +1,7 @@
 ---
-title: LMS und die Normalengleichung
+title: 3. Lineare Regression - LMS
 categories: [Machine Learning ]
-tags: [gibb, tsb]     # TAG names should always be lowercase
+tags: [gibb, tsb, lms, normalengleichung]     # TAG names should always be lowercase
 math: true
 ---
 

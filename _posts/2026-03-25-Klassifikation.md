@@ -1,5 +1,5 @@
 ---
-title: Klassifikation in ML
+title: 4. Klassifikation in ML
 categories: [Machine Learning ]
 tags: [gibb, tsb]     # TAG names should always be lowercase
 math: true
