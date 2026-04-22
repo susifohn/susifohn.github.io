@@ -118,7 +118,7 @@ $$
 Das bedeutet: Ist $A^{-1}$ bekannt, kann die Lösung unmittelbar berechnet werden.
 
 **Wichtiger Hinweis:**  
-Nicht jede quadratische Matrix ist invertierbar. Falls die Zeilen oder Spalten von $A$ linear abhängig sind, existiert keine Inverse. In diesem Fall hat das Gleichungssystem entweder keine Lösung oder unendlich viele Lösungen. Vektoren sind linear abhängig, falls ein Vektor durch eine Linearkombination der anderen dargestellt werden kann.
+Nicht jede quadratische Matrix ist invertierbar. Falls die Zeilen oder Spalten von $A$ linear abhängig sind, existiert keine Inverse und die Matrix ist *singulär*. In diesem Fall hat das Gleichungssystem entweder keine Lösung oder unendlich viele Lösungen.  Vektoren sind linear abhängig, falls ein Vektor durch eine Linearkombination der anderen dargestellt werden kann.
 
 ### Die Berechnung der inversen Matrix
 nimmt uns die Funktion ```numpy.linalg.inv``` ab.
@@ -143,7 +143,7 @@ ist ein solches Modell. Die Koeffizienten $a, b, c, d$ nennt man *Parameter*, di
 
 Im obigen Beispiel wird gefordert, dass das Polynom **alle Punkte exakt trifft**. Man spricht von *exakter Anpassung*.
 
-In der Praxis ist das jedoch oft problematisch:
+In der Praxis ist eine exakte Anpassung nicht anwendbar, weil
 
 - Reale Daten enthalten meist Rauschen (Messfehler, Zufallseinflüsse).
 - Ein zu komplexes Modell kann dieses Rauschen „mitlernen“.
@@ -151,7 +151,6 @@ In der Praxis ist das jedoch oft problematisch:
 Dieses Phänomen nennt man *Overfitting*:  
 Das Modell passt perfekt zu den Trainingsdaten, liefert aber schlechte Vorhersagen für neue Daten.
 
----
 
 ## Zusammenfassung
 
@@ -159,6 +158,6 @@ Das Modell passt perfekt zu den Trainingsdaten, liefert aber schlechte Vorhersag
 - Regression bedeutet, solche Parameter aus Daten zu bestimmen.  
 - Overfitting entsteht, wenn ein Modell zu komplex im Verhältnis zur Datenmenge ist.
 
-Im nächsten Abschnitt über **Least-Squares-Regression und die Normalengleichungen** betrachten wir Anwendungen der linearen Algebra für maschinelles Lernen. 
+Im nächsten Abschnitt über **Least-Means-Squares (LMS) und die Normalengleichungen** betrachten wir Anwendungen der linearen Algebra für maschinelles Lernen. 
 
 $$\text Viel \: Spass!$$
