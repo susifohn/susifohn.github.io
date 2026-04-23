@@ -13,7 +13,7 @@ math: true
 - Die **logistische Regression** wird mit der *Maximum-Likelihood-Methode (MLE)* geschätzt.  
 - Die **lineare Regression** wird meist mit der *Methode der kleinsten Quadrate (OLS)* geschätzt; diese ist ein Spezialfall von MLE, wenn die Fehler normalverteilt sind.
 
-![](../assets/images/linearVsLogisticRegerssion.png)
+![linvslog](../assets/images/linearVsLogisticRegerssion.png)
 
 Quelle: [datacamp.com](https://www.datacamp.com/tutorial/understanding-logistic-regression-python)
 
