@@ -118,7 +118,34 @@ $$
 Das bedeutet: Ist $A^{-1}$ bekannt, kann die Lösung unmittelbar berechnet werden.
 
 **Wichtiger Hinweis:**  
-Nicht jede quadratische Matrix ist invertierbar. Falls die Zeilen oder Spalten von $A$ linear abhängig sind, existiert keine Inverse und die Matrix ist *singulär*. In diesem Fall hat das Gleichungssystem entweder keine Lösung oder unendlich viele Lösungen.  Vektoren sind linear abhängig, falls ein Vektor durch eine Linearkombination der anderen dargestellt werden kann.
+Nicht jede quadratische Matrix ist invertierbar. Falls die Zeilen oder Spalten von $A$ linear abhängig sind, existiert keine Inverse und die Matrix ist *singulär*. In diesem Fall hat das Gleichungssystem entweder keine Lösung oder unendlich viele Lösungen.  Vektoren sind linear abhängig, falls ein Vektor durch eine Linearkombination der anderen dargestellt werden kann. 
+
+*Beispiel*: Die Matrix
+
+$$
+\begin{pmatrix}
+1&4&1 \\
+-1&2&-4 \\
+0&2&-1
+\end{pmatrix}
+$$
+ist nicht invertierbar weil
+
+$$
+3
+\begin{pmatrix}
+1 \\ -1 \\ 0
+\end{pmatrix}
+- \frac{1}{2}
+\begin{pmatrix}
+4 \\2 \\2 
+\end{pmatrix}
+=
+\begin{pmatrix}
+1 \\-4 \\-1 
+\end{pmatrix}
+$$
+Dabei sind $3$ und $-\frac{1}{2}$ die Linearfaktoren. 
 
 ### Die Berechnung der inversen Matrix
 nimmt uns die Funktion ```numpy.linalg.inv``` ab.
