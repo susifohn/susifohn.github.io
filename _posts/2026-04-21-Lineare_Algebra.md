@@ -122,7 +122,10 @@ $$
 
 Das bedeutet: Ist $A^{-1}$ bekannt, kann die Lösung unmittelbar berechnet werden.
 
-**Wichtiger Hinweis:**  
+**Bemerkungen:**
+
+In realen Anwendungen mit grossen Matrizen wird die Inverse nicht berechnet, stattdessen werden effizientere Verfahren angewendet.
+
 Nicht jede quadratische Matrix ist invertierbar. Falls die Zeilen oder Spalten von $A$ linear abhängig sind, existiert keine Inverse und die Matrix ist *singulär*. In diesem Fall hat das Gleichungssystem entweder keine Lösung oder unendlich viele Lösungen.  Vektoren sind linear abhängig, falls ein Vektor durch eine Linearkombination der anderen dargestellt werden kann. 
 
 *Beispiel*: Die Matrix
@@ -207,7 +210,7 @@ In der Praxis ist eine exakte Anpassung nicht anwendbar, weil
 Dieses Phänomen nennt man *Overfitting*:  
 Das Modell passt perfekt zu den Trainingsdaten, liefert aber schlechte Vorhersagen für neue Daten.
 
-Das folgende Bild zeigt links eine Gerade als Modell, welches zu vereinfacht ist, in der Mitte ein Polynom vom Grad 2, welches die Daten gut modelliert und rechts ein Polynom von Grad 5, welches den Effekt des Overfitting zeigt. Hier stimmen die Trainingsdaten exakt, neue Unbekannte Hausgrössen werden aber den Preis nicht gut vorhersagen. 
+Das folgende Bild zeigt links eine Gerade als Modell, welches zu vereinfacht ist, in der Mitte ein Polynom vom Grad 2, welches die Daten gut modelliert und rechts ein Polynom von Grad 5, welches den Effekt des Overfitting zeigt. Hier stimmen die Trainingsdaten exakt. Neue, unbekannte Hausgrössen werden aber den Preis nicht gut vorhersagen. 
 
 ![overfitting](../assets/images/overfitting.png)
 
