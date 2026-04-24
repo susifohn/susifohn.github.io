@@ -78,7 +78,7 @@ Im Allgemeinen existiert keine exakte Lösung.
 
 Da keine exakte Lösung existiert, suchen wir stattdessen eine *beste Näherung*.
 
-Die Idee (1801 von Carl Friedrich Gauss entwickelt, um den verlorenen Zwergplaneten [Ceres](https://de.wikipedia.org/wiki/(1)_Ceres) wiederzufinden) besteht darin, den Fehler zwischen Hypothese und Daten zu minimieren. Dieser Fehler wird durch die Summe der quadratischen Abweichung aller Punkte gemessen und als *cost function*
+Die Idee (1801 von Carl Friedrich Gauss entwickelt, um den verlorenen Zwergplaneten [Ceres](https://de.wikipedia.org/wiki/(1)_Ceres) wiederzufinden) besteht darin, den Fehler zwischen Hypothese und Daten zu minimieren. Dieser Fehler wird durch die Summe der quadratischen Abweichung aller Punkte gemessen und als *cost function* wie folgt berechnet:
 
 $$
 J(\theta) = \sum_{i=1}^n (h_\theta(x_i) - y_i)^2
