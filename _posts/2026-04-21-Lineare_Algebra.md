@@ -75,12 +75,17 @@ x_3^3 & x_3^2 & x_3 & 1 \\
 x_4^3 & x_4^2 & x_4 & 1
 \end{pmatrix}
 \begin{pmatrix}
-a \\ b \\ c \\ d
-\end{pmatrix}
-=
+a \\ 
+b \\ 
+c \\ 
+d
+\end{pmatrix}=
 \begin{pmatrix}
-y_1 \\ y_2 \\ y_3 \\ y_4
-\end{pmatrix}.
+y_1 \\ 
+y_2 \\ 
+y_3 \\ 
+y_4
+\end{pmatrix}
 $$
 
 Das Lösen solcher Systeme ist eine zentrale Aufgabe der linearen Algebra.  
@@ -129,22 +134,28 @@ $$
 0&2&-1
 \end{pmatrix}
 $$
+
 ist nicht invertierbar weil
 
 $$
-3
+3\begin{pmatrix}
+1 \\ 
+-1 \\ 
+0
+\end{pmatrix}- 
+\frac{1}{2}
 \begin{pmatrix}
-1 \\ -1 \\ 0
-\end{pmatrix}
-- \frac{1}{2}
+4 \\
+2 \\
+2 
+\end{pmatrix}=
 \begin{pmatrix}
-4 \\2 \\2 
-\end{pmatrix}
-=
-\begin{pmatrix}
-1 \\-4 \\-1 
+1 \\
+-4 \\
+-1 
 \end{pmatrix}
 $$
+
 Dabei sind $3$ und $-\frac{1}{2}$ die Linearfaktoren. 
 
 ### Die Berechnung der inversen Matrix
@@ -164,11 +175,15 @@ Das obige Beispiel führt uns zu zwei grundlegenden Konzepten aus dem maschinell
 
 Ein **lineares Modell** beschreibt den Zusammenhang zwischen einer Eingabe $x$ und einer Ausgabe $y$ durch eine Gleichung der Form:
 
-$$y=a_0+a_1 x_1 + a_2 x_2 + \ldots  + a_n x_n$$
-​
-*Linear* bedeutet hier nicht, dass die Kurve eine Gerade ist, sondern dass das Modell linear in den Parametern $a_0,a_1, \ldots ,a_n$​ ist. Auch ein Polynom wie 
+$$
+y=a_0+a_1 x_1 + a_2 x_2 + \ldots  + a_n x_n
+$$
 
-$$y=a_0+a_1 x+a_2 x^2 $$
+*Linear* bedeutet hier nicht, dass die Kurve eine Gerade ist, sondern dass das Modell linear in den Parametern $a_0,a_1, \ldots ,a_n$​ ist. Auch ein Polynom wie
+
+$$
+y=a_0+a_1 x+a_2 x^2
+$$
 
 ist ein lineares Modell, weil die Parameter $a_i$ nur linear, also nicht z.B. als $a_1^2$ oder $a_1 \cdot a_2$ auftreten.
 
