@@ -122,7 +122,7 @@ $$
 
 Das bedeutet: Ist $A^{-1}$ bekannt, kann die Lösung unmittelbar berechnet werden.
 
-**Bemerkungen:**
+**Bemerkungen:**  
 
 In realen Anwendungen mit grossen Matrizen wird die Inverse nicht berechnet, stattdessen werden effizientere Verfahren angewendet.
 
