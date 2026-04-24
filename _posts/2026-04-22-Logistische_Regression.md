@@ -1,6 +1,6 @@
 ---
 title: 6. Logistische Regression - MLE
-categories: [Machine Learning, Logistische Regerssion ]
+categories: [Machine Learning, Logistische Regression ]
 tags: [gibb, tsb, sigmoid]     # TAG names should always be lowercase
 math: true
 ---
@@ -16,12 +16,3 @@ math: true
 ![linvslog](../assets/images/linearVsLogisticRegerssion.png)
 
 Quelle: [datacamp.com](https://www.datacamp.com/tutorial/understanding-logistic-regression-python)
-
-
-
-
-
-
-
-
-
