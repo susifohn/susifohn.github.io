@@ -8,9 +8,9 @@ math: true
 # Klassifikation
 Beispiele und Bilder aus dem Buch *Neuronale Netze, Tariq R. O'REILLY*.
 
-Hast du dich schon mal gewundert, wie eine E-Mail als Spam markiert wird? 
+Hast du dich schon mal gewundert, wie eine Email als Spam markiert wird? 
 
-Das ist eine typische Aufgabe des maschinellen Lernens zur Klassifizierung von EMails in $\{\text{spam}, \text{nicht-spam}\}$. 
+Das ist eine typische Aufgabe des maschinellen Lernens zur Klassifizierung von Emails in $\{\text{spam}, \text{nicht-spam}\}$. 
 
 Nach einer Einführung werden wir einen Spamfilter kennen lernen. 
 
@@ -21,13 +21,13 @@ Die Lineare Regression ist hier nicht nützlich.
 
 ![Klassification](../assets/images/Insect_classes1.png)
 
-Vielmehr suchen wir eine Trennlinie, welche es uns erlaubt, ein unbakanntes Insekt zu klassifitzieren. Die Trennlinie wird dabei anhand der Trainingsdaten gelernt. 
+Vielmehr suchen wir eine Trennlinie, welche es uns erlaubt, ein unbekanntes Insekt zu klassifizieren. Die Trennlinie wird dabei anhand der Trainingsdaten gelernt. 
 
 ![Klassification](../assets/images/Insect_classes2.png)
 
 
 > #### Frage
-> Warum kann eine optimale Trennlinie im allgemeinen nicht als $f(x)=ax+b$ modelliert werden?
+> Warum kann eine optimale Trennlinie im Allgemeinen nicht als $f(x)=ax+b$ modelliert werden?
 
 >#### Übung
 >
@@ -58,7 +58,7 @@ $$f(x) = \begin{cases}
 1 &  ,sonst 
 \end{cases}$$
 
-kann zur Klassifizierung gelernt werden. Geeigneter ist herfür die *Sigmoidfunktion*, welche nicht sprungartig ändert und beobachtetes verhalten realstischer abbildet - *natura non facit saltus* (die Natur macht keine Sprünge). Die Sigmoidfunktion, welche auch als *logistische Funktion* bezeichnet wird, ist wie folgt definiert:
+kann zur Klassifizierung gelernt werden. Geeigneter ist herfür die *Sigmoidfunktion*, welche nicht sprungartig ändert und beobachtetes verhalten realistischer abbildet - *natura non facit saltus* (die Natur macht keine Sprünge). Die Sigmoidfunktion, welche auch als *logistische Funktion* bezeichnet wird, ist wie folgt definiert:
 $$y(x) = \frac{1}{1+e^{-x}}$$
 
 ![Klassification](../assets/images/Insect_classes4.png)
@@ -71,7 +71,7 @@ $$h(x) = \theta^T x  \; \; \; \text{mit}\: x,\theta \in \mathbb{R}^k $$
 
 Die Gewichte $\theta$ sind die unbekannten Parameter unseres Modells, welches angibt, mit welcher Wahrscheinlichkeit ein Datansatz $x$ zu der Klasse $0$ oder $1$ gehört. 
 
-Die Gewichte werdem mit Gradient Descent bestimmt. Siehe Thema **Logistische Regerssion**. Im nächsten Kapitel lernen wir einen Spamfilter kennen, welcher mit einem naiven Ansatz und etwas Wahrscheinlichktiestheorie gute resultate Liefert. Siehe **Naive Bayes Classifier**.
+Die Gewichte werdem mit Gradient Descent bestimmt. Siehe Thema **Logistische Regerssion**. Im nächsten Kapitel lernen wir einen Spamfilter kennen, welcher mit einem naiven Ansatz und etwas Wahrscheinlichkeitstheorie gute Resultate liefert. Siehe **Naive Bayes Classifier**.
  
 
 ### Python Code für Sigmoidfunktion

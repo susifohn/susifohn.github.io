@@ -10,7 +10,7 @@ math: true
 - [Definition (Lineares Gleichungssystem)](#definition-lineares-gleichungssystem)
 - [Beispiel: Polynom durch Datenpunkte](#beispiel-polynom-durch-datenpunkte)
 - [Die Idee der inversen Matrix](#die-idee-der-inversen-matrix)
-- [Lineare Regerssion und Overfitting](#lineare-regression-und-overfitting)
+- [Lineare Regression und Overfitting](#lineare-regression-und-overfitting)
 - [Ausblick](#ausblick)
 
 
@@ -159,7 +159,7 @@ Um direkt das Gleichungssystem $Ax=b$ zu lösen, ist die Funktion ```numpy.linal
 Das obige Beispiel führt uns zu zwei grundlegenden Konzepten aus dem maschinellen Lernen: 
 
 - lineares Modell,
-- Minimieren des Fehlers durch lineare Regerssion und
+- Minimieren des Fehlers durch lineare Regression und
 - Overfitting
 
 Ein **lineares Modell** beschreibt den Zusammenhang zwischen einer Eingabe $x$ und einer Ausgabe $y$ durch eine Gleichung der Form:
@@ -192,7 +192,7 @@ In der Praxis ist eine exakte Anpassung nicht anwendbar, weil
 Dieses Phänomen nennt man *Overfitting*:  
 Das Modell passt perfekt zu den Trainingsdaten, liefert aber schlechte Vorhersagen für neue Daten.
 
-Das folgene Bild zeigt links eine Gerade als Modell, welches zu vereinfacht ist, in der Mitte ein Polynom vom Grad 2, welches die Daten gut modelliert und rechts ein Polynom von Grad 5, welches den Effekt des Overfitting zeigt. Hier stmmen die Trainingsdaten exakt, neue Unbekannte Hausgrössen werden aber den Preis nicht gut vorhersagen. 
+Das folgende Bild zeigt links eine Gerade als Modell, welches zu vereinfacht ist, in der Mitte ein Polynom vom Grad 2, welches die Daten gut modelliert und rechts ein Polynom von Grad 5, welches den Effekt des Overfitting zeigt. Hier stimmen die Trainingsdaten exakt, neue Unbekannte Hausgrössen werden aber den Preis nicht gut vorhersagen. 
 
 ![overfitting](../assets/images/overfitting.png)
 

@@ -121,7 +121,7 @@ Matrixmultiplikation mit ```numpy.matmul``` oder dem ```@ Operator```. Das gilt 
 
 Berechnen der Inversen mit ```numpy.linalg.inv```.
 
-Die Funktion ```numpy.linalg.lstsq``` berechnet die LMS Lösung zu einem linearen Gleichungsystem 
+Die Funktion ```numpy.linalg.lstsq``` berechnet die LMS Lösung zu einem linearen Gleichungssystem 
 
 
 
