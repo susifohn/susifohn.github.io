@@ -1,14 +1,20 @@
 ---
 title: 4. Klassifikation in ML
-categories: [Machine Learning ]
+categories: [Machine Learning, Klassifikation]
 tags: [gibb, tsb]     # TAG names should always be lowercase
 math: true
 ---
 
 # Klassifikation
-Eine kleine Zusammenstellung von Inhalten aus dem Buch *Neuronale Netze, Tariq R. O'REILLY*. 
+Beispiele und Bilder aus dem Buch *Neuronale Netze, Tariq R. O'REILLY*.
 
-## Mit Trennlinie
+Hast du dich schon mal gewundert, wie eine E-Mail als Spam markiert wird? 
+
+Das ist eine typische Aufgabe des maschinellen Lernens zur Klassifizierung von EMails in $\{\text{spam}, \text{nicht-spam}\}$. 
+
+Nach einer Einführung werden wir einen Spamfilter kennen lernen. 
+
+## Klassifizierung durch Distanzen
 
 Hier haben wir zwei Klassen, nämlich {Raupen, Käfer} und die Features {Länge, Breite}.
 Die Lineare Regression ist hier nicht nützlich. 
@@ -35,13 +41,17 @@ Vielmehr suchen wir eine Trennlinie, welche es uns erlaubt, ein unbakanntes Inse
 >Zeichne eine beliebige Gerade ein, in blau, welche die beiden Punkte separiert. 
 >Beschrifte die Achsen und füge eine Legende sowie einen Titel hinzu.
 
-## Mit Aktivierungsfunkion
+## Mit Wahrscheinlichkeit
 
 Haben wir nur ein Feature und eine Klassifizierung Raupen=0 und Käfer=1, können wir das wie folgt visialisieren. 
 
 ![Klassification](../assets/images/Insect_classes3.png)
 
-Eine Funktion $f:\mathbb{R} \rightarrow \{0,1\}$ welche ab einer bestimmten Breite $b_R$ von $0$ auf $1$ springt
+Hierbei stellen wir uns die Frage, wie wahrscheinlich es ist, dass ein Datenpunkt zur Klasse $1$ gehört. 
+
+Dazu benötigen wir eine geeignete Aktivierungsfunktion, welche für eine reelle Eingabe, hier die Breite des Insekts, Werte im Intervall $[0,1]$ liefert.
+
+Die Sprungfunktion $f:\mathbb{R} \rightarrow \{0,1\}$ welche ab einer bestimmten Breite $b_R$ von $0$ auf $1$ springt
 
 $$f(x) = \begin{cases}
 0 & ,x \le b_R \\
@@ -61,7 +71,7 @@ $$h(x) = \theta^T x  \; \; \; \text{mit}\: x,\theta \in \mathbb{R}^k $$
 
 Die Gewichte $\theta$ sind die unbekannten Parameter unseres Modells, welches angibt, mit welcher Wahrscheinlichkeit ein Datansatz $x$ zu der Klasse $0$ oder $1$ gehört. 
 
-Die Gewichte werdem mit Gradient Descent bestimmt. Siehe Thema **Logistische Regerssion**.
+Die Gewichte werdem mit Gradient Descent bestimmt. Siehe Thema **Logistische Regerssion**. Im nächsten Kapitel lernen wir einen Spamfilter kennen, welcher mit einem naiven Ansatz und etwas Wahrscheinlichktiestheorie gute resultate Liefert. Siehe **Naive Bayes Classifier**.
  
 
 ### Python Code für Sigmoidfunktion

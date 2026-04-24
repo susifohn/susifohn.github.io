@@ -1,6 +1,6 @@
 ---
 title: 3. Lineare Regression - LMS
-categories: [Machine Learning ]
+categories: [Machine Learning, Lineare Regression ]
 tags: [gibb, tsb, lms, normalengleichung]     # TAG names should always be lowercase
 math: true
 ---

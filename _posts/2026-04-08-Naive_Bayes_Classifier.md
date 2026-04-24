@@ -1,6 +1,6 @@
 ---
 title: 5. The Naive Bayes Classifier
-categories: [Machine Learning ]
+categories: [Machine Learning, Naive Bayes ]
 tags: [gibb, tsb, Bayes, Wahrscheinlichkeit, classification]     # TAG names should always be lowercase
 math: true
 ---

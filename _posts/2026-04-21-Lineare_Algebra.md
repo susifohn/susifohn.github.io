@@ -1,6 +1,6 @@
 ---
 title: 2. Lineare Algebra und ML
-categories: [Machine Learning ]
+categories: [Machine Learning, Lineare Algebra ]
 tags: [gibb, tsb]     # TAG names should always be lowercase
 math: true
 ---

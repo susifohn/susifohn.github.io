@@ -1,6 +1,6 @@
 ---
 title: 6. Logistische Regerssion - MLE
-categories: [Machine Learning ]
+categories: [Machine Learning, Logistische Regerssion ]
 tags: [gibb, tsb, sigmoid]     # TAG names should always be lowercase
 math: true
 ---
