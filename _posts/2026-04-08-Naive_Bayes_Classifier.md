@@ -10,9 +10,9 @@ math: true
 - [https://web.stanford.edu/class/archive/cs/cs109/cs109.1218/files/student_drive/9.3.pdf](https://web.stanford.edu/class/archive/cs/cs109/cs109.1218/files/student_drive/9.3.pdf)
 
 # Motivation
-Hast du dich schon mal gewundert, wie eine E-Mail als Spam markiert wird? Einer der klassischen Ansätze in den frühen Spamfiltern bestand darin, mit Wahrscheinlichkeiten zu arbeiten - insbesondere mit dem *Bayes' Theorem*. 
+Hast du dich schon mal gewundert, wie eine Email als Spam markiert wird? Einer der klassischen Ansätze in den frühen Spamfiltern bestand darin, mit Wahrscheinlichkeiten zu arbeiten - insbesondere mit dem *Bayes' Theorem*. 
 
-Dieser sehr naive Ansatz, wie wir noch sehen werden, funktioniert für viele Klassifizierungsprobleme überraschend gut, so auch zum Klassifizieren von E-Mails. 
+Dieser sehr naive Ansatz, wie wir noch sehen werden, funktioniert für viele Klassifizierungsprobleme überraschend gut, so auch zum Klassifizieren von Emails. 
 
 ![Spam](../assets/images/spam.png)
 
@@ -106,13 +106,13 @@ $$\mathbb{P}(A,B|D) = \mathbb{P}(A|D)\mathbb{P}(B|D)$$
 Einige Begriffe, welche im Zusammenhang des maschinellen Lernens oft anzutreffen sind, werden nachfolgend erklärt.
 
 - **P(A|B):**(Posterior) Das ist die Wahrscheinlichkeit, dass Ereignis **A** eintritt, **gegeben dass B eingetreten ist**.  
-Wenn wir wissen, dass **B** bereits passiert ist (z. B. die E-Mail enthält das Wort „buy“), möchten wir bestimmen, wie wahrscheinlich es ist, dass **A** wahr ist also, dass die E-Mail Spam ist.
+Wenn wir wissen, dass **B** bereits passiert ist (z. B. die Email enthält das Wort „buy“), möchten wir bestimmen, wie wahrscheinlich es ist, dass **A** wahr ist also, dass die Email Spam ist.
 
 - **P(B|A):**(Likelihood) Das ist die Wahrscheinlichkeit, dass **B** eintritt, **wenn A bereits eingetreten ist**.  
-  Wenn wir also wissen, dass die E-Mail Spam ist (**A**), dann sagt uns diese Wahrscheinlichkeit, wie wahrscheinlich es ist, dass sie das Wort „buy“ (**B**) enthält.
+  Wenn wir also wissen, dass die Email Spam ist (**A**), dann sagt uns diese Wahrscheinlichkeit, wie wahrscheinlich es ist, dass sie das Wort „buy“ (**B**) enthält.
 
 - **P(A):**(Prior) Das ist die **a-priori-Wahrscheinlichkeit** von **A**.  
-  Sie beschreibt, wie wahrscheinlich es ist, dass eine E-Mail Spam ist, **bevor** wir bestimmte Merkmale wie **B** betrachten.
+  Sie beschreibt, wie wahrscheinlich es ist, dass eine Email Spam ist, **bevor** wir bestimmte Merkmale wie **B** betrachten.
 
 - **P(B):** (Prior/Evidence)Das ist die **a-priori-Wahrscheinlichkeit** von **B**.  
   Sie beschreibt, wie wahrscheinlich es ist, das Merkmal **B** allgemein zu beobachten also, z. B. das Wort „offer“), **unabhängig davon**, ob **A** eintritt oder nicht.
@@ -159,7 +159,7 @@ Um die diversen Wahrscheinlichkeiten im Ausdruck oben zu bestimmen, schauen wir 
 |need to buy viagra for health|no-spam|
 |you buy viagra|?|
 
-Die Wahrscheinlichkeit ein Spam-Mail zu erhalten ist 
+Die Wahrscheinlichkeit ein Spam-Email zu erhalten ist 
 $$P(s) = \frac{3}{5}$$
 und für ein no-spam
 $$P(\bar s) = \frac{2}{5}$$
@@ -186,7 +186,7 @@ Die Trainingsdaten im Beispiel sind absichtlich so gewählt, dass keine bedingte
 
 Hier haben wir diskrete Features betrachtet. Der Naive Bayes Klassifzierer kann auch für reelle Features eingesetzt werden, siehe [sklearn.naive_bayes.GaussianNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.GaussianNB.html#sklearn.naive_bayes.GaussianNB). Das wäre z.B. der Fall bei Features {Breite, Länge} beim Bestimmen von Insekten als Raupe oder Käfer.
 
-Ein Spam-Mail, welches als in den Trainingsdaten verwendet wird, muss nicht zwingend selbst als Spam klassifiziert werden.
+Ein Spam-Email, welches als in den Trainingsdaten verwendet wird, muss nicht zwingend selbst als Spam klassifiziert werden.
 
 
 
