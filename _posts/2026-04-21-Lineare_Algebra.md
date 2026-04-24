@@ -10,8 +10,8 @@ math: true
 - [Definition (Lineares Gleichungssystem)](#definition-lineares-gleichungssystem)
 - [Beispiel: Polynom durch Datenpunkte](#beispiel-polynom-durch-datenpunkte)
 - [Die Idee der inversen Matrix](#die-idee-der-inversen-matrix)
-- [Polynomapproximation, Regression und Overfitting](#polynomapproximation-regression-und-overfitting)
-- [Zusammenfassung](#zusammenfassung)
+- [Lineare Regerssion und Overfitting](#lineare-regression-und-overfitting)
+- [Ausblick](#ausblick)
 
 
 ### Definition (Lineares Gleichungssystem)
@@ -154,11 +154,25 @@ Um direkt das Gleichungssystem $Ax=b$ zu lösen, ist die Funktion ```numpy.linal
 
 ---
 
-## Polynomapproximation, Regression und Overfitting
+## Lineare Regression und Overfitting
 
-Das obige Beispiel führt zu grundlegenden Konzepten aus dem maschinellen Lernen: *Regression* und *Overfitting*.
+Das obige Beispiel führt uns zu zwei grundlegenden Konzepten aus dem maschinellen Lernen: 
 
-In der Regression versucht man, aus Datenpunkten $(x_i, y_i)$ ein Modell zu bestimmen, das Zusammenhänge beschreibt und Vorhersagen ermöglicht.
+- lineares Modell,
+- Minimieren des Fehlers durch lineare Regerssion und
+- Overfitting
+
+Ein **lineares Modell** beschreibt den Zusammenhang zwischen einer Eingabe $x$ und einer Ausgabe $y$ durch eine Gleichung der Form:
+
+$$y=a_0+a_1 x_1 + a_2 x_2 + \ldots  + a_n x_n$$
+​
+*Linear* bedeutet hier nicht, dass die Kurve eine Gerade ist, sondern dass das Modell linear in den Parametern $a_0,a_1, \ldots ,a_n$​ ist. Auch ein Polynom wie 
+
+$$y=a_0+a_1 x+a_2 x^2 $$
+
+ist ein lineares Modell, weil die Parameter $a_i$ nur linear, also nicht z.B. als $a_1^2$ oder $a_1 \cdot a_2$ auftreten.
+
+Bei der **linearen Regression** hat man eine Menge von Datenpunkten $(x_i, y_i)$ gegeben und sucht die Parameter $a_0,a_1, \ldots,a_n$​, sodass das lineare Modell die Daten möglichst gut beschreibt, d.h. der Fehler zwischen Modell und Datenpunkten minimiert wird. Das Modell kann dann genutzt werden, um Vorhersagen für neue, unbekannte $x$-Werte zu treffen.
 
 Das Polynom
 
@@ -166,25 +180,25 @@ $$
 p(x) = ax^3 + bx^2 + cx + d
 $$
 
-ist ein solches Modell. Die Koeffizienten $a, b, c, d$ nennt man *Parameter*, die aus den Daten bestimmt werden.
+ist ein solches Modell. Die Koeffizienten $a, b, c, d$ nennt man *Parameter*, die aus den Daten bestimmt bzw. gelernt werden.
 
-Im obigen Beispiel wird gefordert, dass das Polynom **alle Punkte exakt trifft**. Man spricht von *exakter Anpassung*.
+Im obigen Beispiel wird gefordert, dass das Polynom alle Punkte exakt trifft. Man spricht von *exakter Anpassung*.
 
 In der Praxis ist eine exakte Anpassung nicht anwendbar, weil
 
-- Reale Daten enthalten meist Rauschen (Messfehler, Zufallseinflüsse).
+- Reale Daten enthalten Rauschen (Messfehler, Zufallseinflüsse).
 - Ein zu komplexes Modell kann dieses Rauschen „mitlernen“.
 
 Dieses Phänomen nennt man *Overfitting*:  
 Das Modell passt perfekt zu den Trainingsdaten, liefert aber schlechte Vorhersagen für neue Daten.
 
+Das folgene Bild zeigt links eine Gerade als Modell, welches zu vereinfacht ist, in der Mitte ein Polynom vom Grad 2, welches die Daten gut modelliert und rechts ein Polynom von Grad 5, welches den Effekt des Overfitting zeigt. Hier stmmen die Trainingsdaten exakt, neue Unbekannte Hausgrössen werden aber den Preis nicht gut vorhersagen. 
 
-## Zusammenfassung
+![overfitting](../assets/images/overfitting.png)
 
-- Lineare Gleichungssysteme ermöglichen die Bestimmung von Modellparametern.  
-- Regression bedeutet, solche Parameter aus Daten zu bestimmen.  
-- Overfitting entsteht, wenn ein Modell zu komplex im Verhältnis zur Datenmenge ist.
+Bildquelle: [Andrew Ng](https://zhu45.org/posts/2017/Jul/21/andrew-ngs-ml-week-06-11/)
 
-Im nächsten Abschnitt über **Least-Means-Squares (LMS) und die Normalengleichungen** betrachten wir Anwendungen der linearen Algebra für maschinelles Lernen. 
+## Ausblick
+Im nächsten Abschnitt über **Least-Means-Squares (LMS) und die Normalengleichung** betrachten wir Anwendungen der linearen Algebra für maschinelles Lernen. 
 
 $$\text Viel \: Spass!$$
