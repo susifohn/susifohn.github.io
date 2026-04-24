@@ -7,7 +7,7 @@ math: true
 
 # Lineare Regression vs. Logistische Regression
 
-- **Lineare Regression** liefert *kontinuierliche* Ausgaben, z. B. den Hauspreis.  
+- **Lineare Regression** liefert *kontinuierliche* Ausgaben, zum Beispiel den Hauspreis.  
 - **Logistische Regression** liefert *diskrete*, *binäre* (meist binäre) Ausgaben, z. B. „krank / nicht krank“ oder „Kunde kündigt / kündigt nicht“.
 
 - Die **logistische Regression** wird mit der *Maximum-Likelihood-Methode (MLE)* geschätzt.  
