@@ -58,7 +58,7 @@ $$f(x) = \begin{cases}
 1 &  ,sonst 
 \end{cases}$$
 
-kann zur Klassifizierung gelernt werden. Geeigneter ist herfür die *Sigmoidfunktion*, welche kontinuierlich ändert und beobachtetes verhalten realistischer abbildet. Die Sigmoidfunktion, welche auch als *logistische Funktion* bezeichnet wird, ist wie folgt definiert:
+kann zur Klassifizierung gelernt werden. Geeigneter ist herfür die *Sigmoidfunktion*, welche kontinuierlich ändert und beobachtetes Verhalten realistischer abbildet. Die Sigmoidfunktion, welche auch als *logistische Funktion* bezeichnet wird, ist wie folgt definiert:
 
 $$
 y(x) = \frac{1}{1+e^{-x}}
@@ -88,7 +88,7 @@ welches angibt, mit welcher Wahrscheinlichkeit ein Datansatz $x$ zu der Klasse $
 
 *Tipp: auf [geogebra.org](https://www.geogebra.org/classic?lang=de) kann das einfach visualisiert werden, mit den Parametern $\theta_1$, $\theta_0$ als Schieberegler.*
 
-Die Gewichte werdem mit Gradient Descent bestimmt. Siehe Thema **Logistische Regerssion**. Im nächsten Kapitel lernen wir einen Spamfilter kennen, welcher mit einem naiven Ansatz und etwas Wahrscheinlichkeitstheorie gute Resultate liefert. Siehe **Naive Bayes Classifier**.
+Die Gewichte werdem mit Gradient Descent bestimmt. Siehe Thema **Logistische Regression**. Im nächsten Kapitel lernen wir einen Spamfilter kennen, welcher mit einem anderen Ansatz und etwas Wahrscheinlichkeitstheorie gute Resultate liefert. Siehe **Naive Bayes Classifier**.
  
 
 ### Python Code für Sigmoidfunktion
