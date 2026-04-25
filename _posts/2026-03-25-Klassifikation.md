@@ -58,18 +58,35 @@ $$f(x) = \begin{cases}
 1 &  ,sonst 
 \end{cases}$$
 
-kann zur Klassifizierung gelernt werden. Geeigneter ist herfür die *Sigmoidfunktion*, welche nicht sprungartig ändert und beobachtetes verhalten realistischer abbildet - *natura non facit saltus* (die Natur macht keine Sprünge). Die Sigmoidfunktion, welche auch als *logistische Funktion* bezeichnet wird, ist wie folgt definiert:
-$$y(x) = \frac{1}{1+e^{-x}}$$
+kann zur Klassifizierung gelernt werden. Geeigneter ist herfür die *Sigmoidfunktion*, welche kontinuierlich ändert und beobachtetes verhalten realistischer abbildet. Die Sigmoidfunktion, welche auch als *logistische Funktion* bezeichnet wird, ist wie folgt definiert:
+
+$$
+y(x) = \frac{1}{1+e^{-x}}
+$$
 
 ![Klassification](../assets/images/Insect_classes4.png)
 
-Haben wir mehrere Features $x_i$ bestimmen wir $x$ in der Sigmodfunkton mit den Gewichten $\theta_{i}$ wie folgt:
+Haben wir mehrere Features $x_i$ bestimmen wir $x$ in der Sigmoidfunkton mit den Gewichten $\theta_{i}$ wie folgt:
 
-$$h(x) = x_0 + \theta_1 x_1 + \ldots \theta_k x_k  $$
+$$
+h(x) = x_0 + \theta_1 x_1 + \ldots \theta_k x_k
+$$
+
 In Vektorschreibweise und mit $x_0=1$ ist das dasselbe wie
-$$h(x) = \theta^T x  \; \; \; \text{mit}\: x,\theta \in \mathbb{R}^k $$
 
-Die Gewichte $\theta$ sind die unbekannten Parameter unseres Modells, welches angibt, mit welcher Wahrscheinlichkeit ein Datansatz $x$ zu der Klasse $0$ oder $1$ gehört. 
+$$
+h(x) = \theta^T x  \; \; \; \text{mit}\: x,\theta \in \mathbb{R}^k
+$$
+
+Die Gewichte $\theta$ sind die unbekannten Parameter unseres Modells
+
+$$
+y(x) = \frac{1}{1+e^{-h(x)}}
+$$
+
+welches angibt, mit welcher Wahrscheinlichkeit ein Datansatz $x$ zu der Klasse $0$ oder $1$ gehört. 
+
+*Tipp: auf [geogebra.org](https://www.geogebra.org/classic?lang=de) kann das einfach visualisiert werden, mit den Parametern $\theta_1$, $\theta_0$ als Schieberegler.*
 
 Die Gewichte werdem mit Gradient Descent bestimmt. Siehe Thema **Logistische Regerssion**. Im nächsten Kapitel lernen wir einen Spamfilter kennen, welcher mit einem naiven Ansatz und etwas Wahrscheinlichkeitstheorie gute Resultate liefert. Siehe **Naive Bayes Classifier**.
  
