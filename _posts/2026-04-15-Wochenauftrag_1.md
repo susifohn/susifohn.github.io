@@ -9,7 +9,7 @@ math: true
 - Start: Fr. 1. 5.
 - Besprechung: Fr. 8. 5.
 
-## Übung 0 - Einrichten der Entwicklungsumgebung
+## Auftrag 1 - Einrichten der Entwicklungsumgebung
 Auf [smartlearn-hfi.gibb.ch](https://smartlearn-hfi.gibb.ch) steht eine Windows Lernumgebung zur Verfügung, mit VS Code installiert. Selbstverständlich kannst Du auch auf deinem eigenen Rechner direkt arbeiten. VS Code ist eine gute Wahl. Du kannst auch ein Jupyter Notebook verwenden (Registrierung nötig)  mit z.B. 
 - [anaconda.com](https://www.anaconda.com/docs/getting-started/anaconda/install/overview)
 - [https://colab.research.google.com/](https://colab.research.google.com/)
@@ -34,7 +34,25 @@ In einem  Jupyter Notebook, Run Cell:
  import numpy, matplotlib, sklearn, pandas
 print("Ready!")
 ```
-## Übung 1
+
+## Aufgabe 1
+Ordne die folgenden Situationen dem passenden Anwendungsbereich des maschinellen Lernens zu.
+Nehme das Bild in der Einführung für die Bereiche.
+
+1. Es soll die benötigte Bewässerungsmenge in der Landwirtschaft unter verschiedenen Umweltbedingungen vorhergesagt werden. Ref: [Kaggle](https://www.kaggle.com/datasets/miadul/irrigation-water-requirement-prediction-dataset/data)
+
+2. Ein Kamerasystem soll auf Bildern erkennen, ob es sich um eine Katze oder einen Hund handelt. 
+
+3. Ein Kamerasystem soll in Echtzeit aus vielen Personengesichtern eine bestimmte Person erkennen.
+
+4. Handgeschreibene Buchstaben und Zahlen sollen korrekt erkannt werden. 
+
+5. Ein KI Roboter besiegt Tischtennis-Profis. Ref. [srf.ch](https://www.srf.ch/wissen/technik/mensch-gegen-maschine-wie-ein-ki-roboter-tischtennis-profis-besiegt)
+
+6. In den sozialen Medien sollen Hashtags, welche von Usern kreiert werden, auf Gemeinsamkeiten analysiert werden um so unbekannte Trends festzustellen. 
+
+
+## Aufgabe 2
 ### a)
 Schreibe folgendes lineares Gleichungssystem in Matrixschreibweise und drücke $x$ mithilfe der inversen Matrix aus. Löse dann das System mit der ```numpy.linalg.inv``` Methode und zusätzlich auch mit ```numpy.linalg.solve```.
 
