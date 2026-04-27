@@ -14,6 +14,96 @@ math: true
 - [Ausblick](#ausblick)
 
 
+### Einleitung
+Im maschinellen Lernen werden grosse Datenmengen verarbeitet. Die Daten werden in Vektoren (1 dimensonale Listen) oder Matrizen (2 Dimensionale Listen, also eine Liste von Listen) erfasst und den Algorithmen und Methoden als Input übergeben. Eine Methode kann auch wieder einen Vektor als Returnwert zurückgeben.
+
+Wichtige Begriffe sind hierbei sind:
+- Features
+- Weights
+- Bias
+- Skalarprodukt (=Dot-Product)
+
+### Vektoren im maschinellen Lernen
+Oft arbeiten wir mit Vektoren. 
+- Ein **Feature Vektor** repräsentiert einen Datenpunkt
+$$x=
+\begin{pmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n
+\end{pmatrix}
+$$
+
+Jedes $x_i$ ist ein Feature, z.B. die Hausgrösse oder die Anzahl Zimmer.
+
+Die einzelnen Zahlen eines Vektors werden auch Komponenten genannt. 
+
+- Ein **Weight Vektor** repräsentiert die Gewichtung eines jeden Features
+
+$$w=
+\begin{pmatrix}
+w_1 \\
+w_2 \\
+\vdots \\
+w_n
+\end{pmatrix}
+$$
+
+Üblich ist nebst $w$ manchmal auch $\theta$.
+
+### Gewichtete Summe
+Jedes Feature $x_i$ trägt zum Ergebnis bei. Das Gewicht $w_i$ kontrolliert, wie wichtig dieses Feature ist. Je grösser $|w_i|$, desto stärker der Einfluss. Die reelle Zahl $y$, welche dabei als Ergebnis resultiert, berechnet sich somit wie folgt:
+
+$$
+y= w_1x_1 + \ldots + w_nx_n = \sum_{i=1}^{n} w_ix_i
+$$
+
+und ist die **gewichtete Summe**. 
+
+Wenn also ein Modell trainiert oder gelernt wird, heisst das, dass die Gewichte bestimmt werden. 
+
+### Das Skalarprodukt als gewichtete Summe
+Das Skalarprodukt oder auch als *Dot Product* bezeichnet, ist für zwei Vektoren $x$ und $w$ mit gleicher Anzahl Komponenten wie folgt definiert:
+
+$$
+w \cdot x = w_1x_1 + \ldots + w_nx_n
+$$
+
+In Vektor schreibweise etwas kürzer und oft verwendet als
+
+$$
+w \cdot x = w^T x = 
+\begin{pmatrix}
+w_1 & w_2 & \ldots & w_n
+\end{pmatrix}
+
+\begin{pmatrix}
+x_1 \\
+x_2 \\
+\vdots \\
+x_n
+\end{pmatrix}
+$$
+
+#### Eigenschaften
+- linear in beiden Argumenten
+- kommutativ
+- Ergebnis ist eine reelle Zahl
+- Ist das Skalarprodukt $0$ stehen die Vektoren senkrecht aufeinander. 
+
+### Der Bias Anteil
+Sind alle Features $0$ ist auch die gewichtete Summe $0$. Das ist jedoch für ein Modell nicht immer sinnvoll und zutreffend. Z.B. sind die Betriebskosten eines Autos nicht $0$ wenn nicht damit gefahren wird.
+
+Der Bias ist ein Offset und kann die gewichtete Summe verschieben. Die gewichtete Summe wir um den Bias ergänzt und so als Modell oder als Input für eine Methode wie folgt berechnet:
+
+$$
+y = w \cdot x +b, \;\;\; w,x \in \mathbb{R}^n, b \in \mathbb{R}
+$$
+
+
+
+
 ### Definition (Lineares Gleichungssystem)
 
 Seien $m,n \in \mathbb{N}$.  

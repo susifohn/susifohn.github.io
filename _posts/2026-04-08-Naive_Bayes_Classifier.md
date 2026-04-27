@@ -160,11 +160,15 @@ Um die diversen Wahrscheinlichkeiten im Ausdruck oben zu bestimmen, schauen wir 
 |you buy viagra|?|
 
 Die Wahrscheinlichkeit ein Spam-Email zu erhalten ist 
-$$P(s) = \frac{3}{5}$$
-und für ein no-spam
-$$P(\bar s) = \frac{2}{5}$$
 
-Um $P(word|spam)$ zu bestimmen betrachten wir alle Spam-Emails, welche das Wort beinhalten und teilen durch die Anzahl Spam-Emails. Und tun dasselbe für Wörter in den No-Spam-Emails. So erhalten wir alle gesuchten Wahrscheinlichkeiten wie folgt:
+$$
+P(s) = \frac{3}{5}$$
+und für ein no-spam
+$$P(\bar s) = \frac{2}{5}
+$$
+
+Um $P(word | spam)$ zu bestimmen betrachten wir alle Spam-Emails, welche das Wort beinhalten und teilen durch die Anzahl Spam-Emails. Und tun dasselbe für Wörter in den No-Spam-Emails. So erhalten wir alle gesuchten Wahrscheinlichkeiten wie folgt:
+
 - $P(y|s)=\frac{1}{3}$
 - $P(b|s)=\frac{1}{3}$
 - $P(v|s)=\frac{2}{3}$
