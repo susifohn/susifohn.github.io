@@ -51,7 +51,7 @@ w_n
 \end{pmatrix}
 $$
 
-Üblich ist nebst $w$ manchmal auch $\theta$.
+Üblich ist nebst $w$ manchmal auch $\theta$ als Bezeichnung für Gewichte.
 
 ## Gewichtete Summe
 Jedes Feature $x_i$ trägt zum Ergebnis bei. Das Gewicht $w_i$ kontrolliert, wie wichtig dieses Feature ist. Je grösser $|w_i|$, desto stärker der Einfluss. Die reelle Zahl $y$, welche dabei als Ergebnis resultiert, berechnet sich somit wie folgt:
