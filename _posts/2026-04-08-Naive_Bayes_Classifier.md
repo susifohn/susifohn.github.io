@@ -78,7 +78,7 @@ $$\mathbb{P}(B | A) = \frac{\mathbb{P}(B \cap A)}{\mathbb{P}(A)}$$
 
 durch Gleichsetzen von $\mathbb{P}(A \cap B) = \mathbb{P}(B \cap A)$ erhalten wir das **Theorem vom Bayes**
 
-$$\mathbb{P}(A | B) = \frac{\mathbb{P}(B|A) \; \mathbb{P}(A)}{\mathbb{P}(B)}$$
+$$\mathbb{P}(A | B) = \frac{\mathbb{P}(B|A)  \mathbb{P}(A)}{\mathbb{P}(B)}$$
 
 ## Totale Wahrscheinlichkeit
 Der Satz der totalen Wahrscheinlichkeit ermöglicht es, die Einzelwahrscheinlichkeiten aus den bedingten Wahrscheinlichkeiten zu berechnen. 
