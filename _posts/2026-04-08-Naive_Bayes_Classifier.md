@@ -167,14 +167,24 @@ und für ein no-spam
 $$P(\bar s) = \frac{2}{5}
 $$
 
-Um $P(word | spam)$ zu bestimmen betrachten wir alle Spam-Emails, welche das Wort beinhalten und teilen durch die Anzahl Spam-Emails. Und tun dasselbe für Wörter in den No-Spam-Emails. So erhalten wir alle gesuchten Wahrscheinlichkeiten wie folgt:
+Um
 
-- $P(y|s)=\frac{1}{3}$
-- $P(b|s)=\frac{1}{3}$
-- $P(v|s)=\frac{2}{3}$
-- $P(y|\bar s)=\frac{1}{2}$
-- $P(b|\bar s)=\frac{1}{2}$
-- $P(v|\bar s)=\frac{1}{2}$
+$$ 
+P(word | spam)
+$$ 
+
+zu bestimmen betrachten wir alle Spam-Emails, welche das Wort beinhalten und teilen durch die Anzahl Spam-Emails. Und tun dasselbe für Wörter in den No-Spam-Emails. So erhalten wir alle gesuchten Wahrscheinlichkeiten wie folgt:
+
+$$
+\begin{aligned}
+P(y|s)=\frac{1}{3} \\
+P(b|s)=\frac{1}{3} \\
+P(v|s)=\frac{2}{3} \\
+P(y|\bar s)=\frac{1}{2} \\
+P(b|\bar s)=\frac{1}{2} \\
+P(v|\bar s)=\frac{1}{2}
+\end{aligned}
+$$
 
 und können diese in die Formel oben einsetzen
 
