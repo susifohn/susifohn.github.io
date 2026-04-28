@@ -51,6 +51,8 @@ Nehme das Bild in der Einführung für die Bereiche.
 
 6. In den sozialen Medien sollen Hashtags, welche von Usern kreiert werden, auf Gemeinsamkeiten analysiert werden um so unbekannte Trends festzustellen. 
 
+7. Die Hausautomation in einem Gebäude zeichnet Daten von diversen Sensoren, darunter auch ein Feuchtigkeitsmesser,  alle 5s auf und speichert die Werte mit Zeitstempel in einem CSV-File, welches bis 5GB gross werden kann. Sie wollen herausfinden, in welchem Monat die grösste mittlere  Luftfeuchtigkeit herrschte.   
+
 
 ## Aufgabe 2
 ### a)

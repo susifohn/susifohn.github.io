@@ -7,6 +7,7 @@ math: true
 
 ## Inhaltsverzeichnis
 
+- [Vektoren im maschinellen Lernen](#vektoren-im-maschinellen-lernen)
 - [Definition (Lineares Gleichungssystem)](#definition-lineares-gleichungssystem)
 - [Beispiel: Polynom durch Datenpunkte](#beispiel-polynom-durch-datenpunkte)
 - [Die Idee der inversen Matrix](#die-idee-der-inversen-matrix)
@@ -14,7 +15,7 @@ math: true
 - [Ausblick](#ausblick)
 
 
-### Einleitung
+# Einleitung
 Im maschinellen Lernen werden grosse Datenmengen verarbeitet. Die Daten werden in Vektoren (1 dimensonale Listen) oder Matrizen (2 Dimensionale Listen, also eine Liste von Listen) erfasst und den Algorithmen und Methoden als Input übergeben. Eine Methode kann auch wieder einen Vektor als Returnwert zurückgeben.
 
 Wichtige Begriffe sind hierbei sind:
@@ -23,7 +24,7 @@ Wichtige Begriffe sind hierbei sind:
 - Bias
 - Skalarprodukt (=Dot-Product)
 
-### Vektoren im maschinellen Lernen
+## Vektoren im maschinellen Lernen
 Oft arbeiten wir mit Vektoren. 
 - Ein **Feature Vektor** repräsentiert einen Datenpunkt
 $$x=
@@ -35,7 +36,7 @@ x_n
 \end{pmatrix}
 $$
 
-Jedes $x_i$ ist ein Feature, z.B. die Hausgrösse oder die Anzahl Zimmer.
+Jedes $x_i$ ist ein Feature, z.B. $x_1$ die Hausgrösse, $x_2$ die Anzahl Zimmer, $x_3$ die die Entfernung zur nächsten Bushaltestelle. 
 
 Die einzelnen Zahlen eines Vektors werden auch Komponenten genannt. 
 
@@ -52,7 +53,7 @@ $$
 
 Üblich ist nebst $w$ manchmal auch $\theta$.
 
-### Gewichtete Summe
+## Gewichtete Summe
 Jedes Feature $x_i$ trägt zum Ergebnis bei. Das Gewicht $w_i$ kontrolliert, wie wichtig dieses Feature ist. Je grösser $|w_i|$, desto stärker der Einfluss. Die reelle Zahl $y$, welche dabei als Ergebnis resultiert, berechnet sich somit wie folgt:
 
 $$
@@ -63,7 +64,7 @@ und ist die **gewichtete Summe**.
 
 Wenn also ein Modell trainiert oder gelernt wird, heisst das, dass die Gewichte bestimmt werden. 
 
-### Das Skalarprodukt als gewichtete Summe
+## Das Skalarprodukt als gewichtete Summe
 Das Skalarprodukt oder auch als *Dot Product* bezeichnet, ist für zwei Vektoren $x$ und $w$ mit gleicher Anzahl Komponenten wie folgt definiert:
 
 $$
@@ -86,7 +87,7 @@ x_n
 \end{pmatrix}
 $$
 
-#### Eigenschaften
+### Eigenschaften
 - linear in beiden Argumenten
 - kommutativ
 - Ergebnis ist eine reelle Zahl
@@ -104,7 +105,7 @@ $$
 
 
 
-### Definition (Lineares Gleichungssystem)
+# Definition (Lineares Gleichungssystem)
 
 Seien $m,n \in \mathbb{N}$.  
 Ein *lineares Gleichungssystem* mit $m$ Gleichungen und $n$ Unbekannten besteht aus Gleichungen der Form
@@ -251,14 +252,14 @@ $$
 
 Dabei sind $3$ und $-\frac{1}{2}$ die Linearfaktoren. 
 
-### Die Berechnung der inversen Matrix
+## Die Berechnung der inversen Matrix
 nimmt uns die Funktion ```numpy.linalg.inv``` ab.
 
 Um direkt das Gleichungssystem $Ax=b$ zu lösen, ist die Funktion ```numpy.linalg.solve``` effizienter. 
 
 ---
 
-## Lineare Regression und Overfitting
+# Lineare Regression und Overfitting
 
 Das obige Beispiel führt uns zu zwei grundlegenden Konzepten aus dem maschinellen Lernen: 
 
@@ -306,7 +307,7 @@ Das folgende Bild zeigt links eine Gerade als Modell, welches zu vereinfacht ist
 
 Bildquelle: [Andrew Ng](https://zhu45.org/posts/2017/Jul/21/andrew-ngs-ml-week-06-11/)
 
-## Ausblick
+# Ausblick
 Im nächsten Abschnitt über **Least-Means-Squares (LMS) und die Normalengleichung** betrachten wir Anwendungen der linearen Algebra für maschinelles Lernen. 
 
 $$\text Viel \: Spass!$$
