@@ -18,9 +18,9 @@ timezone: Europe/Zurich
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Haskell for starters. # the main title
+title: Haskell and ML for starters. # the main title
 
-tagline: Easy to understand haskell stuff and whatever else. # it will display as the sub-title
+tagline: Easy to understand haskell stuff, some machine learning and whatever else. # it will display as the sub-title
 
 description: >- # used by seo meta and the atom feed
   A minimal, responsive and feature-rich Jekyll theme for technical writing.

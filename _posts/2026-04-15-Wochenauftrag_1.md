@@ -9,31 +9,6 @@ math: true
 - Start: Fr. 1. 5.
 - Besprechung: Fr. 8. 5.
 
-## Auftrag 1 - Einrichten der Entwicklungsumgebung
-Auf [smartlearn-hfi.gibb.ch](https://smartlearn-hfi.gibb.ch) steht eine Windows Lernumgebung zur Verfügung, mit VS Code installiert. Selbstverständlich kannst Du auch auf deinem eigenen Rechner direkt arbeiten. VS Code ist eine gute Wahl. Du kannst auch ein Jupyter Notebook verwenden (Registrierung nötig)  mit z.B. 
-- [anaconda.com](https://www.anaconda.com/docs/getting-started/anaconda/install/overview)
-- [https://colab.research.google.com/](https://colab.research.google.com/)
-
-Stelle sicher, dass du folgende Toolchain verfügbar hast:
-1. python 3
-2. pip3
-2. numpy
-3. matplotlib
-4. scikit-learn
-5. pandas
-
-#### Check
-Im Terminal in VS Code oder in PowerShell prüfe die Installation:
-
-```bash
-prompt>python --version
-prompt>pip3 list
-```
-In einem  Jupyter Notebook, Run Cell:
-```python
- import numpy, matplotlib, sklearn, pandas
-print("Ready!")
-```
 
 ## Aufgabe 1
 Ordne die folgenden Situationen dem passenden Anwendungsbereich des maschinellen Lernens zu.
@@ -67,6 +42,32 @@ $$
 
 ### b) 
 Finde ein lineares Gleichungssystem mit zwei Gleichungen und zwei Unbekannten, welches keine Lösung hat. Was ist in diesem Fall die Inverse der Matrix des Gleichungssystems? Ist die Matrix singular oder non-singuar? Zeige grafisch im $\mathbb{R}^2$, warum es keine Lösung gibt. 
+
+## Auftrag 1 - Einrichten der Entwicklungsumgebung
+Auf [smartlearn-hfi.gibb.ch](https://smartlearn-hfi.gibb.ch) steht eine Windows Lernumgebung zur Verfügung, mit VS Code installiert. Selbstverständlich kannst Du auch auf deinem eigenen Rechner direkt arbeiten. VS Code ist eine gute Wahl. Du kannst auch ein Jupyter Notebook verwenden (Registrierung nötig)  mit z.B. 
+- [anaconda.com](https://www.anaconda.com/docs/getting-started/anaconda/install/overview)
+- [https://colab.research.google.com/](https://colab.research.google.com/)
+
+Stelle sicher, dass du folgende Toolchain verfügbar hast:
+1. python 3
+2. pip3
+2. numpy
+3. matplotlib
+4. scikit-learn
+5. pandas
+
+#### Check
+Im Terminal in VS Code oder in PowerShell prüfe die Installation:
+
+```bash
+prompt>python --version
+prompt>pip3 list
+```
+In einem  Jupyter Notebook, Run Cell:
+```python
+ import numpy, matplotlib, sklearn, pandas
+print("Ready!")
+```
 
 
 
