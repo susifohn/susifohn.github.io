@@ -129,7 +129,7 @@ print("Ready!")
 
  Gegeben sind folgende Messwerte einer Wetterstation:
 
- | Temperatur $x$ (°C) | Eisverkauf $y$ (Portionen) |
+ | Temperatur $x$ (°C) | Glaceverkauf $y$ (Portionen) |
  |:---:|:---:|
  | 15 | 30 |
  | 20 | 50 |
@@ -138,10 +138,10 @@ print("Ready!")
  | 35 | 120 |
 
  1. Visualisiere die Daten mit matplotlib.
- 2. Bestimme die Regressionsgerade mit scikit-learn.
- 3. Wie viele Portionen werden bei 28°C verkauft?
- 4. Ist das Modell bei 5°C noch sinnvoll? Begründe.
- 5. **Optional, später** Vergleiche Normalengleichung und scikit-learn – ergibt sich dasselbe $\theta$?
+ 2. Nehme als Hypothese eine Gerade und bestimme die Gewichte mit ```np.linalg.inv``` und ```np.linalg.lstsq``` 
+ 3. zeichne diese ein.
+ 3. Wie viele Glaceportionen werden bei 28°C verkauft?
+ 4. Ist das Modell bei 5°C noch sinnvoll?
 
 
 
