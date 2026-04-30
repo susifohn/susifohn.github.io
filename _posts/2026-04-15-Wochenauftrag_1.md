@@ -29,7 +29,42 @@ Nehme das Bild in der Einführung für die Bereiche.
 7. Die Hausautomation in einem Gebäude zeichnet Daten von diversen Sensoren, darunter auch ein Feuchtigkeitsmesser,  alle 5s auf und speichert die Werte mit Zeitstempel in einem CSV-File, welches bis 5GB gross werden kann. Sie wollen herausfinden, in welchem Monat die grösste mittlere  Luftfeuchtigkeit herrschte.   
 
 ## Aufgabe 2
-### a)
+
+### a) 
+Für
+$$ u=
+\begin{pmatrix}
+1 \\
+2 \\
+-3
+\end{pmatrix}
+\text{und} \; v=
+\begin{pmatrix}
+10 \\
+0 \\
+-2
+\end{pmatrix}
+$$
+
+berechne
+
+$$
+\begin{aligned}
+u^T v \\
+v^T v \\
+u (v^Tv)
+\end{aligned}
+$$
+
+**Freiwillig:** kannstu du $u v^T$ berechnen? Hierzu musst du herausfinden, wie Matrizen multipliziert werden. 
+
+Gegeben ist folgende Hypothese:
+$$
+h_w(x) = 3x + y - z + \frac{1}{2} 
+$$
+Schreibe $h$ als Skalarprodukt. 
+
+### b)
 Überprüfe die folgenden Eigenschaften des Skalarproduktes $f$ mit $v,w \in \mathbb{R}^2$:
 
 Bilinear: $f(\alpha v, \beta w)= \alpha \beta f(v,w)$ für $\alpha, \beta \in \mathbb{R}$
@@ -40,7 +75,7 @@ $f(v,w) = 0 \implies  v,w$ stehen senkrecht aufeinander.
 
 $f(v,v) = \|v\|^2_2$ , dabei ist $\|\cdot\|$ die euklidische Länge des Vektors. 
 
-### b)
+### c)
 Berechne die Hypothese $h_\theta(x)$ für $\theta_1 = 2,\theta_2 = -2, \theta_3 = -1$ und die Features $x_1=650, x_2=3, x_3=12$ und Bias $b=-20$
 
 ## Aufgabe 3
@@ -56,6 +91,13 @@ $$
 
 ### b) 
 Finde ein lineares Gleichungssystem mit zwei Gleichungen und zwei Unbekannten, welches keine Lösung hat. Was ist in diesem Fall die Inverse der Matrix des Gleichungssystems? Ist die Matrix singular oder non-singuar? Zeige grafisch im $\mathbb{R}^2$, warum es keine Lösung gibt. 
+
+## Aufgabe 4
+$A,B,C \in \mathbb{R}^{n \times n}$ invertierbar, $x,y \in \mathbb{R}^n$. Kannst du folgende Gleichung nach $x$ auflösen? Beachte, dass die Matrixmultiplikation nicht kommutativ ist, d.h. allgemein gilt $AB \neq BA$. 
+
+$$
+ABxC^{-1} = y
+$$
 
 ## Einrichten der Entwicklungsumgebung
 Auf [smartlearn-hfi.gibb.ch](https://smartlearn-hfi.gibb.ch) steht eine Windows Lernumgebung zur Verfügung, mit VS Code installiert. Selbstverständlich kannst Du auch auf deinem eigenen Rechner direkt arbeiten. VS Code ist eine gute Wahl. Du kannst auch ein Jupyter Notebook verwenden (Registrierung nötig)  mit z.B. 
@@ -83,7 +125,23 @@ import numpy, matplotlib, sklearn, pandas
 print("Ready!")
 ```
 
+## Aufgabe 5
 
+ Gegeben sind folgende Messwerte einer Wetterstation:
+
+ | Temperatur $x$ (°C) | Eisverkauf $y$ (Portionen) |
+ |:---:|:---:|
+ | 15 | 30 |
+ | 20 | 50 |
+ | 25 | 80 |
+ | 30 | 110 |
+ | 35 | 120 |
+
+ 1. Visualisiere die Daten mit matplotlib.
+ 2. Bestimme die Regressionsgerade mit scikit-learn.
+ 3. Wie viele Portionen werden bei 28°C verkauft?
+ 4. Ist das Modell bei 5°C noch sinnvoll? Begründe.
+ 5. **Optional, später** Vergleiche Normalengleichung und scikit-learn – ergibt sich dasselbe $\theta$?
 
 
 

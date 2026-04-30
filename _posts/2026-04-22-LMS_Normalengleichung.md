@@ -11,6 +11,7 @@ math: true
 - [Überbestimmte Systeme](#überbestimmte-systeme)
 - [Idee der kleinsten Quadrate](#idee-der-kleinsten-quadrate)
 - [Die Normalengleichung](#die-normalengleichung)
+- [Beispiel](#beispiel)
 
 
 ## Least-Squares-Regression und die Normalengleichung
@@ -127,10 +128,85 @@ Berechnen der Inversen mit ```numpy.linalg.inv```.
 
 Die Funktion ```numpy.linalg.lstsq``` berechnet die LMS Lösung zu einem linearen Gleichungssystem. Später werden wir auch mit ```sklearn.LinearRegression``` die Aufgabe lösen.
 
-## Fazit
-- Das Prinzip, ist eine Fehlerfunktion zu minimieren, um die Modellparameter zu erhalten.
-- Die Normalengleichung kann das bei linearer Regression, zumindest für kleine Systeme. Das invertieren einer Matrix ist numerisch teuer. Stattdessen verwenden wir das *Gradient Descent* Verfahren, welches wir später betrachten. 
-- Im nächsten Kapitel wollen wir zuerst ein praktisches Beispiel zur linearen Regression betrachten. 
+## Beispiel
+
+Wir wollen den Preis eines Hauses anhand seiner Grundfläche vorhersagen.
+
+### Die Trainingsdaten
+
+| Grösse $x$ ($100 m^2$) | Preis $y$ ($1000CHF$) |
+|:---:|:---:|
+| 1 | 2 |
+| 2 | 4 |
+| 3 | 5 |
+| 4 | 4 |
+| 5 | 5 |
+
+Was kostet ein Haus mit $350m^2$ ?
+
+### Unsere Hypothese - das Modell
+
+Unsere Hypothese ist eine Gerade 
+
+$$\hat{y} = h_{\theta}(x) = \theta_1 x + \theta_0$$
+
+Die Gewichte $\theta_1$ (Steigung) und $\theta_0$ (Bias, bzw. y-Achsenabschnitt) sind unbekannt, und wollen wir lernen.
+
+## Die Fehlerfunktion
+Für jeden Datenpunkt berechnen wir den Fehler zwischen Hypothese (Vorhersage, Prediction) $\hat{y}_i$ und dem tatsächlichen Wert $y_i$, und summieren alle Fehler auf.
+
+$$
+J(\theta_1, \theta_0) = \sum_{i=1}^{n} (\hat{y}_i - y_i)^2
+$$
+
+## Lösung mit der Normalengleichung
+
+Die Normalengleichung liefert die optimalen Gewichte:
+
+$$
+\theta = (A^\top A)^{-1} A^\top y
+$$
+
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Trainingsdaten
+x = np.array([1.0, 2.0, 3.0, 4.0, 5.0])
+y = np.array([2.0, 4.0, 5.0, 4.0, 5.0])
+
+# Matrix A
+A = np.array([[1.0,1],
+              [2.0,1],
+              [3.0,1],
+              [4.0,1], 
+              [5.0,1]])
+print("Matrix A:\n", A)
+
+# Normalengleichung: (AᵀA)^-1 A^T y
+theta = np.linalg.inv(A.T @ A) @ A.T @ y
+print(f"theta1 = {theta[0]:.3f}, theta0 = {theta[1]:.3f}")
+
+# Vorhersage für 3.5 (= 350 m^2)
+x_neu = 3.5
+y_pred = theta[0] * x_neu + theta[1]
+print(f"Vorhersage für {x_neu*100:.0f} m^2: {y_pred:.1f} × 1000 CHF")
+
+# Plotting
+x_plot = np.linspace(0, 5.5, 100)
+y_plot = theta[0] * x_plot + theta[1]
+
+plt.scatter(x, y, color='blue', label='Trainingsdaten')
+plt.plot(x_plot, y_plot, color='red', label='Hypothese')
+plt.scatter(x_neu, y_pred, color='green')
+plt.xlabel('Grösse (100 m^2)')
+plt.ylabel('Preis (1000 CHF)')
+plt.title('Hauspreis')
+plt.legend()
+plt.grid(True)
+plt.show()
+```
+
 
 $$
 \text{Viel Spass!}
