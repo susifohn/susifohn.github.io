@@ -44,7 +44,7 @@ Andrew Ng
 Durch Einsetzen der Datenpunkte erhalten wir das lineare Gleichungssystem
 
 $$
-A x = y,
+A \theta = y,
 $$
 
 mit
@@ -59,7 +59,7 @@ x_n & 1
 \end{pmatrix},
 
 \qquad
-x =
+\theta =
 \begin{pmatrix}
 \theta_1 \\ \theta_0
 \end{pmatrix},
@@ -69,6 +69,8 @@ y =
 y_1 \\ y_2 \\ \vdots \\ y_n
 \end{pmatrix}.
 $$
+
+Lass dich nicht durch die Notation mit dem $\theta$ verwirren. Die Unbekannten sind die Gewichte des Modells, also $\theta_0, \theta_1$. Bekannt sind die Trianingsdaten $x_1, \ldots, x_n$, zu welchen wir den jeweiligen Hauspreis $y_1, \ldots, y_n$ kennen.  
 
 Für $n > 2$ hat dieses System mehr Gleichungen als Unbekannte und ist daher *überbestimmt*.  
 Im Allgemeinen existiert keine exakte Lösung.
@@ -84,7 +86,7 @@ $$
 J(\theta) = \sum_{i=1}^n (h_\theta(x_i) - y_i)^2
 $$
 
-Gesucht ist also der Parametervektor $x$, der diesen Fehler minimiert.
+Gesucht ist also der Parametervektor (Gewichtsvektor) $\theta$, der diesen Fehler minimiert.
 
 
 ## Die Normalengleichung
@@ -92,13 +94,15 @@ Gesucht ist also der Parametervektor $x$, der diesen Fehler minimiert.
 Das Minimum des Fehlers wird genau dann erreicht, wenn die sogenannte *Normalengleichung* erfüllt ist:
 
 $$
-A^\top A x = A^\top y.
+A^\top A \theta = A^\top y.
 $$
+
+>Merke dir einfach $Ax=b$, das normale Gleichungssystem, und multipliziere beide Seiten von links mit $A^\top$.
 
 Ist die Matrix $A^\top A$ invertierbar, ergibt sich die Lösung explizit als
 
 $$
-x  = 
+\theta  = 
 \begin{pmatrix}
 \theta_1 \\ \theta_0
 \end{pmatrix} =
@@ -113,7 +117,7 @@ $$
 - Im Gegensatz zur exakten Interpolation entsteht **kein Overfitting**, solange das Modell nicht zu komplex gewählt wird.
 
 ### Die Berechnung mit Python
-Um die Parameter $\theta_0$ und $\theta_1$ mit der Normalengleichung zu berechnen, können folgende Methoden aus [Numpy linear algebra](https://numpy.org/doc/stable/reference/routines.linalg.html) verwendet werden.
+Um den Gewichtsvektor $\theta$ mit der Normalengleichung zu berechnen, können folgende Methoden aus [Numpy linear algebra](https://numpy.org/doc/stable/reference/routines.linalg.html) verwendet werden.
 
 $A^\top$ mit ```numpy.transpose```.
 
@@ -122,6 +126,16 @@ Matrixmultiplikation mit ```numpy.matmul``` oder dem ```@ Operator```. Das gilt 
 Berechnen der Inversen mit ```numpy.linalg.inv```.
 
 Die Funktion ```numpy.linalg.lstsq``` berechnet die LMS Lösung zu einem linearen Gleichungssystem. Später werden wir auch mit ```sklearn.LinearRegression``` die Aufgabe lösen.
+
+## Fazit
+- Das Prinzip, ist eine Fehlerfunktion zu minimieren, um die Modellparameter zu erhalten.
+- Die Normalengleichung kann das bei linearer Regression, zumindest für kleine Systeme. Das invertieren einer Matrix ist numerisch teuer. Stattdessen verwenden wir das *Gradient Descent* Verfahren, welches wir später betrachten. 
+- Im nächsten Kapitel wollen wir zuerst ein praktisches Beispiel zur linearen Regression betrachten. 
+
+$$
+\text{Viel Spass!}
+$$
+
 
 
 
