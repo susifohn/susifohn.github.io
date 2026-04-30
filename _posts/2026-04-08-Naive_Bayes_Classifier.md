@@ -9,6 +9,13 @@ math: true
 - Kapitel *Bayes' Theorem*, Math for deep learning, Kneusel, no starch press. 
 - [https://web.stanford.edu/class/archive/cs/cs109/cs109.1218/files/student_drive/9.3.pdf](https://web.stanford.edu/class/archive/cs/cs109/cs109.1218/files/student_drive/9.3.pdf)
 
+# Was erfährst du hier Spannendes
+- Unterschied (lineare) Regression und Klassifikation
+- Die wichtigsten Begriffe zur Wahrscheinlichktiesrechnung. 
+- Verstehen wie ein Email Spamfilter funktioniert. 
+- Einen Naive Bayes Classifier von Hand durchrechnen können.
+- Naive Bayes mit numpy anwenden können. Mit scikit arbeiten wir später.
+
 # Motivation
 Hast du dich schon mal gewundert, wie eine Email als Spam markiert wird? Einer der klassischen Ansätze in den frühen Spamfiltern bestand darin, mit Wahrscheinlichkeiten zu arbeiten - insbesondere mit dem *Bayes' Theorem*. 
 
@@ -58,6 +65,7 @@ $$E = \{(2,6) (6,2) (3,5) (5,3) (3,6) (6,3) (4,4) (4,5) (5,4) (4,6) (6,4) (5,5) 
 $$\mathbb{P}(Summe \gt 7) = \frac{|E|}{|\Omega|} = \frac{15}{36} \approx 0.4167$$
 
 # Bedingte Wahrscheinlichkeit und das Theorem von Bayes
+> TODO Als einleitendes Beispiel nehme eine Tumordiagnose mit einem Test der z.B. 99% Genauigkeit hat. Bösartige Tumore sind bei Menschen eher selten, nehme 0.25%. Dann betrachte False Positive FP und False Negative FN. FN sind gravierender. Mit den Bayes Theorem dann berechnen, wie hoch die Wsk bei einem neg/pos Test ist, dass es stimmt oder nicht. Was passiert, wenn der Test 100% genau ist? 
 
 Wir betrachten einen Ergebnisraum $\Omega$ sowie zwei Ereignisse $A$ und $B$. 
 
