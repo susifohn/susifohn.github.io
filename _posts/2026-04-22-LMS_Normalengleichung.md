@@ -209,7 +209,7 @@ plt.show()
 
 
 $$
-\text{Viel Spass!}
+\text{Viel Spass beim selber Üben!}
 $$
 
 
