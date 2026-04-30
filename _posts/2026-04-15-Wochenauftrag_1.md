@@ -78,10 +78,11 @@ prompt>python --version
 prompt>pip3 list
 ```
 In einem  Jupyter Notebook, Run Cell:
-```python
- import numpy, matplotlib, sklearn, pandas
+```py linenums="1"
+import numpy, matplotlib, sklearn, pandas
 print("Ready!")
 ```
+
 
 
 
