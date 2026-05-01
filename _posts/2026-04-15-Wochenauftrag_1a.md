@@ -119,11 +119,12 @@ prompt>python --version
 prompt>pip3 list
 ```
 In einem  Jupyter Notebook, Run Cell:
-```py linenums="1"
+
+```py
 import numpy, matplotlib, sklearn, pandas
 print("Ready!")
 ```
-In VS Code benötigst du noch eine Graph-Library wie ```tkinter```, welche installiert werden muss, damit du Fenster mit mathplotlib anzeigen kannst.  
+In VS Code benötigst du noch eine Graph-Library wie ```tkinter```, welche installiert werden muss, damit du Fenster mit matplotlib anzeigen kannst.  
 
 ## Aufgabe 5
 
