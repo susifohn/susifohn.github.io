@@ -71,7 +71,7 @@ y_1 \\ y_2 \\ \vdots \\ y_n
 \end{pmatrix}.
 $$
 
-Lass dich nicht durch die Notation mit dem $\theta$ verwirren. Die Unbekannten sind die Gewichte des Modells, also $\theta_0, \theta_1$. Bekannt sind die Trianingsdaten $x_1, \ldots, x_n$, zu welchen wir den jeweiligen Hauspreis $y_1, \ldots, y_n$ kennen.  
+Lass dich nicht durch die Notation mit dem $\theta$ verwirren. Die Unbekannten sind die Gewichte des Modells, also $\theta_0, \theta_1$. Bekannt sind die Traingsdaten $x_1, \ldots, x_n$, zu welchen wir den jeweiligen Hauspreis $y_1, \ldots, y_n$ kennen.  
 
 Für $n > 2$ hat dieses System mehr Gleichungen als Unbekannte und ist daher *überbestimmt*.  
 Im Allgemeinen existiert keine exakte Lösung.
