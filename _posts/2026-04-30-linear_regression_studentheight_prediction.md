@@ -1,5 +1,5 @@
 ---
-title: 3c. Predict Student height using Linear Regerssion
+title: 3a. Predict Student height using Linear Regerssion
 categories: [Machine Learning, linear regression ]
 tags: [gibb, tsb, exercise]     # TAG names should always be lowercase
 math: true
@@ -252,4 +252,3 @@ MSE_test  (combined) = ________
 
 ---
 
-*Exercise prepared for: Machine Learning Basics — Linear Regression*
