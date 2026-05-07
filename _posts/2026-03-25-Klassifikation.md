@@ -92,7 +92,7 @@ welches angibt, mit welcher Wahrscheinlichkeit ein Datansatz $x$ zu der Klasse $
 
 Die Gewichte werdem mit dem *Gradient Descent* Verfahren bestimmt, es gibt keine exakte Lösung wie bei der linearen Regression mit der Normalengleichung. 
 
-Wie wollen im nächsten Kapitel etwas unter die Haube schauen und versuchen, das zu verstehen. Dazu brauchen wir etwas Wahrscheinlichkeitstheorie. Und wir werden auch noch lernen, wie damit Email-Spamfilter gebaut wurden, mit dem **Naive Bayes Classifier**.
+Wir wollen im nächsten Kapitel unter die Haube schauen und versuchen, das zu verstehen. Dazu brauchen wir etwas Wahrscheinlichkeitstheorie. Und wir werden auch noch lernen, wie damit Email-Spamfilter gebaut wurden, mit dem **Naive Bayes Classifier**.
  
 
 ### Python Code für Sigmoidfunktion
