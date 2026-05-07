@@ -1,14 +1,13 @@
 ---
-title: 3a. Predict Student height using Linear Regression
+title: 3a. Lineare Regression - Anwendung
 categories: [Machine Learning, linear regression ]
 tags: [gibb, tsb, exercise]     # TAG names should always be lowercase
 math: true
 ---
 
-# Class Exercise: Linear Regression
-### Machine Learning Basics — Group Activity
+# Anwendung in der Klasse
+Wie wollen die Grösse von Studierenden in der Klasse vorhersagen, basierend auf verschiedenen Features wie Ater, Schuhgrösse und der Länge ds Zeigefingers.
 
----
 
 ## Introduction
 
@@ -176,7 +175,7 @@ Now apply your model to the **4 test students** (rows 13–16) that the model ha
 
 **Mean Squared Error (MSE) on test data:**
 ```
-MSE_test = (error₁³² + error₁₄² + error₁₅² + error₁₆²) / 4  =  ________
+MSE_test = (error13² + error₁₄² + error₁₅² + error₁₆²) / 4  =  ________
 ```
 
 ---
