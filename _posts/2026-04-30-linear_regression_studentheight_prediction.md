@@ -1,5 +1,5 @@
 ---
-title: 3a. Predict Student height using Linear Regerssion
+title: 3a. Predict Student height using Linear Regression
 categories: [Machine Learning, linear regression ]
 tags: [gibb, tsb, exercise]     # TAG names should always be lowercase
 math: true
@@ -224,7 +224,7 @@ ___________________________________________________________________________
 
 ---
 
-## Bonus Task — Multivariate Regression
+## Arbeiten mit mehreren Features
 
 Can you do better by combining multiple features at once?
 

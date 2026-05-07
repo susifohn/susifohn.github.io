@@ -43,22 +43,24 @@ Vielmehr suchen wir eine Trennlinie, welche es uns erlaubt, ein unbekanntes Inse
 
 ## Mit Wahrscheinlichkeit
 
-Haben wir nur ein Feature und eine Klassifizierung Raupen=0 und Käfer=1, können wir das wie folgt visialisieren. 
+Betrachten wir eine Klassifikation basierend auf nur einem Feature, weil das können wir gut im $\mathbb{R}^2$ darstellen. Das Feature ist die Insektenbreite um Raupen=0 und Käfer=1 zu klassifizieren.  
 
 ![Klassification](../assets/images/Insect_classes3.png)
 
-Hierbei stellen wir uns die Frage, wie wahrscheinlich es ist, dass ein Datenpunkt zur Klasse $1$ gehört. 
+Hierbei stellen wir uns die Frage, wie wahrscheinlich es ist, dass eine Breite, unser Datenpunkt, zur Klasse $1$ gehört. 
 
-Dazu benötigen wir eine geeignete Aktivierungsfunktion, welche für eine reelle Eingabe, hier die Breite des Insekts, Werte im Intervall $[0,1]$ liefert.
+Dazu benötigen wir eine geeignete Aktivierungsfunktion, welche für eine reelle Eingabe, hier die Breite des Insekts, Werte im Intervall $[0,1]$ liefert. Eine solche Aktivierungsfunktion ist dann unsere Hypothese, wie das bei der linearen Regression die Gerade $h_{\theta}(x) = \theta_1 x + \theta_0$ war. 
 
-Die Sprungfunktion $f:\mathbb{R} \rightarrow \{0,1\}$ welche ab einer bestimmten Breite $b_R$ von $0$ auf $1$ springt
+Die Sprungfunktion $f:\mathbb{R} \rightarrow \{0,1\}$ welche ab einer bestimmten Breite $b$ von $0$ auf $1$ springt
 
-$$f(x) = \begin{cases}
-0 & ,x \le b_R \\
+$$h_{b}(x) = \begin{cases}
+0 & ,x \le b \\
 1 &  ,sonst 
 \end{cases}$$
 
-kann zur Klassifizierung gelernt werden. Geeigneter ist herfür die *Sigmoidfunktion*, welche kontinuierlich ändert und beobachtetes Verhalten realistischer abbildet. Die Sigmoidfunktion, welche auch als *logistische Funktion* bezeichnet wird, ist wie folgt definiert:
+kann zur Klassifizierung gelernt werden. Lernen hier, heisst aus den Trainingsdaten und mit etwas Wahrscheinlichkeitstheorie, den Parameter $b$ optimal zu bestimmen. Geeigneter ist herfür jedoch die *Sigmoidfunktion*, welche kontinuierlich ändert und beobachtetes Verhalten realistischer abbildet. Funktionen mit "Ecken" und "Sprüngen" sind nicht beliebt, erinnere dich an die Betragsfunktion, welche wir auch nicht benutzen. 
+
+Die Sigmoidfunktion, welche auch als *logistische Funktion* bezeichnet wird, ist wie folgt definiert:
 
 $$
 y(x) = \frac{1}{1+e^{-x}}
@@ -69,7 +71,7 @@ $$
 Haben wir mehrere Features $x_i$ bestimmen wir $x$ in der Sigmoidfunkton mit den Gewichten $\theta_{i}$ wie folgt:
 
 $$
-h(x) = x_0 + \theta_1 x_1 + \ldots \theta_k x_k
+h(x) = x_0 + \theta_1 x_1 + \ldots \theta_k x_k \;\; \in \mathbb{R}
 $$
 
 In Vektorschreibweise und mit $x_0=1$ ist das dasselbe wie
@@ -88,7 +90,9 @@ welches angibt, mit welcher Wahrscheinlichkeit ein Datansatz $x$ zu der Klasse $
 
 *Tipp: auf [geogebra.org](https://www.geogebra.org/classic?lang=de) kann das einfach visualisiert werden, mit den Parametern $\theta_1$, $\theta_0$ als Schieberegler.*
 
-Die Gewichte werdem mit Gradient Descent bestimmt. Siehe Thema **Logistische Regression**. Im nächsten Kapitel lernen wir einen Spamfilter kennen, welcher mit einem anderen Ansatz und etwas Wahrscheinlichkeitstheorie gute Resultate liefert. Siehe **Naive Bayes Classifier**.
+Die Gewichte werdem mit dem *Gradient Descent* Verfahren bestimmt, es gibt keine exakte Lösung wie bei der linearen Regression mit der Normalengleichung. 
+
+Wie wollen im nächsten Kapitel etwas unter die Haube schauen und versuchen, das zu verstehen. Dazu brauchen wir etwas Wahrscheinlichkeitstheorie. Und wir werden auch noch lernen, wie damit Email-Spamfilter gebaut wurden, mit dem **Naive Bayes Classifier**.
  
 
 ### Python Code für Sigmoidfunktion
