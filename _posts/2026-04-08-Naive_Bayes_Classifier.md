@@ -146,7 +146,8 @@ Was für Ersteres soviel heisst wie, gegeben das Email {you, buy, viagra} ist ei
 
 Die höhere Wahrscheinlichkeit gibt uns die Klasse an. Anwenden von Bayes gibt
 
-$$\mathbb{P}(\text{spam}| \{you, buy, viagra\})=
+$$\mathbb{P}(\text{spam}| \{you, buy, viagra\})= \\
+
 \frac{\mathbb{P}(\{you, buy, viagra\})|spam)\mathbb{P}(spam)}{\mathbb{P}(\{you, buy, viagra\})|spam)\mathbb{P}(spam)+\mathbb{P}(\{you, buy, viagra\})|no-spam)\mathbb{P}(no-spam)}\\$$
 
 Unsere naive Annahme ist, dass die Wörter unabhängig sind, wenn die Klasse vorgegeben ist. Offensichtlich ist das nicht korrekt, denn die Sprache hat eine Struktur. Der naive Ansatz liefert jedoch in vielen Anwendungen sehr gute Resultate. Sind also die Ereignisse $A$, $B$ , $C$ unabhängig, gilt
