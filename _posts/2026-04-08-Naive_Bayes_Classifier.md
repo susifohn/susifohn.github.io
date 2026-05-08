@@ -123,7 +123,7 @@ Wenn wir wissen, dass **B** bereits passiert ist (z. B. die Email enthält das W
   Sie beschreibt, wie wahrscheinlich es ist, dass eine Email Spam ist, **bevor** wir bestimmte Merkmale wie **B** betrachten.
 
 - **P(B):** (Prior/Evidence)Das ist die **a-priori-Wahrscheinlichkeit** von **B**.  
-  Sie beschreibt, wie wahrscheinlich es ist, das Merkmal **B** allgemein zu beobachten also, z. B. das Wort „offer“), **unabhängig davon**, ob **A** eintritt oder nicht.
+  Sie beschreibt, wie wahrscheinlich es ist, dass das Merkmal **B** eintritt, also, z. B. das Wort „offer“, **unabhängig davon**, ob **A** eintritt oder nicht.
 
 ## Preprocessing the Emails
 Es gibt diverse Fragestellungen bei der Verarbeitung von Text. Z.B. Umgang mit Rechtschreibung, Slang etc. Ein Email soll eine Liste aus Wörtern sein, mit folgendem Ansatz:
@@ -146,7 +146,8 @@ Was für Ersteres soviel heisst wie, gegeben das Email {you, buy, viagra} ist ei
 
 Die höhere Wahrscheinlichkeit gibt uns die Klasse an. Anwenden von Bayes gibt
 
-$$\mathbb{P}(\text{spam}| \{you, buy, viagra\})= \frac{\mathbb{P}(\{you, buy, viagra\})|spam)\mathbb{P}(spam)}{\mathbb{P}(\{you, buy, viagra\})|spam)\mathbb{P}(spam)+\mathbb{P}(\{you, buy, viagra\})|no-spam)\mathbb{P}(no-spam)}\\$$
+$$\mathbb{P}(\text{spam}| \{you, buy, viagra\})=
+\frac{\mathbb{P}(\{you, buy, viagra\})|spam)\mathbb{P}(spam)}{\mathbb{P}(\{you, buy, viagra\})|spam)\mathbb{P}(spam)+\mathbb{P}(\{you, buy, viagra\})|no-spam)\mathbb{P}(no-spam)}\\$$
 
 Unsere naive Annahme ist, dass die Wörter unabhängig sind, wenn die Klasse vorgegeben ist. Offensichtlich ist das nicht korrekt, denn die Sprache hat eine Struktur. Der naive Ansatz liefert jedoch in vielen Anwendungen sehr gute Resultate. Sind also die Ereignisse $A$, $B$ , $C$ unabhängig, gilt
 $$\mathbb{P}(A,B,C|S) = \mathbb{P}(A|S)\mathbb{P}(B|S)\mathbb{P}(C|S)$$
