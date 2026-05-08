@@ -99,42 +99,19 @@ Dazu wird nur ein einziges Feature verwendet: Anzahl der Stühle im Raum.
 
 ---
 
-## Aufgabe
+## Versuche folgende Fragen zu beantworten
+
 Verwende [sklearn.linear_model.LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
 
-Trainiere mit logistischer Regression und beantworten Sie:
+*Hinweis: Wir haben sklearn noch nicht angeschaut, versuche trotzdem die Aufgabe mit dem Link oben oder weiteren Quellen zu lösen.*
 
 
 1. Wie hoch ist die Wahrscheinlichkeit für ein Klassenzimmer bei:
    - 17 Stühlen
-   - 21 Stühlen
    - 29 Stühlen
 2. Bestimme die Gewichte und Zeichne die Aktivierungsfunktion. 
-3. Bei welcher Anzahl Stühlen kippd die Klasse.
+3. Bei welcher Anzahl Stühlen kippt die Klasse.
 
-
-
-## Hinweis
-
-Die logistische Regression modelliert eine Wahrscheinlichkeit:
-
-:contentReference[oaicite:0]{index=0}
-
-Dabei gilt:
-
-- \(x\) = Anzahl der Stühle
-- \(y=1\) = Klassenzimmer
-- \(y=0\) = kein Klassenzimmer
-
----
-
-## Zusatzfrage (Interpretation)
-
-Warum ist dieses Problem gut für logistische Regression geeignet?
-
-- lineare Trennbarkeit im 1D-Fall
-- klare Schwelle (ungefähr 18–26)
-- Übergang ist probabilistisch, nicht hart
 
 
 
