@@ -16,7 +16,7 @@ Du Wirfst einen Würfel und eine Münze, beide fair.
 1. Was ist der Ergebnisraum?
 2. Welches sind die Elementarereignisse?
 3. Ist das ein Laplaceexperiment?
-4. Was ist die Wahrcheinlichkeit dass du Kopf wirfst und eine Zahl kleiner als 5?
+4. Was ist die Wahrscheinlichkeit dass du Kopf wirfst und eine Zahl kleiner als 5?
 
 ## Aufgabe 2
 Analsiere beim Monty-Hall-Problem, welche Strategie besser ist. Tu das, indem du für beide Strategien die günstigen Ergebnisse zählst und so die Wahrscheinlichkeit für einen Gewinn für beide Strategien bestimmst. 
@@ -60,18 +60,17 @@ Ein neuer, unbekannter Text enthält das Wort Tor und Ball, jedoch nicht das Wor
 
 ### Bestimme von Hand auf Papier mit Bernoulli Naive Bayes:
 
-1. Die Klassenwahrscheinlichkeiten
-2. Die bedingten Wahrscheinlichkeiten der Wörter. Ohne Laplace Smoothing.
-3. Die Wahrscheinlichkeit für:
+1. Die Wahrscheinlichkeit für:
    - Fußball
    - Nicht Fußball
-4. Entscheide, zu welcher Klasse der Text gehört.
+2. Die bedingten Wahrscheinlichkeiten der Wörter. Ohne Laplace Smoothing.
+3. Entscheide, zu welcher Klasse der Text gehört.
 
 
 ## Aufgabe 4b
 Versuche die Aufgabe mit [sklearn.naive_bayes.BernoulliNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html) zu lösen.
 
-## Aufgabe 5
+## Aufgabe 5 (optional, haben wir noch nicht angeschaut und kommt im Wochenauftrag 3)
 
 In unserem Schulhaus soll automatisch erkannt werden, ob ein Raum ein **Klassenzimmer** ist oder nicht.
 
@@ -103,14 +102,12 @@ Dazu wird nur ein einziges Feature verwendet: Anzahl der Stühle im Raum.
 
 Verwende [sklearn.linear_model.LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
 
-*Hinweis: Wir haben sklearn noch nicht angeschaut, versuche trotzdem die Aufgabe mit dem Link oben oder weiteren Quellen zu lösen.*
-
 
 1. Wie hoch ist die Wahrscheinlichkeit für ein Klassenzimmer bei:
    - 17 Stühlen
    - 29 Stühlen
 2. Bestimme die Gewichte und Zeichne die Aktivierungsfunktion. 
-3. Bei welcher Anzahl Stühlen kippt die Klasse.
+3. Bei welcher Anzahl Stühlen kippt die Klasse von 0 auf 1.
 
 
 
