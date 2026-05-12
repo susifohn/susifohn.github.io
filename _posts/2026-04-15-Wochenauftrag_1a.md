@@ -1,6 +1,6 @@
 ---
 title: Wochenauftrag 1a
-categories: [Machine Learning, Aufträge ]
+categories: [Machine Learning, Übungen ]
 tags: [gibb, tsb, exercises]     # TAG names should always be lowercase
 math: true
 ---
