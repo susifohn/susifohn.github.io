@@ -1,6 +1,6 @@
 ---
 title: 7. Gradient Descent
-categories: [Machine Learning, Gradient Descent ]
+categories: [Machine Learning, Theorie ]
 tags: [gibb, tsb, Lernrate]     # TAG names should always be lowercase
 math: true
 ---
