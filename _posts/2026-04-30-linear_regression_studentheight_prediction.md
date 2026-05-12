@@ -1,6 +1,6 @@
 ---
 title: 3a. Lineare Regression - Anwendung
-categories: [Machine Learning, linear regression ]
+categories: [Machine Learning, Übung ]
 tags: [gibb, tsb, exercise]     # TAG names should always be lowercase
 math: true
 ---

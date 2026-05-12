@@ -1,6 +1,6 @@
 ---
 title: 6. Logistische Regression - MLE
-categories: [Machine Learning, Logistische Regression ]
+categories: [Machine Learning, Theorie ]
 tags: [gibb, tsb, sigmoid]     # TAG names should always be lowercase
 math: true
 ---
