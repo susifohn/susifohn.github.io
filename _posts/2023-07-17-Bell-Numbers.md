@@ -1,6 +1,6 @@
 ---
 title: Bells number
-categories: [haskell, listcomperhension]
+categories: [haskell]
 tags: [function]     # TAG names should always be lowercase
 math: true
 ---

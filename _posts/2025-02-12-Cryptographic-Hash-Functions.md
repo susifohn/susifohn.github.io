@@ -1,6 +1,6 @@
 ---
 title: Cryptographic Hash Functions
-categories: [network security, cryptography]
+categories: [Cryptography]
 tags: [cryptography, gibb]     # TAG names should always be lowercase
 math: true
 ---

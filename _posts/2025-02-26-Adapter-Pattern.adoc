@@ -1,6 +1,6 @@
 ---
 title: Adapter Pattern
-categories: [software, java]
+categories: [Java]
 tags: [patterns, fun]     # TAG names should always be lowercase
 math: true
 ---

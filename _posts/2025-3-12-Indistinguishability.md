@@ -1,6 +1,6 @@
 ---
 title: 3 Second part 
-categories: [cryptography]
+categories: [Cryptography]
 tags: [unibe, indistinguishability, birthday probabilities, birthday paradox, bad event lemma, collisions]     # TAG names should always be lowercase
 math: true
 ---

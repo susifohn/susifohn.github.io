@@ -1,6 +1,6 @@
 ---
 title: 3 Proofs and Computational Security
-categories: [cryptography]
+categories: [Cryptography]
 tags: [unibe, security proof]     # TAG names should always be lowercase
 math: true
 ---

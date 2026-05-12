@@ -1,6 +1,6 @@
 ---
 title: Verify IBAN
-categories: [haskell, modulo]
+categories: [haskell]
 tags: [function]     # TAG names should always be lowercase
 math: true
 ---
