@@ -6,19 +6,21 @@ math: true
 ---
 
 # Wie werden die Gewichte aktualisiert
-Eine Zusammenfassung aus dem Buch *Neuronale Netze, Tariq R. O'REILLY*. 
+Ref.: Buch *Neuronale Netze, Tariq R. O'REILLY*. 
 
-Ein Modell trainieren heisst, die unbekannten Parameter, welche auch Gewichte genannt werden, zu bestimmen. Bei der linearen Regression mit dem LMS-Algorithmus (Least Mean Squares) in 2D sind die Gewichte oder Modellparameter die Steigung $m$ und der y-Achsenabschnitt $b$ der Geraden $f(x)= mx + b$ , welche wir suchen. 
+Ein Modell trainieren heisst, die unbekannten Parameter zu bestimmen. Bei der linearen Regression mit dem LMS-Algorithmus (Least Mean Squares) in 2D sind die Gewichte oder Modellparameter die Steigung $m$ und der y-Achsenabschnitt $b$ der Geraden $f(x)= mx + b$ , welche wir suchen. Die Normalengleichung, welche exakt die optimalen Parameter liefert, ist für grosse Datensätze nicht anwendbar, weil das invertieren der Matrix $A^T A$ dann nicht mehr effizient ist. Auch gibt es viele Modelle, wo keine Formel für Lösung existiert. 
 
-Wir könnten alle Gewichte ausprobieren, bis wir eine gute Kombination gefunden haben. Diese Idee kann sogar nützlich sein, bei schwierigen Problemen, indem wir zufällig Kombinationen austesten. Dieses Vorgehen heisst *Brute Force Methode* und ist in der Praxis nicht anwendbar, weil zu viele Kombinationen existieren. Das Problem wurde erst in den 60/70'er Jahren gelöst und führte zu einem Boom von Methoden, mit welchen eindrucksvolle Aufgaben gelöst werden konnten. 
+Wir könnten alle Gewichte ausprobieren, bis wir eine gute Kombination gefunden haben. Diese Idee kann sogar nützlich sein, bei schwierigen Problemen, indem wir zufällig Kombinationen austesten. Dieses Vorgehen heisst *Brute Force Methode* und führt in der Praxis nicht zu den optimalen Gewichten, weil zu viele Kombinationen existieren.
 
-Das Vorgehen entspricht dem Abstieg ins Tal in einer bergigen Landschaft, welche wir nicht kennen und nur in unserer unmittelbaren Nähe erkunden können. Wir suchen die Richtung des grössten Abstiegs, gehen eine kurze Strecke in diese Richtung und beginnen erneut. Dies wiederholen wir so oft, bis wir den tiefsten Punkt gefunden haben. 
+Die Lösung heisst *Gradient Descent*. Damit können die optimalen Parameter eines Modells effizient ermittelt werden.
+
+Das Vorgehen entspricht dem Abstieg ins Tal in einer bergigen Landschaft, welche wir nicht kennen und nur in unserer unmittelbaren Nähe erkunden können. Wir suchen die Richtung des grössten Abstiegs, gehen eine kurze Strecke in diese Richtung und beginnen erneut. Dies wiederholen wir so oft, bis wir den tiefsten Punkt gefunden haben. Die bergige Landschaft mit der Höhe über Meer entspricht der Fehler- oder Verlustfunktion unseres Modells, welchen wir minimieren wollen. Die Koordinaten der Berggängerin entsprechen dabei den Gewichten, hier im 2D mit Längen- und Breitengrad für zwei Gewichte. Das Verfahren fünktioniert analog auch im mehrdimensionalen Raum. 
 
 Betrachten wir ein einfaches Beispiel anhand der Funktion $y=(x-1)^2+1$. Den Fehler $y$ wollen wir minimieren und wir suchen das $x$ dazu. Der Ausgangspunkt ist zufällig und wir schauen, in welche Richtung $y$ kleiner wird, und gehen ein kleines Stück in diese Richtung. 
 
 ![Gradientdescent](../assets/images/gradientdesc1.png)
 
-Der Gradient zeigt die Richtung des stärksten Anstiegs.
+Der Gradient zeigt in die Richtung des stärksten Anstiegs der Funktion, sowie die Grösse dieses Anstiegs. 
 Für die Minimierung gehen wir deshalb in die entgegengesetzte Richtung. Die Schrittgrösse, wird zusätzlich durch die Lernrate skaliert.
 
 ![Gradientdescent](../assets/images/gradientdesc2.png)
