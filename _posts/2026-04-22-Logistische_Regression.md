@@ -62,3 +62,66 @@ Mit einem Trick, welcher ausnutzt, dass $y \in \{0,1\}$, können wir diese Annah
 $$
 P(y | x,\theta) = (h_{\theta}(x))^y\;(1-h_{\theta}(x))^{1-y}
 $$
+
+Wir wollen nun die Gewichte so finden, dass unsere Hypothese die maximale Wahrscheinlichkeit über alle Datenpunkte
+
+$$
+P(\vec{y} | X, \theta)
+$$
+
+maximal wird. Dann haben wir das beste Modell gefunden für unsere Trainingsdaten. Mit der Annahme, dass die $m$ Datenpunkte unabhängig generiert wurden, können wir die Wahrscheinlichkeiten der einzelnen Datenpunkte multiplizieren:
+
+$$
+P(\vec{y} | X, \theta) = P(y_1 | x_{1.}, \theta) P(y_2| x_{2.}, \theta) \ldots P(y_n|x_{n.}, \theta)
+$$
+
+
+### Machen wir ein Beispiel, um die Idee besser zu verstehen.
+
+Klasse 1 = ist ein Käfer, Klasse 0 = ist kein Käfer. 
+
+| # | Länge |Breite | Klasse |
+| --- | --- | --- | --- |
+| 1. | 20mm | 23mm | Käfer |
+| 2. | 50mm | 22mm | kein Käfer |
+| 3. | 15mm | 10mm | Käfer |
+| 4. | 87mm | 39mm | Käfer |
+| 5. | 95mm | 15mm | kein Käfer |
+
+$$\vec{y}=
+\begin{pmatrix}
+1 \\
+0 \\
+1 \\
+1 \\
+0
+\end{pmatrix} 
+\text{,} \; X=
+\begin{pmatrix}
+1 & 20 & 23  \\
+1 & 50 & 22 \\
+1 & 15 & 10 \\
+1 & 87 & 39 \\
+1 & 95 & 15 
+\end{pmatrix}
+\text{und} \; \theta =
+\begin{pmatrix}
+\theta_0 \\
+\theta_1 \\
+\theta_2
+\end{pmatrix}
+\text{gesucht}
+$$
+
+Für $\theta^T = (1 \; 1 \; 1 )$ erhalten wir 
+
+$$P(\vec{y} | X, \theta) = g(1+20+23)\cdot (1-g(1+50+22))\cdot g(1+15+10)\cdot g(1+87+39)\cdot (1-g(1+95+15))
+$$.
+
+Im Fall von nur einem Feature entspricht das dem Produkt der Längen der roten Linien im nachfolgenden Bild. Man kann sich gut vorstellen, dass hier die Gewichte noch nicht optimal gewählt sind. 
+
+![logisticregression](../assets/images/logisticRegression_probab.png)
+
+Die Aufgabe besteht nun darin, diese Wahrscheinlichkeit zu maximieren und die zugehörigen Gewichte zu finden.
+
+
