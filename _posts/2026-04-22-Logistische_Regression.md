@@ -124,7 +124,8 @@ Im Fall von nur einem Feature entspricht das dem Produkt der Längen der roten L
 
 Die Aufgabe besteht nun darin, diese Wahrscheinlichkeit zu maximieren und die zugehörigen Gewichte zu finden. Dazu gibt es keine geschlossene Formel wie die Normalengleichung bei der linearen Regression. Die besten Gewichte werden mit dem *Gradientenverfahren* ermittelt. Der Gradient kann mit etwas Differenzialrechnung ermittelt werden, was uns hier nicht weiter beschäftigt. Nichts desto trotz merke man sich folgenden Trick, welcher oft eine wichtige Rolle spielt.
 
-> Weil der Logarithmus streng monoton setigt, kann anstelle $P(\vec{y} | X, \theta)$ zu maximieren, auch $log (P(\vec{y} | X, \theta))$ maximiert werden. Letzteres wird auch *log likelihood* genannt. Das Produkt wird dann zu einer Summe und ist viel einfacher zu verarbeiten.
+### Hinweis
+Weil der Logarithmus streng monoton setigt, kann anstelle $P(\vec{y} | X, \theta)$ zu maximieren, auch $log (P(\vec{y} | X, \theta))$ maximiert werden. Letzteres wird auch *log likelihood* genannt. Das Produkt wird dann zu einer Summe und ist viel einfacher zu verarbeiten.
 
 
 
