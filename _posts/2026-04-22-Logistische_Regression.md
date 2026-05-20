@@ -127,6 +127,110 @@ Die Aufgabe besteht nun darin, diese Wahrscheinlichkeit zu maximieren und die zu
 ### Hinweis
 Weil der Logarithmus streng monoton setigt, kann anstelle $P(\vec{y} | X, \theta)$ zu maximieren, auch $log (P(\vec{y} | X, \theta))$ maximiert werden. Letzteres wird auch *log likelihood* genannt. Das Produkt wird dann zu einer Summe und ist viel einfacher zu verarbeiten.
 
+## Anwenden mit Python
+### Using scikit
+
+```python
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+# -----------------------------
+# Trainingsdaten
+# X = [Länge, Breite]
+# Der Bias wird automatisch hinzugefügt
+# -----------------------------
+X = np.array([
+    [20, 23],
+    [50, 22],
+    [15, 10],
+    [87, 39],
+    [95, 15]])
+# y = Klasse
+# 1 = Käfer
+# 0 = kein Käfer
+y = np.array([1, 0, 1, 1, 0])
+# -----------------------------
+# Logistic Regression Modell
+# -----------------------------
+model = LogisticRegression()
+# Modell trainieren
+model.fit(X, y)
+# -----------------------------
+# Parameter ausgeben
+# -----------------------------
+theta_0 = model.intercept_[0]
+theta_1, theta_2 = model.coef_[0]
+print(f"theta_0 = {theta_0:.2f} Bias")
+print(f"theta_1 = {theta_1:.2f} Gewicht für Feature Länge")
+print(f"theta_2 = {theta_2:.2f} Gewicht für Feature Breite")
+# -----------------------------
+# Vorhersagen
+# für Insekt mit Länge 99mm und Breite 10mm ==> eher kein Käfer (Klasse 0)
+# und        mit Lämge 99mm und Breite 43mm ==> eher ein Käfer (Klasse 1)
+# -----------------------------
+I = np.array([[99,10],
+              [99,43]])
+predictions = model.predict(I)
+probabilities = model.predict_proba(I)
+print("\nVorhersagen der Klasse:", predictions)
+print("\nWahrscheinlichkeiten:\n", probabilities)
+print(f"\nD.h. das 1. Insekt ist mit Wsk {probabilities[0][0]:.3f} kein Käfer")
+print(f"\nUnd das 2. Insekt ist mit Wsk {probabilities[1][1]:.3f} ein Käfer")
+```
+Output
+```bash
+theta_0 = -1.82 Bias
+theta_1 = -0.31 Gewicht für Feature Länge
+theta_2 = 0.77 Gewicht für Feature Breite
+
+Vorhersagen der Klasse: [0 1]
+
+Wahrscheinlichkeiten:
+ [[1.00000000e+00 2.07207576e-11]
+ [3.20464064e-01 6.79535936e-01]]
+
+D.h. das 1. Insekt ist mit Wsk 1.000 kein Käfer
+
+Und das 2. Insekt ist mit Wsk 0.680 ein Käfer
+```
+### Vergleich des Modells
+Wir konnten die Gewichte im Code oben herauslesen. Nun prüfen wir, ob das Modell die Sigmoidfunktion ist. 
+```python
+# Prüfe mit Sigmoidfunktion
+import numpy as np
+from sklearn.linear_model import LogisticRegression
+# -------------------------------------------------
+# Sigmoid function
+# -------------------------------------------------
+def sigm(z):
+    return 1 / (1 + np.exp(-z))
+# -------------------------------------------------
+# Compute z = theta^T x
+# für Länge 99mm und Breite 10mm
+# -------------------------------------------------
+X = np.array([1,99, 10])
+theta = np.array([theta_0, theta_1, theta_2])
+z = np.dot(theta,X)
+proba = 1-sigm(z)
+print(f"\nDas 1. Insekt ist mit Wsk {proba:.3f} kein Käfer")
+# -------------------------------------------------
+# und auch für Länge 99mm und Breite 43mm
+# -------------------------------------------------
+X = np.array([1,99, 43])
+theta = np.array([theta_0, theta_1, theta_2])
+z = np.dot(theta,X)
+proba = sigm(z)
+print(f"\nDas 2. Insekt ist mit Wsk {proba:.3f} ein Käfer")
+print("\nDie Resultate sind identisch, d.h. das Modell ist wirklich die Sigmoidfunktion mit den Gewichten theta.")
+```
+Output
+```bash
+Das 1. Insekt ist mit Wsk 1.000 kein Käfer
+
+Das 2. Insekt ist mit Wsk 0.680 ein Käfer
+
+Die Resultate sind identisch, d.h. das Modell ist wirklich die Sigmoidfunktion mit den Gewichten theta.
+```
+
 
 
 
