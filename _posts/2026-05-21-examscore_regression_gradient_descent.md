@@ -1,3 +1,9 @@
+---
+title: 4b. Gradientenverfahren - Regression
+categories: [Machine Learning, Übungen ]
+tags: [gibb, tsb, exercises]     # TAG names should always be lowercase
+math: true
+---
 
 # 1. Linear Regression Example in 2D
 

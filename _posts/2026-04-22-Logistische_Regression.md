@@ -1,7 +1,7 @@
 ---
 title: 6. Logistische Regression
 categories: [Machine Learning, Theorie ]
-tags: [gibb, tsb, sigmoid]     # TAG names should always be lowercase
+tags: [gibb, tsb, sigmoid, log likelihood]     # TAG names should always be lowercase
 math: true
 ---
 
@@ -57,7 +57,7 @@ $$
 P(y=0 | x,\theta) = 1-h_{\theta}(x)
 $$
 
-Mit einem Trick, welcher ausnutzt, dass $y \in \{0,1\}$, können wir diese Annahme wie folgt schreiben:
+Mit einem Trick, welcher ausnutzt, dass $$y \in \{0,1\}$$, können wir diese Annahme wie folgt schreiben:
 
 $$
 P(y | x,\theta) = (h_{\theta}(x))^y\;(1-h_{\theta}(x))^{1-y}
@@ -128,6 +128,10 @@ Die Aufgabe besteht nun darin, diese Wahrscheinlichkeit zu maximieren und die zu
 Weil der Logarithmus streng monoton setigt, kann anstelle $P(\vec{y} | X, \theta)$ zu maximieren, auch $log (P(\vec{y} | X, \theta))$ maximiert werden. Letzteres wird auch *log likelihood* genannt. Das Produkt wird dann zu einer Summe und ist viel einfacher zu verarbeiten.
 
 ## Anwenden mit Python
+Im folgenden schauen wir die Klasse [sklearn.linear_model.LogisticRegression](sklearn.linear_model.LogisticRegression) an, welche uns ein schönes Standard-Interface zur Verfügung stellt. 
+
+Das *Gradientenverfahren* betrachten wir dann im folgenden Kapitel 7. 
+
 ### Using scikit
 
 ```python
@@ -230,6 +234,10 @@ Das 2. Insekt ist mit Wsk 0.680 ein Käfer
 
 Die Resultate sind identisch, d.h. das Modell ist wirklich die Sigmoidfunktion mit den Gewichten theta.
 ```
+
+---
+
+Nun viel Spass mit den Kapitel 7 über *Gradient Descent*, wo man viel rechnen kann, wir uns aber auf das Konzept fokussieren. Und wir werden den wichtigen Begriff der **Lernrate** kennen lernen.  
 
 
 

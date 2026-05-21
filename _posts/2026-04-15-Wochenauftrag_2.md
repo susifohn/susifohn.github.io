@@ -70,44 +70,6 @@ Ein neuer, unbekannter Text enthält das Wort Tor und Ball, jedoch nicht das Wor
 ## Aufgabe 4b
 Versuche die Aufgabe mit [sklearn.naive_bayes.BernoulliNB](https://scikit-learn.org/stable/modules/generated/sklearn.naive_bayes.BernoulliNB.html) zu lösen.
 
-## Aufgabe 5 (optional, haben wir noch nicht angeschaut und kommt im Wochenauftrag 3)
-
-In unserem Schulhaus soll automatisch erkannt werden, ob ein Raum ein **Klassenzimmer** ist oder nicht.
-
-Dazu wird nur ein einziges Feature verwendet: Anzahl der Stühle im Raum.
-
-
-- **1 = Klassenzimmer**
-- **0 = kein Klassenzimmer (z.B. Büro, Lagerraum, Besprechungsraum)**
-
-
-## Trainingsdaten
-
-| Stühle | Klasse |
-|---|---|
-| 12 | 0 |
-| 5 | 0 |
-| 18 | 1 |
-| 20 | 1 |
-| 22 | 1 |
-| 24 | 1 |
-| 26 | 1 |
-| 2 | 0 |
-| 6 | 0 |
-| 13 | 0 |
-
----
-
-## Versuche folgende Fragen zu beantworten
-
-Verwende [sklearn.linear_model.LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html)
-
-
-1. Wie hoch ist die Wahrscheinlichkeit für ein Klassenzimmer bei:
-   - 17 Stühlen
-   - 29 Stühlen
-2. Bestimme die Gewichte und Zeichne die Aktivierungsfunktion. 
-3. Bei welcher Anzahl Stühlen kippt die Klasse von 0 auf 1.
 
 
 

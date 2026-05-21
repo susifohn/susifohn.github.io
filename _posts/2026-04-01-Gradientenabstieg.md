@@ -8,7 +8,7 @@ math: true
 # Wie werden die Gewichte aktualisiert
 Ref.: Buch *Neuronale Netze, Tariq R. O'REILLY*. 
 
-Ein Modell trainieren heisst, die unbekannten Parameter zu bestimmen. Bei der linearen Regression mit dem LMS-Algorithmus (Least Mean Squares) in 2D sind die Gewichte oder Modellparameter die Steigung $m$ und der y-Achsenabschnitt $b$ der Geraden $f(x)= mx + b$ , welche wir suchen. Die Normalengleichung, welche exakt die optimalen Parameter liefert, ist für grosse Datensätze nicht anwendbar, weil das invertieren der Matrix $A^T A$ dann nicht mehr effizient ist. Auch gibt es viele Modelle, wo keine Formel für Lösung existiert. 
+Ein Modell trainieren heisst, die unbekannten Parameter zu bestimmen. Bei der linearen Regression mit dem LMS-Algorithmus (Least Mean Squares) in 2D sind die Gewichte oder Modellparameter die Steigung $m$ und der y-Achsenabschnitt $b$ der Geraden $f(x)= mx + b$ , welche wir suchen. Die Normalengleichung, welche exakt die optimalen Parameter liefert, ist für grosse Datensätze nicht anwendbar, weil das invertieren der Matrix $(A^T A)^{-1}$ dann nicht mehr effizient ist. Auch gibt es viele Modelle, wo keine Formel für Lösung existiert. 
 
 Wir könnten alle Gewichte ausprobieren, bis wir eine gute Kombination gefunden haben. Diese Idee kann sogar nützlich sein, bei schwierigen Problemen, indem wir zufällig Kombinationen austesten. Dieses Vorgehen heisst *Brute Force Methode* und führt in der Praxis nicht zu den optimalen Gewichten, weil zu viele Kombinationen existieren.
 
@@ -33,39 +33,17 @@ Da wir uns nur lokal orientieren können, ist es nicht ausgeschlossen, dass wir 
 
 ![Gradientdescent](../assets/images/gradientdesc4.png)
 
-Mit dem Gradientenverfahren wollen wir anhand von vielen Trainingsdaten den Fehler unseres Modells minimieren. D.h. wir suchen das Minimum der sogenannten *Loss Function* oder Fehlerfunktion. Der Fehler ist dabei die Summe aller Abweichungen der Soll- zu den  Ist-Werten. Es gibt drei Möglichkeiten, einen Fehler zu bestimmen. Bei der Differenz $soll-ist$ kann sich der Fehler aufheben. Der Absolutbetrag $|soll-ist|$ ist beim Minimum nicht differenzierbar und das Gradientenverfahren findet das Minimum nicht, weil die Schrittweite nicht angepasst werden kann. Daher wird $(soll-ist)^2$ verwendet. 
+Mit dem Gradientenverfahren wollen wir anhand von vielen Trainingsdaten 
 
-| soll | ist | $soll-ist$ | $\|soll-ist\|$ | $(soll-ist)^2$
-|---|---|---|---|---|
-| 0.4 | 0.5 | -0.1 | 0.1 |0.01|
-| 0.8 | 0.7 | 0.1 | 0.1 |0.01|
-| 1.0 | 1.0 | 0 | 0 |0|
-| Summe |  | 0.0 | 0.2 |0.04|
+- den Fehler unseres linearen Regressions-Modells minimieren. D.h. wir suchen das Minimum der sogenannten *Loss Function* oder Fehlerfunktion. 
+- die Wahrscheinlichkeit unseres logistischen Regressions-Modells maximieren. D.h. wir suchen das Maximun der *log likelihood Funktion*. 
 
-> #### Übung
-> Zeichne die Betragsfunktion $|x-2|$ auf Papier. 
-> Benutze dann  *python* und  *matplotlib* um die drei Funktionen $x-2$, $|x-2|$ und $(x-2)^2$ in einem Diagramm zu visualisieren. 
 
 # Von der Intuition zur mathematischen Beschreibung
-Die Idee des Gradientenverfahrens lässt sich mathematisch mit dem Begriff der Ableitung beschreiben. Die Ableitung gibt an, wie stark sich der Fehler verändert, wenn wir einen Modellparameter ein kleines Stück verändern. Sie enthält also genau die Information, die wir für den „Abstieg ins Tal“ benötigen: in welche Richtung wir gehen müssen und wie gross der nächste Schritt sein sollte. Bei nur einem Parameter entspricht dies der Steigung der Kurve an der aktuellen Stelle. Bei mehreren Parametern spricht man vom Gradienten. Dieser fasst die partiellen Ableitungen nach allen Parametern zusammen und zeigt damit die Richtung des stärksten Anstiegs der Fehlerfunktion an. Um den Fehler zu verkleinern, bewegen wir uns deshalb jeweils entgegen der Gradientenrichtung.
+Die Idee des Gradientenverfahrens lässt sich mathematisch mit dem Begriff der Ableitung beschreiben. Die Ableitung gibt an, wie stark sich die Funktion verändert, wenn wir einen Modellparameter ein kleines Stück verändern. Sie enthält also genau die Information, die wir für den „Abstieg ins Tal“ benötigen: in welche Richtung wir gehen müssen und wie gross der nächste Schritt sein sollte. Bei nur einem Parameter entspricht dies der Steigung der Kurve an der aktuellen Stelle. Bei mehreren Parametern spricht man vom Gradienten. Dieser fasst die partiellen Ableitungen nach allen Parametern zusammen und zeigt damit die Richtung des stärksten Anstiegs an. Um den Fehler zu verkleinern, bewegen wir uns deshalb entgegen der Gradientenrichtung.
 
-Bei der linearen Regression suchen wir die Gewichte $m$ und $b$ der Geraden 
 
-$$y=mx+b$$
-
-so, dass sie die Trainingsdaten möglichst gut beschreibt. Für jeden Eingabewert $x_i \in \mathbb{R}$ berechnet das Modell einen Vorhersagewert
-
-$\hat{y}=m x_i +b$
-
-und vergleicht ihn mit dem tatsächlichen Sollwert $y_i$. 
-
-Die Summe aller Abweichungen für $n$ Trainingsdaten ist unsere *Loss Function* $L:\mathbb{R}^2 \rightarrow \mathbb{R}$, 
-
-$$L(m,b) = \frac{1}{n}\sum^{n}_{i=1} (y_i - (mx_i+b))^2$$
-
-welche es zu minimieren gilt.
-
-Das **Gradientenverfahren** geschieht nun iterativ. Für zufällige Startwerte für $m,b$ bestimmen wir nun die Änderung von $L$ wenn $m$ geändert wir und $b$ fix bleibt und dasselbe bei einer Änderung von $b$ und bestimmen so die neuen Werte wie folgt:
+Das **Gradientenverfahren** geschieht nun iterativ. Für zufällige Startwerte bestimmen wir die Änderung. Für $L(b,m)$ sieht die sogenannte *Update-Rule* wie folgt aus:
 
 $$m_{neu} = m_{vorher} - \alpha \frac{\Delta L}{\Delta m}$$
 $$b_{neu} = b_{vorher} - \alpha \frac{\Delta L}{\Delta b}$$
@@ -74,7 +52,7 @@ Dabei ist $\alpha$ die **Lernrate**. Sie bestimmt die Schrittgrösse. Befinden w
 
 Die Wahl von $\alpha$ ist wichtig. Ist die Schrittlänge zu gross, pendeln wir um das Minimum herum. Ist $\alpha$ zu klein, brauchen wir zu viele Schritte und das Verfahren dauert zu lange. 
 
-> #### Hinweis zur Differentialrechnung
+> #### Hinweis zur Differentialrechnung (nicht Prüfungsrelevant)
 > Der Ausdruck $\frac{\Delta L}{\Delta m}$ heisst mathematisch die **partielle Ableitung** von $L$ nach $m$ und wird als 
 >
 > $$ \frac{\partial L}{\partial m}$$
@@ -100,46 +78,89 @@ b
 > Die Ableitungen können mit Hilfe der Differentialrechnung bestimmt werden, worauf wir hier nicht weiter eingehen. 
 
 
-## Lösungen
-Lösung zur Übung
-```python
-import numpy as np
-import matplotlib.pyplot as plt
+# Das Gradientenverfahren im Detail
 
-# Create x values
-x = np.linspace(-5, 9, 500)
+![buch](../assets/images/mathfordeeplearing.png)
 
-# Functions
-y_abs = np.abs(x - 2.0)
-y_quad = (x - 2.0) ** 2
-y_line = x - 2.0
+Für den referenzierten Python Code, gibt's ein [github repo](https://github.com/rkneusel9/MathForDeepLearning). siehe dazu 
 
-# Create a taller figure
-fig, ax = plt.subplots(figsize=(5, 8))
+- Chapter 11
+    - gd_1d.py
+    - gd_2d.py
 
-# Plot all three
-ax.plot(x, y_abs, label=r'$|x - 2|$', linewidth=2)
-ax.plot(x, y_quad, label=r'$(x - 2)^2$', linewidth=2)
-ax.plot(x, y_line, label=r'$x - 2$', linewidth=2)
+Das Kapitel 11 ist her zum Download [Ch11 erster Teil](../assets/ch11_Kneusel_Math_for_Deep_Learning.pdf)
 
-# Highlight shared point at x=2
-ax.scatter([2], [0], s=50)
+Num folgt eine Zusammenfassung der wichtigsten Inhalte daraus.
 
-# Limits
-ax.set_xlim(-2, 6)
-ax.set_ylim(-5, 10)
+## Was ist Gradient Descent?
 
-# Make |x-2| look steeper visually
-ax.set_aspect(0.4)
+Ein iterativer Algorithmus, der **schrittweise ein Minimum einer Funktion sucht**.
+In Deep Learning wird damit der Fehler eines Modells minimiert, indem Gewichte
+und Biases angepasst werden.
 
-# Labels and title
-ax.set_xlabel('x')
-ax.set_ylabel('y')
-ax.set_title(r'Comparison of $|x - 2|$, $(x - 2)^2$, and $x - 2$')
-ax.grid(True)
-ax.legend()
+---
 
-plt.show()
-```
+## Das Grundprinzip
+
+Der Gradient (= Ableitung) zeigt in die Richtung des **steilsten Anstiegs**.
+Weil wir minimieren wollen, bewegen wir uns in die **entgegengesetzte Richtung** —
+daher der Name „Descent" (Abstieg).
+
+$$
+x_{neu} = x_{altes} − \eta \cdot \text{Gradient}
+$$
+
+---
+
+## Die Lernrate η – der wichtigste Parameter
+
+| Lernrate | Effekt |
+|---|---|
+| **Zu klein** | Viele Schritte nötig, Training sehr langsam |
+| **Zu groß** | Schritte „überspringen" das Minimum, Algorithmus oszilliert |
+| **Passend** | Gleichmäßige, stabile Konvergenz zum Minimum |
+
+**Merke:** Es gibt keinen universell richtigen Wert — Intuition und Erfahrung sind
+gefragt. In modernen Netzen ist η oft **nicht konstant**, sondern wird während des
+Trainings automatisch angepasst.
+
+---
+
+## 1D vs. 2D – das Prinzip bleibt gleich
+
+In einer Dimension folgt man der Steigung der Kurve. In zwei Dimensionen folgt
+man den **partiellen Ableitungen** in jede Richtung — das Prinzip ist identisch,
+nur dass man sich auf einer „Landschaft" bewegt statt auf einer Kurve.
+
+---
+
+## Wichtige Beobachtung: Form der Funktion
+
+Wenn die Funktion in einer Richtung sehr steil und in einer anderen sehr flach ist
+(wie ein schmales Tal), kann Gradient Descent sehr **langsam werden** — der Gradient
+entlang des flachen Bodens ist klein, also sind die Schritte klein. Das ist ein
+häufiges Problem in der Praxis.
+
+---
+
+## Fortgeschrittene Optimierer (Ausblick)
+
+Vanilla Gradient Descent hat Schwächen, deshalb gibt es Weiterentwicklungen:
+
+- **Momentum** – nutzt die „Bewegungsrichtung" der letzten Schritte, um träge über flache Regionen zu kommen
+- **RMSprop** – passt die Lernrate pro Parameter individuell an
+- **Adam** – kombiniert Momentum + RMSprop, Standard in der Praxis
+
+---
+
+## Fazit
+
+1. Gradient Descent **sucht kein exaktes Minimum** — er nähert sich iterativ an
+2. Die **Lernrate ist der kritischste Hyperparameter**
+3. Zu kleine η → langsam; zu große η → instabil
+4. Die **Form der Verlustlandschaft** beeinflusst die Geschwindigkeit stark
+5. In der Praxis nutzt man immer einen der **adaptiven Optimierer**
+
+
 
 
