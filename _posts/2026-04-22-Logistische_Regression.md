@@ -6,7 +6,7 @@ math: true
 ---
 
 # Classification and logistic regression
-Klassifikation ist fast wie lineare Regression, ausser dass der y-Wert nur einige wenige diskrete Werte annehmen kann. Wir betrachten im Folgenden die binäre Klassifikation, mit $y \in \{0,1\}$, wie bereits beim Naive Bayes Classifier mit Spam oder No-Spam Emails. Die Betrachtungen gelten weitgehend auch für Klassifikation mit mehreren Klassen. 
+Klassifikation ist fast wie lineare Regression, ausser dass der y-Wert nur einige wenige diskrete Werte annehmen kann. Wir betrachten im Folgenden die binäre Klassifikation, mit $$y \in \{0,1\}$$, wie bereits beim Naive Bayes Classifier mit Spam oder No-Spam Emails. Die Betrachtungen gelten weitgehend auch für Klassifikation mit mehreren Klassen. 
 
 
 - **Lineare Regression** liefert *kontinuierliche* Ausgaben, zum Beispiel den Hauspreis.  
@@ -19,7 +19,7 @@ Quelle: [datacamp.com](https://www.datacamp.com/tutorial/understanding-logistic-
 
 ## Logistic regression Modell
 
-Wir könnten lineare Regression anwenden und ignorieren, dass $y$ diskret ist. Es ist jedoch einfach, Beispiele zu konstruieren, wo diese Methode sehr schlechte Resultate liefert. Und wir wollen auch vermeiden, dass $y$ grösser 1 oder kleiner 0 wird, da wir ja wissen dass $y \in \{0,1\}$.
+Wir könnten lineare Regression anwenden und ignorieren, dass $y$ diskret ist. Es ist jedoch einfach, Beispiele zu konstruieren, wo diese Methode sehr schlechte Resultate liefert. Und wir wollen auch vermeiden, dass $y$ grösser 1 oder kleiner 0 wird, da wir ja wissen dass $$y \in \{0,1\}$$.
 
 Wir nehmen also als Hypothese nicht $\theta^T x$, wie bei der linearen Regression, sondern:
 
@@ -124,7 +124,7 @@ Im Fall von nur einem Feature entspricht das dem Produkt der Längen der roten L
 
 Die Aufgabe besteht nun darin, diese Wahrscheinlichkeit zu maximieren und die zugehörigen Gewichte zu finden. Dazu gibt es keine geschlossene Formel wie die Normalengleichung bei der linearen Regression. Die besten Gewichte werden mit dem *Gradientenverfahren* ermittelt. Der Gradient kann mit etwas Differenzialrechnung ermittelt werden, was uns hier nicht weiter beschäftigt. Nichts desto trotz merke man sich folgenden Trick, welcher oft eine wichtige Rolle spielt.
 
-### Hinweis
+### Trick
 Weil der Logarithmus streng monoton setigt, kann anstelle $P(\vec{y} | X, \theta)$ zu maximieren, auch $log (P(\vec{y} | X, \theta))$ maximiert werden. Letzteres wird auch *log likelihood* genannt. Das Produkt wird dann zu einer Summe und ist viel einfacher zu verarbeiten.
 
 ## Anwenden mit Python
