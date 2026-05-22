@@ -69,7 +69,7 @@ $$
 P(\vec{y} | X, \theta)
 $$
 
-maximal wird. Dann haben wir das beste Modell gefunden für unsere Trainingsdaten. Mit der Annahme, dass die $m$ Datenpunkte unabhängig generiert wurden, können wir die Wahrscheinlichkeiten der einzelnen Datenpunkte multiplizieren:
+maximal wird. Dann haben wir das beste Modell gefunden für unsere Trainingsdaten. Mit der Annahme, dass die $n$ Datenpunkte unabhängig generiert wurden, können wir die Wahrscheinlichkeiten der einzelnen Datenpunkte multiplizieren:
 
 $$
 P(\vec{y} | X, \theta) = P(y_1 | x_{1.}, \theta) P(y_2| x_{2.}, \theta) \ldots P(y_n|x_{n.}, \theta)
