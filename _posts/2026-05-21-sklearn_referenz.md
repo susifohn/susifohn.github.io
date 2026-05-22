@@ -198,6 +198,6 @@ print(f"CV-Accuracy: {scores.mean():.3f} ± {scores.std():.3f}")
 
 ---
 $$
-\text{T H E \;\;E N D}
+\text{T H E E N D}
 $$
 ---
