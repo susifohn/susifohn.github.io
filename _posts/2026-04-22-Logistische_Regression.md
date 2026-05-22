@@ -128,7 +128,7 @@ Die Aufgabe besteht nun darin, diese Wahrscheinlichkeit zu maximieren und die zu
 Weil der Logarithmus streng monoton setigt, kann anstelle $P(\vec{y} | X, \theta)$ zu maximieren, auch $log (P(\vec{y} | X, \theta))$ maximiert werden. Letzteres wird auch *log likelihood* genannt. Das Produkt wird dann zu einer Summe und ist viel einfacher zu verarbeiten.
 
 ## Anwenden mit Python
-Im folgenden schauen wir die Klasse [sklearn.linear_model.LogisticRegression](sklearn.linear_model.LogisticRegression) an, welche uns ein schönes Standard-Interface zur Verfügung stellt. 
+Im folgenden schauen wir die Klasse [sklearn.linear_model.LogisticRegression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html) an, welche uns ein schönes Standard-Interface zur Verfügung stellt. 
 
 Das *Gradientenverfahren* betrachten wir dann im folgenden Kapitel 7. 
 
