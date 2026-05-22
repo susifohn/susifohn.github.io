@@ -11,7 +11,7 @@ math: true
 In diesem Wochenauftrag tauchen wir in die Wahrscheinlichkeitstheorie ein und befassen uns mit einigen Grundbegriffen, welche uns dann helfen, mit statistischen Methoden Klassifikationsprobleme zu lösen. Die Methoden, welche wir betrachten sind *Naive Bayes Classifier* und *logistische Regression*.
 
 ## Aufgabe 1
-Du Wirfst einen Würfel und eine Münze, beide fair. 
+Du Wirfst gleichzeitig einen Würfel und eine Münze, beide fair. 
 
 1. Was ist der Ergebnisraum?
 2. Welches sind die Elementarereignisse?
