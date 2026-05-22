@@ -52,12 +52,13 @@ Verwende [sklearn.linear_model.LogisticRegression](https://scikit-learn.org/stab
 ## Aufgabe 2
 Benutze ```class sklearn.linear_model.LinearRegression``` um ein Polynom vom Grad 1 und vom Grad 5 durch folgende Datenpunkte (x,y) zu legen: (1,0), (2,0), (4,0), (8,1), (10,1), (11,1), (21,1). 
 
-Erstelle ein Diagramm mit den Punkten und den zwei Polynomen. 
+1. Erstelle ein Diagramm mit den Punkten und den zwei Polynomen. 
+2. Warum ist lineare Regression nicht geeignet für Klassifikation?
 
 ## Aufgabe 3 - Titanic
-Das ist nicht eine Aufgabe in dem Sinne, sonder ein praxisnahes Beispiel zum selber Hand anlegen. 
+In dieser Aufgabe betrachten wir eine Anwendung aus der Praxis. Wir haben nicht alle Aspekte betrachtet, die vorkommen. Versuche die Pipeline zu verstehen. 
 
-Anwendung: Logistische Regression mit realen Daten. 
+Anwendung: Logistische Regression mit realen Daten und Testing. 
 
 > Datensatz: [Kaggle Titanic Dataset](https://www.kaggle.com/datasets/yasserh/titanic-dataset)
 > Ziel: Vorhersagen, ob ein Passagier überlebt hat (`Survived`: 0 = Nein, 1 = Ja)

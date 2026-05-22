@@ -1,3 +1,10 @@
+---
+title: 4c. Gradientenverfahren - Klassifikation
+categories: [Machine Learning, Übungen ]
+tags: [gibb, tsb, exercises]     # TAG names should always be lowercase
+math: true
+---
+
 # Logistic Regression Example: Snake vs. Not Snake
 
 ## Goal
