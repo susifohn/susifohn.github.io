@@ -88,7 +88,7 @@ Für den referenzierten Python Code, gibt's ein [github repo](https://github.com
     - gd_1d.py
     - gd_2d.py
 
-Das Kapitel 11 ist hier zum Download [Ch11 erster Teil](../assets/ch11_Kneusel_Math_for_Deep_Learning.pdf)
+Das Kapitel 11 ist hier zum Download [Ch11 erster Teil](/assets/ch11_Kneusel_Math_for_Deep_Learning.pdf)
 
 Num folgt eine Zusammenfassung der wichtigsten Inhalte daraus.
 
