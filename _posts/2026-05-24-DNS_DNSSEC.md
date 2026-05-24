@@ -1,5 +1,5 @@
 ---
-title: DNS and DNSSEC 
+title: 5. DNS and DNSSEC 
 categories: [unibe, Vernetzte Systeme und Betriebssysteme]
 tags: [dns, network]     # TAG names should always be lowercase
 math: true
