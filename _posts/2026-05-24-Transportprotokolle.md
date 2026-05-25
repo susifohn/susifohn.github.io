@@ -140,7 +140,7 @@ Checksum is calculated over a **pseudo-header** + UDP header + data:
 
 ## 5. TCP Connection Establishment — 3-Way Handshake
 
-> Random initial sequence numbers are chosen to avoid accepting stale packets from previous connections on the same port pair.
+> Random initial sequence numbers are chosen to avoid accepting stale (outdated and no longer valid) packets from previous connections on the same port pair.
 
 ```
 Client (active)                    Server (passive)
@@ -208,14 +208,32 @@ ESTABLISHED
 ## 8. Adaptive Retransmission (RTT Estimation)
 
 ### Original Algorithm (Slide 20)
+Exponentially Weighted Moving Average.
+
+Here the new values, the SampleRTT is only weighted 10-20%. The EstimatedRTT is weighted $$\alpha=0.8-0.9$$. 
 
 ```
 EstimatedRTT = α × EstimatedRTT + (1-α) × SampleRTT
 Timeout = 2 × EstimatedRTT
 (0.8 < α < 0.9, typically α = 0.9)
 ```
+### Exam Example (Exercise 1.3)
 
-> ⚠️ **Problem (Karn's Algorithm):** After a retransmission, it's ambiguous whether the ACK is for the original or retransmitted segment → don't update EstimatedRTT for retransmitted segments; use **exponential backoff** (double timeout on each retry).
+> EstimatedRTT₀ = 30ms, α = 0.9, samples: 27, 24, 29, 24 ms.
+> What is the final estimated RTT according to the Exponentially Weighted Moving Average algorithm?
+
+```
+EstimatedRTT₁ = 0.9×30   + 0.1×27 = 29.7 ms
+EstimatedRTT₂ = 0.9×29.7 + 0.1×24 = 29.13 ms
+EstimatedRTT₃ = 0.9×29.13+ 0.1×29 = 29.117 ms
+EstimatedRTT₄ = 0.9×29.117+0.1×24 = 28.605 ms  ← final answer
+And Timeout = 2*EstimatedRTT
+```
+
+> ⚠️ **Problem (Karn's Algorithm):** When a segment is retransmitted and an ACK arrives, it's ambiguous which transmission the ACK belongs to. Thus don't update EstimatedRTT for retransmitted segments. Rules (Karn/Patrige Algorithmus):
+
+1. Do not sample retransmitted segments. Never update EstimatedRTT using an ACK that could belong to a retransmitted segment. 
+2. **exponential backoff** (double timeout on each retry).
 
 ### Jacobson/Karels Algorithm (used in practice)
 
@@ -228,16 +246,6 @@ Deviation    = (1-δ) × Deviation + δ × |Difference|
 Timeout      = µ × EstimatedRTT + φ × Deviation     (µ=1, φ=4)
 ```
 
-### Exam Example (Exercise 1.3)
-
-> EstimatedRTT₀ = 30ms, α = 0.9, samples: 27, 24, 29, 24 ms
-
-```
-EstimatedRTT₁ = 0.9×30   + 0.1×27 = 29.7 ms
-EstimatedRTT₂ = 0.9×29.7 + 0.1×24 = 29.13 ms
-EstimatedRTT₃ = 0.9×29.13+ 0.1×29 = 29.117 ms
-EstimatedRTT₄ = 0.9×29.117+0.1×24 = 28.605 ms  ← final answer
-```
 
 ---
 
