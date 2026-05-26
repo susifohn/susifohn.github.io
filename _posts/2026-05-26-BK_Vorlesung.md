@@ -1,6 +1,6 @@
 ---
 title: Notes 
-categories: [unibe, Berechenbarkeit und Komplexität]
+categories: [unibe, BK]
 tags: [3KNF, SAT]     # TAG names should always be lowercase
 math: true
 ---
@@ -88,6 +88,9 @@ Beweis: mit *Finishing Time*, transponiertem Graphen und Tiefensuche.
 
 # 9. NP Vollständigkeit
 
-# 10. Weitere NP Probleme
+# 10. Weitere **NP Vollständige** Probleme
 ## 3KNF-SAT
 Erinnere, wir haben gesehen, dass 2KNF-SAT in P liegt. 
+
+## Mengenüberdeckung
+
