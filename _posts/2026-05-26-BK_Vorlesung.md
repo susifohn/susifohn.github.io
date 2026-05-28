@@ -1,6 +1,6 @@
 ---
 title: Notes 
-categories: [unibe, BK]
+categories: [unibe, Berechenbarkeit und Complexity]
 tags: [3KNF, SAT]     # TAG names should always be lowercase
 math: true
 ---
@@ -87,10 +87,63 @@ Beweis: mit *Finishing Time*, transponiertem Graphen und Tiefensuche.
 # 8. Die Klasse NP
 
 # 9. NP Vollständigkeit
+## Definition Polynomiale Reduktion
+$$A \le_p B$$ heisst A ist auf B polynomial reduzierbar. Dazu braucht's eine totale Funktion $f \in P$ welche von A nach B abbildet. Damit kann das Entscheidungsproblem in B gelöst werden und es gilt
+$$
+x \in A \iff f(x) \in B
+$$
+
+Beachte, dass $f^{-1}$ nicht berechnet werden muss, weil uns nur der Entscheid $x \in A$ interessiert, nicht die Lösung. 
+
+## Lemma: P Reduktion
+Falls  $A \le_p B$ und $B \in P$ dann auch $A \in P$. 
+
+Das Lemma sagt: *if A reduces polynomially to B, and B is easy (in P or NP), then A is also easy.*
+
+Beweis: es gibt eine TM $M_f$ welche f in P berechnen kann. Und es gibt auch eine TM M, welche B entscheidet, in P. Die seq. Komposition mit $A=T(M_f;M) nimmt zuerst x vom Band und wendet $M_f$ and und schreibt das aufs Band. Dann liest M das vom Band und entscheidet $f(x)$. Und das alles in P Schritten, weil auch $p(q(x))$ wieder ein Polynom ist.
 
 # 10. Weitere **NP Vollständige** Probleme
 ## 3KNF-SAT
 Erinnere, wir haben gesehen, dass 2KNF-SAT in P liegt. 
 
+Aber 3KNF Erfüllbarkeit liegt in NP.
+
 ## Mengenüberdeckung
+Gibt es eine Auswahl aus $n \le k$ Teilmengen, welche $M$ bilden?
+
+## Rucksack Problem
+Können wir aus gegebenen Zahlen k auswählen um genau b zu erhalten?
+
+## Partition
+
+Können wie gegebene Zahlen so aufteilen, dass beide Teile dieselbe Summe ergeben?
+
+## Gerichteter/ungerichteter  Hamilton-Kreis
+
+Gibt es eine Rundreise im Graph G wo jede Kante genau einmal besucht wird?
+
+- Euler Kreis: jede Kante
+- Hamilton Kreis: jeder Knoten
+- Beim Travellin sales Person gab's noch eine Obergrenze mit der Läge, weil die Kanten eine Länge hatten.
+
+## Färbbarkeit
+ k Farben, keine zwei Farben sind Nachbarn. 
+
+## Übersicht
+
+SAT -> 3KNF-SAT->Clique->Knotenüberdeckung
+
+Die Pfeile sind die Reduktionsrichtung. Haben gezeigt dass SAT **NP hart** ist. Dann ist das auch Clique und Knotenüberd. Umgekehrt ist Knotenüberdeckung in NP so dann rückwärts auch SAT.
+
+Um das zu zeigen müssen wir zuerst NP-vollständigkeit von 3KNF-SAT zeigen, weil dann erhalten wir eine einfache Struktur und können alles andere auch auf NP vollständig zeigen. 
+
+## NP-Vollständigkeit von 3KNF-SAT
+
+> Theorem: 
+> 3KNF-SAT ist NP-Vollständig.
+
+Die Reduktionsfunktion muss auch in polynomialer Zeit mögich sein, und einfach eine Formel in KNF umzuformen ist exponentiell (beim Ausmultiplizieren kommen Variablen mehrmals vor, und die Formel wird immer länger) und geht nicht, wir brauchen eine schlauere Reduktion. 
+
+
+
 
