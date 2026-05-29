@@ -85,10 +85,23 @@ Beweis: mit *Finishing Time*, transponiertem Graphen und Tiefensuche.
 
 
 # 8. Die Klasse NP
+## Travelling Sales Man 
+
+**Brute force**
+
+## SAT
+
+## Bin Packing (BP)
+
+**Brute force**
+
+
+
+
 
 # 9. NP Vollständigkeit
 ## Definition Polynomiale Reduktion
-$$A \le_p B$$ heisst A ist auf B polynomial reduzierbar. Dazu braucht's eine totale Funktion $f \in P$ welche von A nach B abbildet. Damit kann das Entscheidungsproblem in B gelöst werden und es gilt
+$$A \le_p B$$ heisst A ist auf B polynomial reduzierbar. Dazu braucht's eine totale Funktion $$f \in P$$ welche von A nach B abbildet. Damit kann das Entscheidungsproblem in B gelöst werden und es gilt
 $$
 x \in A \iff f(x) \in B
 $$
@@ -101,6 +114,15 @@ Falls  $A \le_p B$ und $B \in P$ dann auch $A \in P$.
 Das Lemma sagt: *if A reduces polynomially to B, and B is easy (in P or NP), then A is also easy.*
 
 Beweis: es gibt eine TM $M_f$ welche f in P berechnen kann. Und es gibt auch eine TM M, welche B entscheidet, in P. Die seq. Komposition mit $A=T(M_f;M) nimmt zuerst x vom Band und wendet $M_f$ and und schreibt das aufs Band. Dann liest M das vom Band und entscheidet $f(x)$. Und das alles in P Schritten, weil auch $p(q(x))$ wieder ein Polynom ist.
+
+## Transitivität
+
+## Beispiel
+mit CLIQUE und Knotebüberdeckung
+
+## Reduktion 
+> Theorem
+> $$CLIQUE \le_p \text{Knotenüberdeckung}$$
 
 # 10. Weitere **NP Vollständige** Probleme
 ## 3KNF-SAT
