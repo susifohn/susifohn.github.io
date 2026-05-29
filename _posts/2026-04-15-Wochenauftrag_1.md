@@ -95,7 +95,7 @@ Finde ein lineares Gleichungssystem mit zwei Gleichungen und zwei Unbekannten, w
 $A,B,C \in \mathbb{R}^{n \times n}$ invertierbar, $x,y \in \mathbb{R}^n$. Kannst du folgende Gleichung nach $x$ auflösen? Beachte, dass die Matrixmultiplikation nicht kommutativ ist, d.h. allgemein gilt $AB \neq BA$. 
 
 $$
-ABxC^{-1} = y
+C^{-1}Ax = By
 $$
 
 ## Einrichten der Entwicklungsumgebung
