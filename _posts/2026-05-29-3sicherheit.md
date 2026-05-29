@@ -416,7 +416,7 @@ Dann gilt nach dem:
 ### Wichtig
 Eine gute Hashfunktion ist:
 - nicht kollisionsfrei
-- sondern kollisionsresistent.
+- sondern kollisionsresistent. Das heisst, es ist parktisch unmöglich eine Kollision zu finden/erzeugen. 
 
 ---
 
