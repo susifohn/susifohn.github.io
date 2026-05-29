@@ -4,6 +4,7 @@ categories: [unibe, Vernetzte Systeme und Betriebssysteme]
 tags: [pcb, user mode, kernel mode, system call, trap]     # TAG names should always be lowercase
 math: true
 ---
+
 # 💻 Betriebssysteme – Cheat Sheet (Kapitel 9)
 
 ## 1. Einführung
