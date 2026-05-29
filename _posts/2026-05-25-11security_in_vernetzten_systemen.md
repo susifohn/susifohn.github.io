@@ -1,7 +1,7 @@
 ---
 title: 11. Sicherheit in vernetzten Systemen  
 categories: [unibe, Vernetzte Systeme und Betriebssysteme]
-tags: [Morris, Thompson, Lamport, Kerberos]     # TAG names should always be lowercase
+tags: [morris, thompson, lamport, kerberos]     # TAG names should always be lowercase
 math: true
 ---
 
