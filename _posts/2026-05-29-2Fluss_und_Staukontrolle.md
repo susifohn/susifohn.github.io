@@ -22,7 +22,7 @@ math: true
 
 ### 📦 Wichtige Felder
 
-#### ✅ Acknowledgment (ACK)
+#### ✅ Acknowledgment Field (ACK)
 - bestätigt alle Bytes **bis zu einer Sequenznummer**
 - Sender weiss, was erfolgreich empfangen wurde   
 
@@ -31,16 +31,23 @@ math: true
 - wird im TCP-Header gesendet   
 
 ### 🧮 Regel
+
 - Sender darf senden bis:
-```
-
-ACK + AdvertisedWindow
-
-```
+    - ACK + AdvertisedWindow
 
 ---
 
 ## 3. Staukontrolle (TCP)
+
+### Motivation
+TCP congestion control was introduced into the Internet in the late
+1980s by Van Jacobson, roughly eight years after the TCP/IP protocol stack
+had become operational. Immediately preceding this time, the Internet
+was suffering from congestion collapse—hosts would send their packets
+into the Internet as fast as the advertised window would allow, congestion
+would occur at some router (causing packets to be dropped), and the
+hosts would time out and retransmit their packets, resulting in even more
+congestion. *ref:Peterson Kap 6*
 
 ### 🎯 Ziel
 - Vermeidung von Überlast im Netzwerk (Router-Buffers)
@@ -58,14 +65,11 @@ ACK + AdvertisedWindow
 ### 3.2 Slow Start
 
 - Start mit:
-```
+    - cwnd = 1 MSS
 
-cwnd = 1 MSS
-
-```
 - Wachstum:
-- **exponentiell (Verdopplung pro RTT)**
-- bis Schwelle erreicht
+    - **exponentiell (Verdopplung pro RTT)**
+    - bis Schwelle erreicht
 
 👉 gut für schnellen Verbindungsaufbau
 
@@ -75,11 +79,9 @@ cwnd = 1 MSS
 
 - nach Slow Start:
 - **lineares Wachstum**
-```
+    - +1 MSS pro RTT
 
-+1 MSS pro RTT
 
-```
 - Ziel: stabile Nutzung
 
 ---
@@ -89,20 +91,13 @@ cwnd = 1 MSS
 #### ⏱ Timeout
 - starkes Zeichen von Stau
 - Reaktion:
-```
+    - cwnd = 1 MSS
 
-cwnd = 1 MSS
-
-```
 👉 konservativ → Netzwerk kann sich erholen   
 
 #### 📉 Multiplicative Decrease
 - cwnd wird halbiert
-```
-
-cwnd = cwnd / 2
-
-```
+    - cwnd = cwnd / 2
 
 👉 ergibt **Sägezahnverlauf**
 
@@ -120,18 +115,14 @@ cwnd = cwnd / 2
 ### 🧮 Wichtige Formeln
 
 ```
-
 MaxWindow = min(cwnd, AdvertisedWindow)
 EffectiveWindow = MaxWindow - (LastByteSent - LastByteAcked)
-
 ```
 
 👉 Sender darf senden:
-```
 
-EffectiveWindow Bytes
+- EffectiveWindow Bytes
 
-```
 
 ### ✅ Interpretation
 - cwnd → Netzwerkgrenze  
@@ -160,11 +151,9 @@ EffectiveWindow Bytes
 ## 6. Bandbreiten-Verzögerungs-Produkt (BDP)
 
 ### 📐 Definition
-```
 
 BDP = Bandbreite × RTT
 
-```
 
 ### 🎯 Bedeutung
 - wie viele Daten im Netz „in flight“ sein können
@@ -197,11 +186,11 @@ BDP = Bandbreite × RTT
 
 #### Eigenschaften
 - Wachstum:
-```
 
+```
 W(t) = C (t - K)^3 + Wmax
-
 ```
+
 - unabhängig von RTT
 - schnelles Zurück zu Wmax
 - lange stabile Phase   

@@ -237,7 +237,10 @@ And Timeout = 2*EstimatedRTT
 
 ### Jacobson/Karels Algorithm (used in practice)
 
-Accounts for **variance** — high variance → larger timeout, low variance → tighter timeout.
+Accounts for **variance** — high variance → larger timeout, low variance → tighter timeout. Intuitively, if the variation
+among samples is small, then the EstimatedRTT can be better trusted
+and there is no reason for multiplying this estimate by 2 to compute the
+timeout.
 
 ```
 Difference   = SampleRTT − EstimatedRTT
