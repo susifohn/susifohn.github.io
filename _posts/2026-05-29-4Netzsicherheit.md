@@ -18,9 +18,17 @@ math: true
 - Diffie-Hellman (DH)  
   - Ziel: gemeinsamer Schlüssel ohne vorherigen Austausch  
   - Ablauf:  
-    - A: \( n = g^x \mod p \)  
-    - B: \( m = g^y \mod p \)  
-    - Schlüssel: \( z = g^{xy} \mod p \)
+    - A: $$n = g^x \mod p $$  
+    - B: $$ m = g^y \mod p $$  
+    - Schlüssel: $$ z = g^{xy} \mod p $$
+
+#### Beispiel
+$$
+p=47, g=3, A:x=8, B:y=10 \\
+A \rightarrow B: (47,3,n=28 (=3^8 \mod 47)) \\
+B \rightarrow A: (47,3,m=17 (=3^{10} \mod 47)) \\
+\text{Key } z=17^8 \mod 47 = 28^{10} \mod 47 = 3^{80} \mod 47 = 4
+$$
 
 ### 🚨 Sicherheitsproblem
 - Man-in-the-Middle (MITM)
@@ -60,6 +68,14 @@ math: true
 #### 3. Challenge-Response
 - Empfänger sendet Challenge (Nonce)  
 - Sender muss korrekt antworten  
+
+### Authentifizierungsprotokoll mit geheimen Key - Needham-Schroeder
+
+### it solves what?
+Alice, Bob want to communicate, but never met. They share only a secret key with a KDC. With never sending the secret key over the network.
+
+### Remaining weakness
+Eve records an old session and somehow obtained an old session Key SK. Bob has no way to detect it's old. This is the *replay attack vulnerability* and was fixed later with adding timestamp e.g. in Kerberos. 
 
 ---
 
@@ -114,7 +130,7 @@ math: true
 - wird im Header mitgeschützt  
 
 ### 🪟 Sliding Window
-- Fensterbereich: \([N - W + 1 ... N]\)  
+- Fensterbereich: N - W + 1 ... N  
   - N = höchste empfangene Sequenznummer  
   - W ≈ 64  
 
