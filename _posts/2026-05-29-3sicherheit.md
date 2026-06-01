@@ -15,12 +15,12 @@ Basierend auf den Folien **„vs03_sicherheit“** und den Übungen **„VS_ThEx
 
 ## Zentrale Sicherheitsanforderungen
 
-| Sicherheitsanforderung | Bedeutung | Verhindert |
-|---|---|---|
-| **Vertraulichkeit (Confidentiality)** | Daten dürfen nur von berechtigten Personen gelesen werden | Abhören / Eavesdropping |
-| **Authentizität (Authenticity)** | Kommunikationspartner müssen ihre Identität beweisen | Masquerade / Spoofing |
-| **Integrität (Integrity)** | Daten dürfen nicht unbemerkt verändert werden | Nachrichtenmodifikation |
-| **Verfügbarkeit (Availability)** | Systeme und Dienste müssen erreichbar bleiben | DoS-Angriffe |
+| Anforderung | Bedeutung | Verhindert |
+|-------------|------------|------------|
+| **Vertraulichkeit** | Nur Berechtigte dürfen Daten lesen | Abhören<br>(Eavesdropping) |
+| **Authentizität** | Kommunikationspartner müssen ihre Identität nachweisen | Identitätsfälschung<br>(Spoofing, Masquerade) |
+| **Integrität** | Daten dürfen nicht unbemerkt verändert werden | Nachrichten-<br>modifikation |
+| **Verfügbarkeit** | Systeme und Dienste müssen erreichbar bleiben | DoS-<br>Angriffe |
 
 ---
 
@@ -205,13 +205,13 @@ Es gibt zwei Schlüssel:
 
 2. Berechne:
 
-\[
+$$
 n = p \cdot q
-\]
+$$
 
-\[
+$$
 z = (p-1)(q-1)
-\]
+$$
 
 3. Wähle:
 - e
@@ -219,9 +219,9 @@ z = (p-1)(q-1)
 
 4. Berechne d:
 
-\[
+$$
 e \cdot d \mod z = 1
-\]
+$$
 
 5. Schlüssel:
 
@@ -234,7 +234,7 @@ e \cdot d \mod z = 1
 
 ## RSA-Verschlüsselung
 
-genui{"math_block_widget_always_prefetch_v2":{"content":"c = m^e \\bmod n"}}
+$$c = m^e \mod n $$
 
 - m = Klartext
 - c = Chiffretext
@@ -243,7 +243,7 @@ e \cdot d \mod z = 1
 
 ## RSA-Entschlüsselung
 
-genui{"math_block_widget_always_prefetch_v2":{"content":"m = c^d \\bmod n"}}
+$$m = c^d \mod n$$
 
 ---
 

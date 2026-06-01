@@ -23,11 +23,18 @@ math: true
     - Schlüssel: $$ z = g^{xy} \mod p $$
 
 #### Beispiel
+
 $$
-p=47, g=3, A:x=8, B:y=10 \\
-A \rightarrow B: (47,3,n=28 (=3^8 \mod 47)) \\
-B \rightarrow A: (47,3,m=17 (=3^{10} \mod 47)) \\
-\text{Key } z=17^8 \mod 47 = 28^{10} \mod 47 = 3^{80} \mod 47 = 4
+\begin{aligned}
+p &= 47, & g &= 3, & A &: x = 8, & B &: y = 10 \\[4pt]
+A \rightarrow B &: (47, 3, n = 28 \; (= 3^8 \bmod 47)) \\[2pt]
+B \rightarrow A &: (47, 3, m = 17 \; (= 3^{10} \bmod 47)) \\[6pt]
+\text{Key } z
+&= 17^8 \bmod 47 \\
+&= 28^{10} \bmod 47 \\
+&= 3^{80} \bmod 47 \\
+&= 4
+\end{aligned}
 $$
 
 ### 🚨 Sicherheitsproblem

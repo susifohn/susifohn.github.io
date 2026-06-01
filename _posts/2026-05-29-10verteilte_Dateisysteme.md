@@ -40,9 +40,46 @@ math: true
 
 | Merkmal | RAID-3 | RAID-5 |
 |--------|-------|--------|
-| Parität | eigene Paritätsdisk | verteilt auf
+| Parität | eigene dedizierte Paritätsdisk | verteilt auf alle disks |
+| Location | fixed | rotated |
+| access | every write hits same parity disk -> bottleneck | parity blocks spread evenly | 
+| stripe unit| Bit level | Block |
+| Sync | all disks spin in sync | operate independently per block | 
+| | all disks participate in every single r/w, ideal for large seq transfers | accesses only the relevant data disk + parity disk per operation |
 
-### NFS
+To reconstruct missing data after a single disk failure, all surviving disks must be accessed in both configurations.
+
+## File Block Calculation
+
+- blocks = file_size / block_size
+- Metadata entries = Number of blocks
+
+## location-transparent URI
+
+A URI is location-transparent if the name gives no hint about where the resource is physically stored. This URI violates that in multiple ways:
+
+1. The domain www.cds.unibe.ch reveals the location
+
+unibe.ch → University of Bern, Switzerland
+cds → a specific department/institute (Center for Data Science)
+This directly encodes the organizational and physical location of the server hosting the resource.
+
+2. The path /studies/current_lectures/betriebssysteme/ reveals the directory structure
+
+The path mirrors the physical or logical file structure on the server.
+If the file is moved to a different server or folder, the URI breaks — clients must update their links.
+
+Files should be movable to other locations without changing their name.
+
+### Beispiele
+- DOIdoi:10.1000/xyz123✅ Yes
+- URNurn:uuid:550e8400-e29b-41d4-a716✅ Yes
+- DNS alias / CDN URLhttps://resources.example.com/xyz⚠️ Partly
+
+
+
+
+## NFS
 1. Stateful file service
     - Tracking of files accessed by each client
     - Faster access to file through server caching and prefetching. Because the server knows which files a client has open and tracks the current read position, it can predict what data the client will need next and prefetch it proactively.
@@ -56,5 +93,15 @@ math: true
     - Simply returns the requested blocks to the client
 
 
+## Caching
+Describe the difference between distributed and non-distributed file systems in terms of time penalty in case of cache miss. Name one scenario in which disk caching is better than memory caching.
 
+Answer
+
+A cache miss in a distributed FS costs more than in a local FS because
+it adds network round-trip + RPC overhead on top of the disk access.
+Disk caching beats memory caching when data must survive crashes.
+
+- "Disk-Caching: zuverlaessig und robust"
+- "Hauptspeicher-Caching: schnellerer Zugriff" -- but less robust.
 

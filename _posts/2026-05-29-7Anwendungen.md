@@ -174,12 +174,8 @@ math: true
 ### 🔍 DHT (Distributed Hash Table)
 
 - Hash-Funktion:
-```
-
-object → objectID
-node → nodeID
-
-```
+  - object → objectID
+  - node → nodeID
 - Speicherung: nächster Knoten im Ring
 
 ---
@@ -189,12 +185,12 @@ node → nodeID
   - effizient (gerichtet)
 
 👉 Komplexität:
-```
 
+```
 O(log N)
-
 ```
-→ ≈ log(N) Nachrichten (Ringstruktur)
+
+→ log(N) Nachrichten (Ringstruktur)
 
 👉 viel besser als Flooding   
 
@@ -212,13 +208,21 @@ O(log N)
 
 #### 1. Paketfilter
 - prüft einzelne Pakete (IP, Port)
+- OSI 3, 4
+- Schnellste
+- am Ressourcenschonendste
 
 #### 2. Stateful Firewall
 - speichert Verbindungszustand
+- OSI 3,4,5
+- Speed und Ressourcen Rang 2
 
 #### 3. Application Gateway
 - Proxy-basierend
-- versteht Protokolle  
+- versteht Protokolle
+- OSI 7
+- langsamste
+- viel Ressourcen  
 
   
 

@@ -13,11 +13,12 @@ math: true
 
 ### Definitions
 
+
 | Property | Definition | Violated by |
-|----------|-----------|-------------|
-| **Confidentiality** | Data is only accessible to authorized parties. No unauthorized reading or disclosure. | **Data Theft** — attacker reads data they shouldn't have access to |
-| **Integrity** | Data can only be modified by authorized parties. Modifications are detectable. | **Data Tampering** — attacker alters data in transit or at rest |
-| **Availability** | System and data are accessible to authorized users when needed. | **Denial of Service (DoS)** — attacker overwhelms system so legitimate users can't access it |
+|----------|------------|-------------|
+| **Confidentiality** | Data accessible only to authorized parties | **Data Theft**<br>Unauthorized reading or disclosure |
+| **Integrity** | Only authorized modifications; changes are detectable | **Data Tampering**<br>Unauthorized alteration of data |
+| **Availability** | System and data accessible when needed | **DoS**<br>Service unavailable to legitimate users |
 
 ### Attack ↔ CIA Mapping
 
@@ -84,15 +85,15 @@ Final dictionary size = 1024 × 2^64
 
 ### Definitions & Comparison
 
-| | **Trojan Horse** | **Virus** | **Worm** |
-|--|-----------------|-----------|----------|
-| **Definition** | Legitimate-looking program that secretly performs malicious actions | Code that **attaches itself** to existing programs/files and replicates | **Standalone** program that replicates and spreads across networks |
-| **Needs host program?** | ✅ Disguised as legitimate app | ✅ Must attach to existing file | ❌ Independent |
-| **Self-replicating?** | ❌ No | ✅ Yes (infects other files) | ✅ Yes (copies itself) |
-| **How it infects** | User installs/runs it thinking it's legitimate software | Infects other executables/files when the infected program runs | Exploits network vulnerabilities or services to spread |
-| **How it spreads** | User downloads/shares it (social engineering) | Shared files, email attachments, infected media | Automatically over the network — no user action needed |
-| **User intervention needed?** | ✅ Yes (must be run) | ✅ Usually (must run infected file) | ❌ No |
-| **Example** | Fake antivirus, game with backdoor | Boot sector virus, macro virus | Morris Worm, WannaCry |
+| | **Trojan** | **Virus** | **Worm** |
+|---|---|---|---|
+| **Definition** | Legitimate-looking malware | Malware attached to a host file | Standalone self-replicating malware |
+| **Host needed?** | ✓ Disguised as an app | ✓ Attached to a file/program | ✗ Independent |
+| **Self-replicating?** | ✗ No | ✓ Infects other files | ✓ Copies itself |
+| **Infection** | User installs/runs it | Infected program is executed | Exploits network vulnerabilities |
+| **Spread** | Downloads,<br>sharing, social engineering | Files,<br>email attachments, media | Automatic network propagation |
+| **User action needed?** | ✓ Yes | ✓ Usually | ✗ No |
+| **Examples** | Fake AV,<br>backdoor game | Boot sector virus,<br>macro virus | Morris Worm,<br>WannaCry |
 
 ### How Malware Spreads WITHOUT User Intervention
 

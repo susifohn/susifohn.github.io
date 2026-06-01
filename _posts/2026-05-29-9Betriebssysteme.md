@@ -194,7 +194,7 @@ lock = false;
 ````
 
 * atomare Operation
-* verhindert Race Conditions [\[vs09_betriebssysteme \| PDF\]](https://gibbch-my.sharepoint.com/personal/kissling_gibb_ch/Documents/Microsoft%20Copilot-Chatdateien/vs09_betriebssysteme.pdf)
+* verhindert Race Conditions
 
 ***
 
@@ -229,7 +229,7 @@ turn
 👉 jede VM:
 
 * eigenes OS
-* eigene Anwendungen [\[vs09_betriebssysteme \| PDF\]](https://gibbch-my.sharepoint.com/personal/kissling_gibb_ch/Documents/Microsoft%20Copilot-Chatdateien/vs09_betriebssysteme.pdf)
+* eigene Anwendungen
 
 ***
 
@@ -243,7 +243,7 @@ turn
 #### Typ 2
 
 * läuft auf Host-OS
-* einfacher, aber langsamer [\[vs09_betriebssysteme \| PDF\]](https://gibbch-my.sharepoint.com/personal/kissling_gibb_ch/Documents/Microsoft%20Copilot-Chatdateien/vs09_betriebssysteme.pdf)
+* einfacher, aber langsamer 
 
 ***
 
@@ -252,14 +252,14 @@ turn
 * Isolation (Sicherheit)
 * mehrere OS gleichzeitig
 * gute Ressourcennutzung
-* Cloud-Computing [\[vs09_betriebssysteme \| PDF\]](https://gibbch-my.sharepoint.com/personal/kissling_gibb_ch/Documents/Microsoft%20Copilot-Chatdateien/vs09_betriebssysteme.pdf)
+* Cloud-Computing 
 
 ***
 
 ### ❌ Nachteile
 
 * Overhead
-* benötigt Unterstützung durch Hardware [\[vs09_betriebssysteme \| PDF\]](https://gibbch-my.sharepoint.com/personal/kissling_gibb_ch/Documents/Microsoft%20Copilot-Chatdateien/vs09_betriebssysteme.pdf)
+* benötigt Unterstützung durch Hardware 
 
 ***
 
