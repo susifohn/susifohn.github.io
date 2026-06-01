@@ -166,6 +166,7 @@ CLOSED
 
 Both directions must be closed independently. Guarantees all data is delivered before closing.
 
+
 ```
 Instanz A                          Instanz B
     |--- FIN (SeqNum=x) ----------->|   (CLOSE)
