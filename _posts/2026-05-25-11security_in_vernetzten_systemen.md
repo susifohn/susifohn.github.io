@@ -14,11 +14,11 @@ math: true
 ### Definitions
 
 
-| Property | Definition | Violated by |
-|----------|------------|-------------|
-| **Confidentiality** | Data accessible only to authorized parties | **Data Theft**<br>Unauthorized reading or disclosure |
-| **Integrity** | Only authorized modifications; changes are detectable | **Data Tampering**<br>Unauthorized alteration of data |
-| **Availability** | System and data accessible when needed | **DoS**<br>Service unavailable to legitimate users |
+| Prop. | Definition | Attack |
+|--------|------------|--------|
+| **Conf.** | Authorized access only | Theft |
+| **Integ.** | No unauthorized changes | Tampering |
+| **Avail.** | Accessible when needed | DoS |
 
 ### Attack ↔ CIA Mapping
 
@@ -85,15 +85,15 @@ Final dictionary size = 1024 × 2^64
 
 ### Definitions & Comparison
 
-| | **Trojan** | **Virus** | **Worm** |
+| | **Tr** | **Vi** | **Wo** |
 |---|---|---|---|
-| **Definition** | Legitimate-looking malware | Malware attached to a host file | Standalone self-replicating malware |
-| **Host needed?** | ✓ Disguised as an app | ✓ Attached to a file/program | ✗ Independent |
-| **Self-replicating?** | ✗ No | ✓ Infects other files | ✓ Copies itself |
-| **Infection** | User installs/runs it | Infected program is executed | Exploits network vulnerabilities |
-| **Spread** | Downloads,<br>sharing, social engineering | Files,<br>email attachments, media | Automatic network propagation |
-| **User action needed?** | ✓ Yes | ✓ Usually | ✗ No |
-| **Examples** | Fake AV,<br>backdoor game | Boot sector virus,<br>macro virus | Morris Worm,<br>WannaCry |
+| **Def.** | Disguised malware | Infects host files | Standalone malware |
+| **Host?** | ✓ App disguise | ✓ Needs file | ✗ No |
+| **Replicates?** | ✗ | ✓ | ✓ |
+| **Infection** | User runs it | Runs infected file | Network exploit |
+| **Spread** | Download/social | Files/email | Auto network spread |
+| **User action** | ✓ | ✓ | ✗ |
+| **Examples** | Fake AV | Macro virus | WannaCry |
 
 ### How Malware Spreads WITHOUT User Intervention
 

@@ -40,12 +40,12 @@ math: true
 
 | Merkmal | RAID-3 | RAID-5 |
 |--------|-------|--------|
-| Parität | eigene dedizierte Paritätsdisk | verteilt auf alle disks |
+| Parität | eigene dedizierte <br>Paritätsdisk | verteilt auf alle disks |
 | Location | fixed | rotated |
-| access | every write hits same parity disk -> bottleneck | parity blocks spread evenly | 
+| access | every write hits same parity <br> disk -> bottleneck | parity blocks <br>spread evenly | 
 | stripe unit| Bit level | Block |
-| Sync | all disks spin in sync | operate independently per block | 
-| | all disks participate in every single r/w, ideal for large seq transfers | accesses only the relevant data disk + parity disk per operation |
+| Sync | all disks <br>spin in sync | operate independently <br>per block | 
+| | all disks participate in every <br>single r/w, ideal for large seq transfers | accesses only the relevant <br>data disk + parity disk per operation |
 
 To reconstruct missing data after a single disk failure, all surviving disks must be accessed in both configurations.
 

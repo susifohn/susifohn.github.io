@@ -16,12 +16,12 @@ math: true
 | Feature | TCP | UDP |
 |---------|-----|-----|
 | Connection | Connection-oriented | Connectionless |
-| Reliability | Reliable (retransmission, ACK) | Unreliable |
+| Reliability | Reliable (retransmission, <br>ACK) | Unreliable |
 | Order | Guaranteed | Not guaranteed |
 | Flow/Congestion control | ✅ Yes | ❌ No |
 | Communication | 1:1 only | 1:1, Multicast, Broadcast |
 | Orientation | Byte stream | Message/Datagram |
-| Error detection | Mandatory checksum | Optional (IPv4), mandatory (IPv6) |
+| Error detection | Mandatory <br>checksum | Optional (IPv4), <br>mandatory (IPv6) |
 
 > **Key insight:** Flow control protects the **receiver** from overflow. Congestion control protects the **network** — implemented in the transport layer even though it is logically a network layer concern.
 
@@ -179,9 +179,9 @@ Instanz A                          Instanz B
 
 ```
 ESTABLISHED
-  ├─(own side first)─→ FIN_WAIT_1 ──ACK/───→ FIN_WAIT_2 ──FIN/ACK──→ TIME_WAIT ──timeout──→ CLOSED
-  ├─(other side first)─→ CLOSE_WAIT ──Close/FIN──→ LAST_ACK ──ACK/───→ CLOSED
-  └─(simultaneous)──→ FIN_WAIT_1 ──FIN/ACK──→ CLOSING ──ACK/───→ TIME_WAIT ──→ CLOSED
+  ├─(own side fst)─→ FIN_WAIT_1 ──ACK/─→ FIN_WAIT_2 ─FIN/ACK─→ TIME_WAIT ─tmout─→ CLO
+  ├─(oth side fst)─→ CLOSE_WAIT ──Close/FIN──→ LAST_ACK ──ACK/───→ CLd
+  └─(simultaneous)─→ FIN_WAIT_1 ──FIN/ACK─→ CLO ─ACK/─→ TME_WAIT → CLO
 ```
 
 > **TIME_WAIT** = 2 × MSL (Maximum Segment Lifetime) = **240 seconds max**. Ensures no stale packets remain in the network.

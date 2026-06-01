@@ -17,10 +17,10 @@ Basierend auf den Folien **„vs03_sicherheit“** und den Übungen **„VS_ThEx
 
 | Anforderung | Bedeutung | Verhindert |
 |-------------|------------|------------|
-| **Vertraulichkeit** | Nur Berechtigte dürfen Daten lesen | Abhören<br>(Eavesdropping) |
-| **Authentizität** | Kommunikationspartner müssen ihre Identität nachweisen | Identitätsfälschung<br>(Spoofing, Masquerade) |
-| **Integrität** | Daten dürfen nicht unbemerkt verändert werden | Nachrichten-<br>modifikation |
-| **Verfügbarkeit** | Systeme und Dienste müssen erreichbar bleiben | DoS-<br>Angriffe |
+| **Vertraulichkeit** | Nur Berechtigte dürfen<br> Daten lesen | Abhören<br>(Eavesdropping) |
+| **Authentizität** | Kommunikationspartner müssen <br>ihre Identität nachweisen | Identitätsfälschung<br>(Spoofing, Masquerade) |
+| **Integrität** | Daten dürfen nicht unbemerkt <br>verändert werden | Nachrichten-<br>modifikation |
+| **Verfügbarkeit** | Systeme und Dienste <br>müssen erreichbar bleiben | DoS-<br>Angriffe |
 
 ---
 
