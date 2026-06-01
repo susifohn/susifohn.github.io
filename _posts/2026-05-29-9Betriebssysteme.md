@@ -201,9 +201,16 @@ lock = false;
 ### 🧠 Klassiker (Übung)
 
 ```c
+//Prog i - can work if turn = i und übergibt dann an j
 while (turn != i) { }
 critical section
 turn = j;
+
+
+//Prog j - can work if turn = j und übergibt dann an i
+while (turn != i) { }
+critical section
+turn 
 ```
 
 👉 Eigenschaften:

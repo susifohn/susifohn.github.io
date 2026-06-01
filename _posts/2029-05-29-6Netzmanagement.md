@@ -100,17 +100,15 @@ math: true
 ### 🔢 Beispiel Integer 256 (4 Bytes)
 
 - Big Endian:
+
 ```
-
 00 00 01 00
-
 ```
 
 - Little Endian:
+
 ```
-
 00 01 00 00
-
 ```
 
 ---
@@ -118,9 +116,7 @@ math: true
 ### 📦 BER-Aufbau
 
 ```
-
-\[Typ]\[Länge]\[Wert]
-
+[Typ] [Länge] [Wert]
 ```
 
 - Typ: Datentyp (z.B. Integer)
@@ -138,10 +134,9 @@ math: true
 - eindeutige ID für jedes Objekt
 
 Beispiel:
+
 ```
-
 1.3.6.1.2.1
-
 ```
 
 → beschreibt Pfad im Baum   
@@ -151,34 +146,30 @@ Beispiel:
 ### 📌 Zugriff
 
 #### Skalare Werte
+
 ```
-
 OID + .0
-
 ```
 
 👉 Beispiel:
+
 ```
-
 1.3.6.1.2.1.4.18.0
-
 ```
 → einzelner Zählerwert
 
 ---
 
 #### Tabellenwerte
+
 ```
-
 OID + Index
-
 ```
 
 👉 Beispiel:
+
 ```
-
 1.3.6.1.2.1.4.34.1.2.1.130.92.65.4
-
 ```
 
 - Index = Identifikation der Tabellenzeile (z.B. IP-Adresse)   
