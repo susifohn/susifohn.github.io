@@ -14,6 +14,9 @@ math: true
 # 3. Rec
 
 # 4. Unentscheidbarkeit
+Eine Menge $$A  \Sigma^*$$ heisst entscheidbar, falls die charakteristische Funktion berechenbar ist. 
+
+Eine Menge heisst semi-entscheidbar, falls die halbe char. Funktion berechenbar ist. D.h. $$x \in A$$ stoppt aber $$x \notin A$$ ist undefiniert, läuft unendlich. 
 
 # 5. Kolmogorov
 
@@ -120,6 +123,9 @@ Beweis: es gibt eine TM $M_f$ welche f in P berechnen kann. Und es gibt auch ein
 ## Beispiel
 mit CLIQUE und Knotebüberdeckung
 
+- Eine Clique in einem Graphen ist ein Vollständiger Teilgraph.
+- Knotenüberdeckunge 
+
 ## Reduktion 
 > Theorem
 > $$CLIQUE \le_p \text{Knotenüberdeckung}$$
@@ -165,6 +171,18 @@ Um das zu zeigen müssen wir zuerst NP-vollständigkeit von 3KNF-SAT zeigen, wei
 > 3KNF-SAT ist NP-Vollständig.
 
 Die Reduktionsfunktion muss auch in polynomialer Zeit mögich sein, und einfach eine Formel in KNF umzuformen ist exponentiell (beim Ausmultiplizieren kommen Variablen mehrmals vor, und die Formel wird immer länger) und geht nicht, wir brauchen eine schlauere Reduktion. 
+
+## Lemma 
+$$\text{RUCKSACK} \le_p \text{PARTITION}$$
+
+Nehme $$(a_1, \ldots , a_k)$$ und lose das mit Partition auf die Menge $$(a_1, \ldots , a_k, M-b+1, b+1)$$
+
+## Lemma 
+$$ \text{PARTITION} \le_p \text{Bin Packing}$$
+
+Nehme Partition und löse mit Bin Packing, indem dort einfach 2 Behälter mit Halber Summe genommen werden. Somit löst BP das Partitionsproblem. D.h. Partition ist auf BP reduzierbar in P Zeit. 
+
+
 
 
 
