@@ -14,6 +14,8 @@ math: true
 
 **Takeaway:** Java besitzt keine Tail-Call Optimization (TCO). D.h. auch wenn du deine Endrekursion korrekt angewendet hast, führt das bei grossen Datenmengen zum Stack-Overflow.
 
+**Optionale Aufgabe** Finde mit eigenem Testcode heraus, ob ```Python``` TCO besitzt oder nicht. (dieantwortistnepythonkenntkeinetoc). 
+
 ### Schritt 1: Nicht-endrekursiv (Klassischer Stack-Overflow)
 ```java
 public class JavaStackDemo {
