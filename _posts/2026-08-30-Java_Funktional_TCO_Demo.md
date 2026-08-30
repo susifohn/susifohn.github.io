@@ -12,17 +12,17 @@ math: true
 
 ## Teil 1: Das Java-Dilemma (Kein TCO)
 
-**Lerneffekt für Studierende:** Java besitzt keine Tail-Call Optimization (TCO). Selbst strukturell perfekte Endrekursion führt bei grossen Datenmengen unweigerlich zum Absturz.
+**Takeaway:** Java besitzt keine Tail-Call Optimization (TCO). D.h. auch wenn du deine Endrekursion korrekt angewendet hast, führt das bei grossen Datenmengen zum Stack-Overflow.
 
 ### Schritt 1: Nicht-endrekursiv (Klassischer Stack-Overflow)
 ```java
 public class JavaStackDemo {
     public static long sum(long n) {
         if (n <= 0) return 0;
-        return n + sum(n - 1); // Die Addition '+' blockiert den Stack-Frame
+        return n + sum(n - 1); // keine Endrekursion
     }
     public static void main(String[] args) {
-        System.out.println(sum(50_000)); // 💥 java.lang.StackOverflowError
+        System.out.println(sum(50_000)); // java.lang.StackOverflowError
     }
 }
 ```
@@ -36,20 +36,19 @@ public class JavaTailDemo {
         return sumTail(n - 1, acc + n); // Strukturell perfekte Endrekursion
     }
     public static void main(String[] args) {
-        System.out.println(sumTail(50_000, 0)); // 💥 Immer noch java.lang.StackOverflowError!
+        System.out.println(sumTail(50_000, 0)); // Immer noch java.lang.StackOverflowError!
     }
 }
 ```
-*💡 **Hinweis für die Demo:** Die JVM optimiert diesen Code standardmässig nicht. In Java führt an Schleifen oder der iterativ optimierten Stream-API kein Weg vorbei.*
 
 ---
 
-## Teil 2: Die GHCi-Demo (TCO & die Lazy-Evaluation-Falle)
+## Teil 2: Vergleich mit Hskell im GHCi (TCO & die Lazy-Evaluation-Falle)
 
 Starten Sie den GHCi im Terminal (`ghci`). Da Optimierungen standardmässig deaktiviert sind, lässt sich die Lazy-Evaluation-Problematik perfekt demonstrieren.
 
-### Schritt 1: Die naive Endrekursion (Crash durch Thunks)
-Strukturell ist das eine Endrekursion. Da Haskell aber "lazy" (träge) evaluiert, wird `(acc + n)` nicht berechnet, sondern als riesige Kette im Speicher gestapelt (ein *Thunk*).
+### Schritt 1: Die naive Endrekursion (Crash)
+Strukturell ist das eine Endrekursion. Da Haskell aber "lazy" (träge) evaluiert, wird `(acc + n)` nicht berechnet, sondern als riesige Kette im Speicher gestapelt.
 ```haskell
 sumLazy n acc = if n == 0 then acc else sumLazy (n - 1) (acc + n)
 
@@ -57,17 +56,17 @@ sumLazy 10000000 0
 -- Exception: stack overflow
 ```
 
-### 🚀 Schritt 2: Die manuelle Lösung via Strictness (`$!`)
-Der Operator `$!` zwingt Haskell, den Akkumulator in jedem Schritt *sofort* auszuwerten. Der Thunk-Stapel wird verhindert.
+### Schritt 2: Die manuelle Lösung via Strictness (`$!`)
+Der Operator `$!` zwingt Haskell, den Akkumulator in jedem Schritt *sofort* auszuwerten. Die riesige Kette wird verhindert.
 ```haskell
 sumStrict n acc = if n == 0 then acc else (sumStrict (n - 1) \$! (acc + n))
 
 sumStrict 10000000 0
--- Ergebnis: 50000005000000 (Erfolg!)
+-- Ergebnis: 50000005000000 (PASS!)
 ```
 
-### Schritt 3: Der Compiler-Zauber (`:set -O2`)
-Zeige den Studierenden, dass der GHC-Compiler bei der echten Produktivarbeit (Kompilierung) mitdenkt. Wir aktivieren die Optimierung direkt im GHCi:
+### Schritt 3: Der Compiler optimiert(`:set -O2`)
+Der GHC-Compiler optimiert. Wir aktivieren die Optimierung direkt im GHCi:
 ```haskell
 -- Optimierung einschalten
 :set -O2
@@ -94,9 +93,9 @@ sumLazyNoO2 10000000 0
 
 ---
 
-## Teil 3: Vertiefung – Der Praxis-Klassiker: `foldl` vs. `foldl'`
+## Teil 3: Vertiefung – In der Praxis: `foldl` vs. `foldl'`
 
-**Lerneffekt für Studierende:** Das theoretische Wissen über Thunks erklärt ein berühmt-berüchtigtes Phänomen in der echten Haskell-Welt: Warum man die Standardfunktion `foldl` fast nie benutzen sollte.
+**Takeaway:** Das theoretische Wissen über lazy Evaluation erklärt ein berühmt-berüchtigtes Phänomen in der echten Haskell-Welt: Warum man die Standardfunktion `foldl` fast nie benutzen sollte.
 
 Wenn wir eine echte Liste aufsummieren, verhält sich das träge `foldl` genau wie unsere `sumLazy`-Funktion oben. Es stapelt unzählige unausgewertete Additionen auf dem Stack. Die strikte Variante `foldl'` (aus `Data.List`) wertet den Akkumulator in jedem Schritt sofort aus.
 
@@ -117,11 +116,11 @@ import Data.List (foldl')
 foldl' (+) 0 millionList
 -- Ergebnis: 50000005000000 (Läuft in O(1) Speicher durch!)
 ```
-*💡 **Erklärung für das Board:** `foldl` baut einen riesigen Baum im Speicher auf: `(((0 + 1) + 2) + 3) ...`. Erst ganz am Ende wird versucht, diesen von aussen nach innen aufzulösen, was den Stack sprengt. `foldl'` berechnet stattdessen im ersten Schritt `1`, im zweiten `3`, im dritten `6` und hält den Speicher sauber.*
+*💡 **Erklärung:** `foldl` baut einen riesigen Baum im Speicher auf: `(((0 + 1) + 2) + 3) ...`. Erst ganz am Ende wird versucht, diesen von aussen nach innen aufzulösen, was den Stack sprengt. `foldl'` berechnet stattdessen im ersten Schritt `1`, im zweiten `3`, im dritten `6` und hält den Speicher sauber.*
 
 ---
 
-## Wichtige Hinweise für eine reibungslose Live-Demo
+## Wichtige Hinweise für eine Demo
 
 1. **Der Funktions-Cache-Fallstrick:** 
    Wenn du Optimierungen im GHCi via `:set` oder `:unset` änderst, betrifft das **nur Funktionen, die danach neu definiert** (oder per `:reload` neu geladen) werden. Bereits deklarierte Funktionen im Speicher behalten ihren alten Kompilier-Status. Nutze in der Demo deshalb immer leicht abgewandelte Funktionsnamen (wie oben `sumLazyOptimized`, `sumLazyNoO2`).
