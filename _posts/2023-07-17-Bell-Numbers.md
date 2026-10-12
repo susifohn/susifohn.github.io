@@ -41,9 +41,15 @@ fac n = n*fac (n-1)
 binom :: Integer -> Integer -> Integer
 binom n k = fac n `div` fac k `div` fac (n-k)
 
+-- mit Listenabstraktion
 bell :: Integer -> Integer
 bell 0 = 1
 bell n = sum [bell k * binom (n-1) k | k <- [0..n-1]]
+
+-- mit map, ohne Listenabstraktion
+bell :: Integer -> Integer
+bell 0 = 1
+bell n = sum (map (\k->binom (n-1) k * bell k) [0..n-1])
 ```
 
 ## Test
